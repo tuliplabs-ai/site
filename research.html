@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Tulip Labs</title>
+  <meta name="description" content="Security research from Tulip Labs: defender-first, evidence-first studies of the infrastructure modern AI runs on. Every finding ships with a tool you can run yourself.">
+  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tulip Labs home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 4c-2.2 2.0-3.3 4.6-3.3 7.6 0 .9.5 1.4 1.3 1.6V20a2 2 0 1 0 4 0v-6.8c.8-.2 1.3-.7 1.3-1.6 0-3-1.1-5.6-3.3-7.6Z" fill="#D6336C"/>
+        <path d="M12.7 9.2c-1.6-1.2-3.5-1.6-5.6-1.2.1 3.0 1.2 5.3 3.3 6.7 1.5 1.0 3.2 1.2 5.0.9-1.3-2.0-2.2-4.1-2.7-6.4Z" fill="#E86A98"/>
+        <path d="M19.3 9.2c1.6-1.2 3.5-1.6 5.6-1.2-.1 3.0-1.2 5.3-3.3 6.7-1.5 1.0-3.2 1.2-5.0.9 1.3-2.0 2.2-4.1 2.7-6.4Z" fill="#E86A98"/>
+        <rect x="15.2" y="19" width="1.6" height="9" rx="0.8" fill="#3F7A52"/>
+      </svg>
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="research.html" style="color:var(--ink)">Research</a>
+      <a href="open-source.html">Open source</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="mailto:hello@tuliplabs.ai">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:3.5rem">
+    <div class="wrap"><div class="col">
+      <p class="kicker">Security research</p>
+      <h1>We study the systems<br>AI actually runs on.</h1>
+      <p class="lede">Models get the scrutiny. The infrastructure underneath them — shared GPUs, inference engines, agent runtimes — often doesn't. That's where we look: for the side channels, the trust assumptions, and the failure modes no one has named yet. Then we hand defenders a tool, not just a warning.</p>
+    </div></div>
+  </section>
+
+  <!-- ingenio feature -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Featured · GPU side channels</span><span class="line"></span></div>
+      <div class="col">
+        <h2>ingenio</h2>
+        <p class="lede">Identify which LLM another tenant is running on a shared GPU. A 1.2-second probe. 94% accuracy. No special privileges. No exploit.</p>
+      </div>
+      <div class="stats" style="margin:2rem 0">
+        <div class="stat"><div class="n">1.2 s</div><div class="k">probe window</div></div>
+        <div class="stat"><div class="n">94.3%</div><div class="k">7-class accuracy (LOO)</div></div>
+        <div class="stat"><div class="n">~25%</div><div class="k">mitigation throughput cost</div></div>
+      </div>
+      <div class="col">
+        <p>ingenio is a cross-process GPU timing side channel that fingerprints both the inference engine and the language model running on a co-located NVIDIA GPU — from an ordinary unprivileged process sharing the same silicon. The repository is the complete account: fifteen numbered experiments from residual-memory baselines to the spectral, per-token cadence leak that drives the classifier.</p>
+        <p>True to how we work, the single most useful artifact isn't the attack — it's <strong>a 140-line, standard-library audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. Alongside it: a mitigation we measured honestly at roughly a quarter of throughput.</p>
+        <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). It does <em>not</em> defeat dedicated single-tenant GPUs or MIG-partitioned A100/H100s, where compute and memory bandwidth are hardware-isolated.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="https://github.com/tuliplabs-ai">Code &amp; report <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- research agenda -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Where we're looking next</span><span class="line"></span></div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="label">AI infrastructure</span>
+          <h3>Isolation on shared accelerators</h3>
+          <p>Timing, thermal, and contention channels across GPU multi-tenancy — and what real isolation costs.</p>
+        </div>
+        <div class="card">
+          <span class="label">Agent security</span>
+          <h3>Trust boundaries in agent runtimes</h3>
+          <p>Tool execution, prompt-borne actions, and inter-agent messages: where an autonomous system can be steered, and how to make its decisions auditable.</p>
+        </div>
+        <div class="card">
+          <span class="label">Evaluation</span>
+          <h3>Measuring what models leak</h3>
+          <p>Reproducible methods for quantifying side-channel and inference-time leakage — with the harness shipped, not described.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- disclosure -->
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">Disclosure</span><span class="line"></span></div>
+      <p>We practice coordinated disclosure. If our work touches a system you operate, or you believe you've found an issue in something we publish, reach us at <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a>. We acknowledge reports promptly and work to a sensible timeline before anything goes public.</p>
+    </div></div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent lab for agentic AI and security research. Systems you can verify.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Work</h4>
+        <a href="open-source.html">Tulip SDK</a>
+        <a href="research.html">Research</a>
+        <a href="https://tulipagents.ai/">Documentation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="mailto:hello@tuliplabs.ai">hello@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tulip Labs</span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

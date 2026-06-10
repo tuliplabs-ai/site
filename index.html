@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tulip Labs — agentic AI & security research</title>
+  <meta name="description" content="Tulip Labs is an independent lab working at the seam of agentic AI and security research. We build systems you can verify — agents that show their work, and security findings you can reproduce.">
+  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="Tulip Labs — agentic AI & security research">
+  <meta property="og:description" content="An independent lab at the seam of agentic AI and security research. We build systems you can verify.">
+  <meta property="og:url" content="https://tuliplabs.ai/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tulip Labs home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 4c-2.2 2.0-3.3 4.6-3.3 7.6 0 .9.5 1.4 1.3 1.6V20a2 2 0 1 0 4 0v-6.8c.8-.2 1.3-.7 1.3-1.6 0-3-1.1-5.6-3.3-7.6Z" fill="#D6336C"/>
+        <path d="M12.7 9.2c-1.6-1.2-3.5-1.6-5.6-1.2.1 3.0 1.2 5.3 3.3 6.7 1.5 1.0 3.2 1.2 5.0.9-1.3-2.0-2.2-4.1-2.7-6.4Z" fill="#E86A98"/>
+        <path d="M19.3 9.2c1.6-1.2 3.5-1.6 5.6-1.2-.1 3.0-1.2 5.3-3.3 6.7-1.5 1.0-3.2 1.2-5.0.9 1.3-2.0 2.2-4.1 2.7-6.4Z" fill="#E86A98"/>
+        <rect x="15.2" y="19" width="1.6" height="9" rx="0.8" fill="#3F7A52"/>
+      </svg>
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="open-source.html">Open source</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="mailto:hello@tuliplabs.ai">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="col">
+        <p class="kicker">Independent AI lab</p>
+        <h1>Agentic systems, and the <span class="accent">security research</span> that keeps them honest.</h1>
+        <p class="lede">Tulip Labs builds AI agents that show their work — and studies the infrastructure they run on for the failures no one is looking at. Two halves of one idea: systems you can actually verify.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="research.html">Our research <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="open-source.html">Open source</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="col">
+        <p class="label" style="margin-bottom:1.5rem">What we believe</p>
+        <p class="thesis">As AI systems take more consequential actions, the question stops being <i>can they?</i> and becomes <b>can you check?</b> We build for the second question — agents whose every decision is a typed, replayable event, and security work that ships the audit tool, not just the headline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO PILLARS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">What we do</span><span class="line"></span></div>
+      <div class="grid-2">
+        <div class="card">
+          <span class="label">Agentic AI</span>
+          <h3>Agents that show their work</h3>
+          <p>Most agent frameworks give you an answer and ask you to trust it. We build the opposite: orchestration where every reasoning step, tool call, and hand-off is a typed event you can stream, replay, and test against — so a multi-agent run is auditable instead of opaque.</p>
+          <p><a class="more" href="open-source.html">Meet Tulip, our open-source SDK →</a></p>
+        </div>
+        <div class="card">
+          <span class="label">Security research</span>
+          <h3>Defender-first, evidence-first</h3>
+          <p>We probe the infrastructure modern AI actually runs on — shared GPUs, inference engines, agent runtimes — and report what we find with measured claims and reproducible experiments. Every finding ships with a tool a defender can run on their own machine.</p>
+          <p><a class="more" href="research.html">Read the research →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: TULIP -->
+  <section>
+    <div class="wrap">
+      <div class="work">
+        <div class="work__copy">
+          <p class="label" style="margin-bottom:1rem">Open source · Apache-2.0</p>
+          <h2>Tulip</h2>
+          <p class="lede" style="margin-bottom:1.3rem">A Python SDK for agent teams that show their work.</p>
+          <p>One <code>Agent</code> class, eight coordination shapes — single agent, pipeline, debate, approval gate, hand-off, and more — each compiled from the task instead of hand-wired. Every run narrates itself as a typed event stream you can replay, audit, and debug. Provider-agnostic: OpenAI, Anthropic, or bring your own.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
+          </div>
+        </div>
+        <div class="work__media">
+          <pre class="code"><span class="c"># describe the goal — Tulip picks the shape</span>
+<span class="k">from</span> tulip.agent <span class="k">import</span> Agent
+<span class="k">from</span> tulip.observability <span class="k">import</span> run_context, get_event_bus
+
+agent = <span class="fn">Agent</span>(
+    model=<span class="s">"anthropic:claude-sonnet-4-6"</span>,
+    tools=[get_metric, page_oncall],
+    grounding=<span class="k">True</span>,   <span class="c"># claims checked vs. tool output</span>
+)
+
+<span class="k">async with</span> <span class="fn">run_context</span>() <span class="k">as</span> rid:
+    <span class="k">await</span> agent.<span class="fn">run</span>(<span class="s">"p99 spiked to 4.2s — investigate."</span>)
+    <span class="k">async for</span> ev <span class="k">in</span> get_event_bus().<span class="fn">subscribe</span>(rid):
+        <span class="fn">print</span>(ev.event_type, ev.data)  <span class="c"># every step, typed</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: RESEARCH (ingenio) -->
+  <section class="band">
+    <div class="wrap">
+      <div class="work flip">
+        <div class="work__media">
+          <div class="stats">
+            <div class="stat"><div class="n">1.2 s</div><div class="k">probe window</div></div>
+            <div class="stat"><div class="n">94%</div><div class="k">model ID accuracy</div></div>
+            <div class="stat"><div class="n">0</div><div class="k">special privileges</div></div>
+          </div>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A cross-process GPU timing side channel that fingerprints the inference engine and model running on a co-located GPU — plus the defender CLI to detect it and a measured mitigation.</p>
+        </div>
+        <div class="work__copy">
+          <p class="label" style="margin-bottom:1rem">Security research</p>
+          <h2>ingenio</h2>
+          <p class="lede" style="margin-bottom:1.3rem">What can a neighbour learn about your model on a shared GPU?</p>
+          <p>More than you'd think — and with no exploit, no privileged access, in about a second. ingenio is the full write-up: the side channel, a 140-line audit tool you run yourself, and a mitigation we measured at a real throughput cost. The pattern for all our security work: name the risk precisely, prove it, then hand defenders something they can act on.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="research.html">Read the report <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section>
+    <div class="wrap">
+      <div class="col">
+        <div class="eyebrow-row"><span class="label">How we work</span><span class="line"></span></div>
+        <div class="principle">
+          <h3><span class="idx">01</span>Open by default</h3>
+          <p>The work that matters is the work others can build on. Our SDK is Apache-2.0; our research is published in full, tools included.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">02</span>Measured claims</h3>
+          <p>Numbers with methods behind them. We state scope and limits as plainly as results — what the finding does <em>not</em> show matters as much as what it does.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">03</span>Defender-first</h3>
+          <p>Every security finding ships with something a defender can run today. We study attacks to build the audit, not the exploit.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">04</span>Reproducible</h3>
+          <p>Experiments are numbered, scripted, and rerunnable. If you can't reproduce it, we haven't finished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent lab for agentic AI and security research. Systems you can verify.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Work</h4>
+        <a href="open-source.html">Tulip SDK</a>
+        <a href="research.html">Research</a>
+        <a href="https://tulipagents.ai/">Documentation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="mailto:hello@tuliplabs.ai">hello@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tulip Labs</span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

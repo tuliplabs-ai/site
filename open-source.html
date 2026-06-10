@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open source — Tulip Labs</title>
+  <meta name="description" content="Tulip is the open-source SDK from Tulip Labs for building auditable agent teams. One Agent class, eight coordination shapes, every run a typed event stream. Apache-2.0.">
+  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tulip Labs home">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 4c-2.2 2.0-3.3 4.6-3.3 7.6 0 .9.5 1.4 1.3 1.6V20a2 2 0 1 0 4 0v-6.8c.8-.2 1.3-.7 1.3-1.6 0-3-1.1-5.6-3.3-7.6Z" fill="#D6336C"/>
+        <path d="M12.7 9.2c-1.6-1.2-3.5-1.6-5.6-1.2.1 3.0 1.2 5.3 3.3 6.7 1.5 1.0 3.2 1.2 5.0.9-1.3-2.0-2.2-4.1-2.7-6.4Z" fill="#E86A98"/>
+        <path d="M19.3 9.2c1.6-1.2 3.5-1.6 5.6-1.2-.1 3.0-1.2 5.3-3.3 6.7-1.5 1.0-3.2 1.2-5.0.9 1.3-2.0 2.2-4.1 2.7-6.4Z" fill="#E86A98"/>
+        <rect x="15.2" y="19" width="1.6" height="9" rx="0.8" fill="#3F7A52"/>
+      </svg>
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a href="open-source.html" style="color:var(--ink)">Open source</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="mailto:hello@tuliplabs.ai">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:3.5rem">
+    <div class="wrap"><div class="col">
+      <p class="kicker">Open source · Apache-2.0</p>
+      <h1>Tulip</h1>
+      <p class="lede">A Python SDK for agent teams that show their work. One <code>Agent</code> class, eight coordination shapes, and a typed event stream behind every run — so the systems you ship are auditable by construction.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="https://tulipagents.ai/">Read the docs <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">GitHub</a>
+      </div>
+      <p class="muted" style="font-family:var(--mono);font-size:0.85rem;margin-top:1.5rem">pip install "tulip-agents[anthropic]"</p>
+    </div></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Why it exists</span><span class="line"></span></div>
+      <div class="col">
+        <p>Most agent frameworks optimize for the demo: a clever answer, fast. That's the easy 80%. The hard part — the part that decides whether you can put an agent anywhere it matters — is everything <em>around</em> the answer. Can you see why it did that? Replay the run? Prove a payment fired exactly once? Pause for a human and resume next week?</p>
+        <p>Tulip is built for that hard part. The same <code>Agent</code> class scales from a five-line script to an eight-shape multi-agent system, and the whole time it is narrating itself: every reasoning step, tool call, hand-off, and token is a typed event on one stream you can subscribe to, store, and test against.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">What's inside</span><span class="line"></span></div>
+      <div class="grid-3">
+        <div class="card"><span class="label">Coordination</span><h3>Eight shapes, one class</h3><p>Single agent, sequential and parallel pipelines, loops, orchestrator + specialists, swarm, hand-off, and cross-process A2A — composed from the task, not hand-wired.</p></div>
+        <div class="card"><span class="label">Observability</span><h3>Typed event stream</h3><p>An opt-in event bus surfaces 40+ canonical events from every layer through one context — no external broker — with an OpenTelemetry hook when you want it.</p></div>
+        <div class="card"><span class="label">Reasoning</span><h3>Reflexion &amp; grounding</h3><p>Self-evaluation each turn and claims checked against the tool output that produced them, with a typed grounding layer for the strict cases.</p></div>
+        <div class="card"><span class="label">Safety</span><h3>Idempotent tools</h3><p>Mark a tool idempotent and the loop keys on <code>(name, args)</code> so bookings, payments, and pages never fire twice — even across retries.</p></div>
+        <div class="card"><span class="label">Durability</span><h3>Pause &amp; resume</h3><p>Checkpoint to Redis, Postgres, S3, and more; interrupt for human approval and resume the run later, exactly where it stopped.</p></div>
+        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="work">
+        <div class="work__copy">
+          <p class="label" style="margin-bottom:1rem">Try it in the browser</p>
+          <h2>The Workbench</h2>
+          <p>A self-contained playground for every Tulip pattern — vanilla-TS UI, a thin Node proxy, and the SDK runner behind it. Bring your own provider key and watch a multi-agent run emit its event stream live. Run it on localhost in three terminals, or as a single Docker container.</p>
+          <div class="btn-row">
+            <a class="btn btn--ghost" href="https://tulipagents.ai/workbench/">Workbench guide <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <div class="work__media">
+          <pre class="code"><span class="c"># five lines to a working agent</span>
+<span class="k">from</span> tulip.agent <span class="k">import</span> Agent
+
+agent = <span class="fn">Agent</span>(model=<span class="s">"openai:gpt-4o"</span>)
+<span class="fn">print</span>(agent.<span class="fn">run_sync</span>(<span class="s">"Capital of France?"</span>).text)
+<span class="c"># → Paris</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">License &amp; provenance</span><span class="line"></span></div>
+      <p>Tulip is released under the <strong>Apache License 2.0</strong> — a real patent grant, and the standard every legal team already recognizes. It began as a fork of an earlier project released under the Universal Permissive License v1.0; those original portions remain available under the UPL, and all new work is Apache-2.0. The <code>NOTICE</code> file records the lineage in full.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/sdk-python">Star on GitHub <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="https://tulipagents.ai/">Documentation</a>
+      </div>
+    </div></div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent lab for agentic AI and security research. Systems you can verify.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Work</h4>
+        <a href="open-source.html">Tulip SDK</a>
+        <a href="research.html">Research</a>
+        <a href="https://tulipagents.ai/">Documentation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="mailto:hello@tuliplabs.ai">hello@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Tulip Labs</span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
