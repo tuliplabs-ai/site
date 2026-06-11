@@ -42,12 +42,12 @@
     </div></div>
   </section>
 
-  <!-- ingenio feature -->
+  <!-- Clusiana feature -->
   <section class="band">
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">Featured · GPU side channels</span><span class="line"></span></div>
       <div class="col">
-        <h2>ingenio</h2>
+        <h2>Clusiana</h2>
         <p class="lede">Identify which LLM another tenant is running on a shared GPU. A 1.2-second probe. 94% accuracy. No special privileges. No exploit.</p>
       </div>
       <div class="stats" style="margin:2rem 0">
@@ -56,7 +56,7 @@
         <div class="stat"><div class="n">~25%</div><div class="k">mitigation throughput cost</div></div>
       </div>
       <div class="col">
-        <p>ingenio is a cross-process GPU timing side channel that fingerprints both the inference engine and the language model running on a co-located NVIDIA GPU — from an ordinary unprivileged process sharing the same silicon. The repository is the complete account: fifteen numbered experiments from residual-memory baselines to the spectral, per-token cadence leak that drives the classifier.</p>
+        <p>Clusiana is our research program on the infrastructure AI runs on. Its first project is a cross-process GPU timing side channel that fingerprints both the inference engine and the language model running on a co-located NVIDIA GPU — from an ordinary unprivileged process sharing the same silicon. The repository is the complete account: numbered experiments from residual-memory baselines to the spectral, per-token cadence leak that drives the classifier.</p>
         <p>True to how we work, the single most useful artifact isn't the attack — it's <strong>a 140-line, standard-library audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. Alongside it: a mitigation we measured honestly at roughly a quarter of throughput.</p>
         <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). It does <em>not</em> defeat dedicated single-tenant GPUs or MIG-partitioned A100/H100s, where compute and memory bandwidth are hardware-isolated.</p>
         <div class="btn-row">
