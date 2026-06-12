@@ -81,11 +81,11 @@ strong { font-weight: 600; }
   backdrop-filter: saturate(140%) blur(8px);
   border-bottom: 1px solid var(--rule);
 }
-.site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 4.25rem; }
-.brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); font-weight: 600; }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; height: 4.75rem; }
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--ink); font-weight: 600; }
 .brand:hover { text-decoration: none; }
-.brand svg { width: 26px; height: 26px; display: block; }
-.brand .wordmark { font-family: var(--serif); font-size: 1.25rem; letter-spacing: -0.01em; }
+.brand svg { width: 38px; height: 38px; display: block; }
+.brand .wordmark { font-family: var(--serif); font-size: 1.6rem; letter-spacing: -0.01em; }
 .brand .wordmark b { font-weight: 600; }
 .nav { display: flex; gap: 1.6rem; align-items: center; }
 .nav a { color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; }
