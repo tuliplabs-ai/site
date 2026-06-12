@@ -48,9 +48,9 @@
   <section class="hero">
     <div class="wrap">
       <div class="col">
-        <p class="kicker">Independent AI lab</p>
-        <h1>Agentic systems, and the <span class="accent">security research</span> that keeps them honest.</h1>
-        <p class="lede">Tulip Labs builds AI agents that show their work — and studies the infrastructure they run on for the failures no one is looking at. Two halves of one idea: systems you can actually verify.</p>
+        <p class="kicker">Independent AI security research</p>
+        <h1>An independent lab for <span class="accent">AI you can verify</span>.</h1>
+        <p class="lede">We research the security of AI systems — the models, the agents, and the infrastructure they run on — and ship what we find: a published grounding method, an open-source SDK that only acts on evidence, and a defender tool with every result.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="research.html">Our research <span class="arrow">→</span></a>
           <a class="btn btn--ghost" href="open-source.html">Open source</a>
@@ -72,19 +72,30 @@
   <!-- TWO PILLARS -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">What we do</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">What we produce</span><span class="line"></span></div>
       <div class="grid-2">
         <div class="card">
-          <span class="label">Agentic AI</span>
-          <h3>Agents that show their work</h3>
-          <p>Most agent frameworks give you an answer and ask you to trust it. We build the opposite: orchestration where every reasoning step, tool call, and hand-off is a typed event you can stream, replay, and test against — so a multi-agent run is auditable instead of opaque.</p>
-          <p><a class="more" href="open-source.html">Meet Tulip, our open-source SDK →</a></p>
+          <span class="label">Open source</span>
+          <h3>Tulip — the cybersecurity agent SDK</h3>
+          <p>A Python SDK for grounded security agents: every claim checked against evidence, every action a typed replayable event, every risky step gated. Apache-2.0.</p>
+          <p><a class="more" href="open-source.html">Explore the SDK →</a></p>
         </div>
         <div class="card">
-          <span class="label">Security research</span>
-          <h3>Defender-first, evidence-first</h3>
-          <p>We probe the infrastructure modern AI actually runs on — shared GPUs, inference engines, agent runtimes — and report what we find with measured claims and reproducible experiments. Every finding ships with a tool a defender can run on their own machine.</p>
+          <span class="label">Research · GSAR</span>
+          <h3>A method for grounding</h3>
+          <p>Our published method for verifying that an AI's conclusions are actually supported by its evidence — peer-readable, and the engine behind the SDK's findings.</p>
           <p><a class="more" href="research.html">Read the research →</a></p>
+        </div>
+        <div class="card">
+          <span class="label">Program · Clusiana</span>
+          <h3>The security of AI infrastructure</h3>
+          <p>Ongoing research into the systems AI runs on. First result: identify a co-tenant's model on a shared GPU — and the audit tool to detect it.</p>
+          <p><a class="more" href="research.html">See the program →</a></p>
+        </div>
+        <div class="card">
+          <span class="label">In progress · Security SLMs</span>
+          <h3>Small models for the SOC</h3>
+          <p>A research direction: compact, self-hostable language models specialised for security work — fast, private, and grounded by construction. Early, and in the open as it matures.</p>
         </div>
       </div>
     </div>
@@ -97,28 +108,51 @@
         <div class="work__copy">
           <p class="label" style="margin-bottom:1rem">Open source · Apache-2.0</p>
           <h2>Tulip</h2>
-          <p class="lede" style="margin-bottom:1.3rem">A Python SDK for agent teams that show their work.</p>
-          <p>One <code>Agent</code> class, eight coordination shapes — single agent, pipeline, debate, approval gate, hand-off, and more — each compiled from the task instead of hand-wired. Every run narrates itself as a typed event stream you can replay, audit, and debug. Provider-agnostic: OpenAI, Anthropic, or bring your own.</p>
+          <p class="lede" style="margin-bottom:1.3rem">A Python SDK for grounded security agents.</p>
+          <p>Build agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure — and only ship a finding when the evidence clears the bar. The same <code>Agent</code> class scales to a multi-agent SOC, every step a typed, replayable event. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
+            <a class="btn btn--primary" href="https://tulipagents.ai/docs/">Documentation <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
           </div>
         </div>
         <div class="work__media">
-          <pre class="code"><span class="c"># describe the goal — Tulip picks the shape</span>
-<span class="k">from</span> tulip.agent <span class="k">import</span> Agent
-<span class="k">from</span> tulip.observability <span class="k">import</span> run_context, get_event_bus
+          <pre class="code"><span class="c"># audit a cloud account — grounded by construction</span>
+<span class="k">from</span> tulip.security <span class="k">import</span> create_soc_analyst, ground_report, is_finding
 
-agent = <span class="fn">Agent</span>(
-    model=<span class="s">"anthropic:claude-sonnet-4-6"</span>,
-    tools=[get_metric, page_oncall],
-    grounding=<span class="k">True</span>,   <span class="c"># claims checked vs. tool output</span>
-)
+analyst = <span class="fn">create_soc_analyst</span>(model=<span class="s">"anthropic:claude-sonnet-4-6"</span>)
+result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span class="s">"Audit this account's IAM posture."</span>)
 
-<span class="k">async with</span> <span class="fn">run_context</span>() <span class="k">as</span> rid:
-    <span class="k">await</span> agent.<span class="fn">run</span>(<span class="s">"p99 spiked to 4.2s — investigate."</span>)
-    <span class="k">async for</span> ev <span class="k">in</span> get_event_bus().<span class="fn">subscribe</span>(rid):
-        <span class="fn">print</span>(ev.event_type, ev.data)  <span class="c"># every step, typed</span></pre>
+<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.output):
+    <span class="k">if</span> <span class="fn">is_finding</span>(f):        <span class="c"># ships only when evidence clears the bar</span>
+        <span class="fn">print</span>(f.severity, f.title, f.gsar_score)
+    <span class="k">else</span>:
+        <span class="fn">print</span>(<span class="s">"withheld:"</span>, f.reason)   <span class="c"># ungrounded → abstains</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: GSAR (the AI-research anchor) -->
+  <section class="band">
+    <div class="wrap">
+      <div class="work flip">
+        <div class="work__media">
+          <div class="stats">
+            <div class="stat"><div class="n">1</div><div class="k">scoring equation</div></div>
+            <div class="stat"><div class="n">6</div><div class="k">proven properties</div></div>
+            <div class="stat"><div class="n">1</div><div class="k">type to integrate</div></div>
+          </div>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A typed grounding layer: partition an answer's claims into grounded / ungrounded / contradicted / complementary, score the support, and decide — proceed, regenerate, or replan.</p>
+        </div>
+        <div class="work__copy">
+          <p class="label" style="margin-bottom:1rem">Research · grounding</p>
+          <h2>GSAR</h2>
+          <p class="lede" style="margin-bottom:1.3rem">How do you know an AI's conclusion is actually supported by its evidence?</p>
+          <p>Often it isn't — every fact it cites is real, but the conclusion over-reaches. GSAR is our method for catching that: it scores how well an answer's claims are grounded in the evidence behind them, with six monotonicity and adversarial-robustness properties proven and locked under tests. It's published and peer-readable — and it's the engine that makes Tulip's findings trustworthy. Grounding is the lab's signature contribution.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="research.html">Read the research <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="https://arxiv.org/abs/2604.23366">Paper (arXiv)</a>
+          </div>
         </div>
       </div>
     </div>
@@ -187,7 +221,7 @@ agent = <span class="fn">Agent</span>(
         <h4>Work</h4>
         <a href="open-source.html">Tulip SDK</a>
         <a href="research.html">Research</a>
-        <a href="https://tulipagents.ai/">Documentation</a>
+        <a href="https://tulipagents.ai/docs/">Documentation</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
