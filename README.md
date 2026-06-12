@@ -11,7 +11,7 @@ to install.
 | File | Purpose |
 |---|---|
 | `index.html` | Home — positioning, the two pillars, featured work, principles |
-| `research.html` | Security research — ingenio, the research agenda, disclosure |
+| `research.html` | Security research — Clusiana, the research agenda, disclosure |
 | `open-source.html` | Tulip, the open-source SDK |
 | `styles.css` | The whole design system |
 | `assets/tulip-mark.svg` | Logo mark / favicon |
