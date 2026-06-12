@@ -66,6 +66,21 @@
     </div>
   </section>
 
+  <!-- GSAR feature -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Published · grounding</span><span class="line"></span></div>
+      <div class="col">
+        <h2>GSAR — grounded answer verification</h2>
+        <p class="lede">When an AI draws a conclusion, is it actually supported by the evidence it cites? Often not — every fact is real, but the conclusion over-reaches.</p>
+        <p>GSAR is our method for measuring that gap. It partitions an answer's claims into grounded, ungrounded, contradicted, and complementary; scores how well the whole is supported; and decides whether to proceed, regenerate, or replan — with six monotonicity and adversarial-robustness properties proven and locked under tests. It's published and peer-readable, and it is the engine behind the Tulip SDK: a security finding ships only when its evidence clears the bar.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="https://arxiv.org/abs/2604.23366">Read the paper <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- research agenda -->
   <section>
     <div class="wrap">
@@ -85,6 +100,11 @@
           <span class="label">Evaluation</span>
           <h3>Measuring what models leak</h3>
           <p>Reproducible, defender-runnable methods for quantifying side-channel and inference-time leakage — the audit shipped, the attack held back.</p>
+        </div>
+        <div class="card">
+          <span class="label">Security models</span>
+          <h3>Small models for the SOC</h3>
+          <p>Compact, self-hostable language models specialised for security work — fast, private, and grounded by construction. An early direction; in the open as it matures.</p>
         </div>
       </div>
     </div>
