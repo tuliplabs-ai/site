@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Open source — Tulip Labs</title>
-  <meta name="description" content="Tulip is the open-source SDK from Tulip Labs for building auditable agent teams. One Agent class, eight coordination shapes, every run a typed event stream. Apache-2.0.">
+  <title>Tulip — the open-source cybersecurity agent SDK</title>
+  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for building grounded cybersecurity agents — agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure, and only ship findings backed by evidence. Apache-2.0.">
   <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,21 +38,21 @@
     <div class="wrap"><div class="col">
       <p class="kicker">Open source · Apache-2.0</p>
       <h1>Tulip</h1>
-      <p class="lede">A Python SDK for agent teams that show their work. One <code>Agent</code> class, eight coordination shapes, and a typed event stream behind every run — so the systems you ship are auditable by construction.</p>
+      <p class="lede">The open-source SDK for building <strong>grounded</strong> cybersecurity agents — agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure, and only ship a finding when the evidence clears the bar.</p>
       <div class="btn-row">
-        <a class="btn btn--primary" href="https://tulipagents.ai/">Read the docs <span class="arrow">→</span></a>
+        <a class="btn btn--primary" href="https://tulipagents.ai/docs/">Read the docs <span class="arrow">→</span></a>
         <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">GitHub</a>
       </div>
-      <p class="muted" style="font-family:var(--mono);font-size:0.85rem;margin-top:1.5rem">pip install "tulip-agents[anthropic]"</p>
+      <p class="muted" style="font-family:var(--mono);font-size:0.85rem;margin-top:1.5rem">pip install tulip-agents</p>
     </div></div>
   </section>
 
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Why it exists</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">Findings you can trust, by construction</span><span class="line"></span></div>
       <div class="col">
-        <p>Most agent frameworks optimize for the demo: a clever answer, fast. That's the easy 80%. The hard part — the part that decides whether you can put an agent anywhere it matters — is everything <em>around</em> the answer. Can you see why it did that? Replay the run? Prove a payment fired exactly once? Pause for a human and resume next week?</p>
-        <p>Tulip is built for that hard part. The same <code>Agent</code> class scales from a five-line script to an eight-shape multi-agent system, and the whole time it is narrating itself: every reasoning step, tool call, hand-off, and token is a typed event on one stream you can subscribe to, store, and test against.</p>
+        <p>Most agent frameworks give you an answer and ask you to trust it. Tulip is built the opposite way: a security <code>Finding</code> can only be produced from evidence that clears the grounding threshold. Below the bar, the agent abstains and records why — so an ungrounded finding is a false positive <em>by construction</em>. There's no public path that builds one.</p>
+        <p>That's the difference between an AI-security SDK and an agent framework with a security demo. The same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, and the whole time it narrates itself: every reasoning step, tool call, and hand-off is a typed event you can stream, replay, and test against.</p>
       </div>
     </div>
   </section>
@@ -61,12 +61,12 @@
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">What's inside</span><span class="line"></span></div>
       <div class="grid-3">
-        <div class="card"><span class="label">Coordination</span><h3>Eight shapes, one class</h3><p>Single agent, sequential and parallel pipelines, loops, orchestrator + specialists, swarm, hand-off, and cross-process A2A — composed from the task, not hand-wired.</p></div>
+        <div class="card"><span class="label">Grounding</span><h3>Findings backed by evidence</h3><p>A security finding is admitted only when its evidence clears the GSAR threshold; below the bar it abstains, with an audit trail. Tagged to MITRE ATLAS / OWASP, ready for a SIEM.</p></div>
+        <div class="card"><span class="label">Security tools</span><h3>Read-only by construction</h3><p>The cloud-posture auditor literally can't write — its tools admit only describe/list/get calls, with the IAM identity as the backstop. Pair guardrails and a model-judge on every tool call.</p></div>
+        <div class="card"><span class="label">Coordination</span><h3>Eight shapes, one class</h3><p>Single agent, pipelines, loops, orchestrator + specialists, swarm, hand-off, and cross-process A2A — composed from the task, not hand-wired.</p></div>
         <div class="card"><span class="label">Observability</span><h3>Typed event stream</h3><p>An opt-in event bus surfaces 40+ canonical events from every layer through one context — no external broker — with an OpenTelemetry hook when you want it.</p></div>
-        <div class="card"><span class="label">Reasoning</span><h3>Reflexion &amp; grounding</h3><p>Self-evaluation each turn and claims checked against the tool output that produced them, with a typed grounding layer for the strict cases.</p></div>
-        <div class="card"><span class="label">Safety</span><h3>Idempotent tools</h3><p>Mark a tool idempotent and the loop keys on <code>(name, args)</code> so bookings, payments, and pages never fire twice — even across retries.</p></div>
-        <div class="card"><span class="label">Durability</span><h3>Pause &amp; resume</h3><p>Checkpoint to Redis, Postgres, S3, and more; interrupt for human approval and resume the run later, exactly where it stopped.</p></div>
-        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included.</p></div>
+        <div class="card"><span class="label">Durability</span><h3>Pause &amp; resume</h3><p>Idempotent tools so a risky action never fires twice; checkpoint to Redis, Postgres, or S3; interrupt for human approval and resume exactly where it stopped.</p></div>
+        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, self-hosted vLLM, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included.</p></div>
       </div>
     </div>
   </section>
@@ -79,16 +79,19 @@
           <h2>The Workbench</h2>
           <p>A self-contained playground for every Tulip pattern — vanilla-TS UI, a thin Node proxy, and the SDK runner behind it. Bring your own provider key and watch a multi-agent run emit its event stream live. Run it on localhost in three terminals, or as a single Docker container.</p>
           <div class="btn-row">
-            <a class="btn btn--ghost" href="https://tulipagents.ai/workbench/">Workbench guide <span class="arrow">→</span></a>
+            <a class="btn btn--ghost" href="https://tulipagents.ai/docs/workbench/">Workbench guide <span class="arrow">→</span></a>
           </div>
         </div>
         <div class="work__media">
-          <pre class="code"><span class="c"># five lines to a working agent</span>
-<span class="k">from</span> tulip.agent <span class="k">import</span> Agent
+          <pre class="code"><span class="c"># a grounded cloud-posture audit</span>
+<span class="k">from</span> tulip.security <span class="k">import</span> create_soc_analyst, ground_report, is_finding
 
-agent = <span class="fn">Agent</span>(model=<span class="s">"openai:gpt-4o"</span>)
-<span class="fn">print</span>(agent.<span class="fn">run_sync</span>(<span class="s">"Capital of France?"</span>).text)
-<span class="c"># → Paris</span></pre>
+analyst = <span class="fn">create_soc_analyst</span>(model=<span class="s">"anthropic:claude-sonnet-4-6"</span>)
+result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span class="s">"Audit this account's IAM posture."</span>)
+
+<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.output):
+    <span class="k">if</span> <span class="fn">is_finding</span>(f):   <span class="c"># only ships when evidence clears the bar</span>
+        <span class="fn">print</span>(f.severity, f.title, f.gsar_score)</pre>
         </div>
       </div>
     </div>
@@ -100,7 +103,7 @@ agent = <span class="fn">Agent</span>(model=<span class="s">"openai:gpt-4o"</spa
       <p>Tulip is released under the <strong>Apache License 2.0</strong> — a real patent grant, and the standard every legal team already recognizes. It began as a fork of an earlier project released under the Universal Permissive License v1.0; those original portions remain available under the UPL, and all new work is Apache-2.0. The <code>NOTICE</code> file records the lineage in full.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/sdk-python">Star on GitHub <span class="arrow">→</span></a>
-        <a class="btn btn--ghost" href="https://tulipagents.ai/">Documentation</a>
+        <a class="btn btn--ghost" href="https://tulipagents.ai/docs/">Documentation</a>
       </div>
     </div></div>
   </section>
@@ -117,7 +120,7 @@ agent = <span class="fn">Agent</span>(model=<span class="s">"openai:gpt-4o"</spa
         <h4>Work</h4>
         <a href="open-source.html">Tulip SDK</a>
         <a href="research.html">Research</a>
-        <a href="https://tulipagents.ai/">Documentation</a>
+        <a href="https://tulipagents.ai/docs/">Documentation</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
