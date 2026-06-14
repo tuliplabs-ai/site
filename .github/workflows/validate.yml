@@ -1,0 +1,87 @@
+# Copyright 2026 Tulip Labs
+# SPDX-License-Identifier: Apache-2.0
+#
+# Quality gates for the static site. There is no build step and no JS, so the
+# meaningful checks are: valid HTML, no broken internal links/assets, and no
+# leaked secrets. Runs on every PR to main (and on push to main).
+name: validate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html-validate:
+    name: HTML validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # html5validator bundles the Nu HTML validator (vnu.jar), which needs a JRE.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Install html5validator
+        run: pip install html5validator==0.4.2
+      - name: Validate HTML
+        run: html5validator --root . --log INFO
+
+  link-check:
+    name: Link check (internal)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # --offline: verify only that referenced local files/assets exist; no
+      # network requests, so external links never make the gate flaky.
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: "--offline --no-progress ./**/*.html ./**/*.css"
+          fail: true
+
+  secret-scan:
+    name: Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Trivy
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -sSL -o trivy.tar.gz \
+            "https://github.com/aquasecurity/trivy/releases/download/v0.71.0/trivy_0.71.0_Linux-64bit.tar.gz"
+          tar xzf trivy.tar.gz trivy
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Trivy secret scan
+        run: trivy fs --scanners secret --severity HIGH,CRITICAL --exit-code 1 .
+
+  validate-success:
+    name: Validate Success
+    needs: [html-validate, link-check, secret-scan]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Verify required jobs succeeded
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+        run: |
+          set -eu
+          echo "$NEEDS_JSON"
+          if echo "$NEEDS_JSON" | grep -qE '"result":[[:space:]]*"(failure|cancelled)"'; then
+            echo "::error::At least one required job failed or was cancelled."
+            exit 1
+          fi
+          echo "All required jobs passed."
