@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tulip — the open-source cybersecurity agent SDK</title>
   <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for building grounded cybersecurity agents — agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure, and only ship findings backed by evidence. Apache-2.0.">
-  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/open-source.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="Tulip — the open-source agentic AI-security SDK">
+  <meta property="og:description" content="An open-source Python SDK for grounded cybersecurity agents — only ships a finding when the evidence clears the bar. Apache-2.0.">
+  <meta property="og:url" content="https://tuliplabs.ai/open-source.html">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -16,16 +29,13 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Tulip Labs home">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M50 86 C 30 78 17 58 19 34 C 34 42 47 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 70 78 83 58 81 34 C 66 42 53 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 44 60 44 38 50 18 C 56 38 56 60 50 86 Z" fill="#D6336C"/>
-      </svg>
+      <img class="brand-mark" src="assets/tulip-mark-pink.png" width="38" height="38" alt="">
       <span class="wordmark">Tulip <b>Labs</b></span>
     </a>
     <nav class="nav">
       <a href="research.html">Research</a>
-      <a href="open-source.html" style="color:var(--ink)">Open source</a>
+      <a href="open-source.html" class="active">Open source</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -65,7 +75,7 @@
         <div class="card"><span class="label">Coordination</span><h3>Eight shapes, one class</h3><p>Single agent, pipelines, loops, orchestrator + specialists, swarm, hand-off, and cross-process A2A — composed from the task, not hand-wired.</p></div>
         <div class="card"><span class="label">Observability</span><h3>Typed event stream</h3><p>An opt-in event bus surfaces 40+ canonical events from every layer through one context — no external broker — with an OpenTelemetry hook when you want it.</p></div>
         <div class="card"><span class="label">Durability</span><h3>Pause &amp; resume</h3><p>Idempotent tools so a risky action never fires twice; checkpoint to Redis, Postgres, or S3; interrupt for human approval and resume exactly where it stopped.</p></div>
-        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, self-hosted vLLM, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included.</p></div>
+        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, self-hosted vLLM, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included — plus vendor security integrations (SIEM, EDR, identity, threat-intel) in the companion <code>tulip-integrations</code> package.</p></div>
       </div>
     </div>
   </section>
@@ -82,15 +92,7 @@
           </div>
         </div>
         <div class="work__media">
-          <pre class="code"><span class="c"># a grounded cloud-posture audit</span>
-<span class="k">from</span> tulip.security <span class="k">import</span> create_soc_analyst, ground_report, is_finding
-
-analyst = <span class="fn">create_soc_analyst</span>(model=<span class="s">"anthropic:claude-sonnet-4-6"</span>)
-result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span class="s">"Audit this account's IAM posture."</span>)
-
-<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.output):
-    <span class="k">if</span> <span class="fn">is_finding</span>(f):   <span class="c"># only ships when evidence clears the bar</span>
-        <span class="fn">print</span>(f.severity, f.title, f.gsar_score)</pre>
+          <img class="shot" src="assets/workbench.png" width="2720" height="1680" loading="lazy" alt="The Tulip Workbench browser UI: a notebook sidebar on the left, a running multi-agent example in the centre, and its live typed event stream.">
         </div>
       </div>
     </div>
@@ -129,6 +131,7 @@ result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span 
     </div>
     <div class="foot-bottom">
       <span>© 2026 Tulip Labs</span>
+      <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>
   </div>
