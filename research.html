@@ -5,7 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Tulip Labs</title>
   <meta name="description" content="Security research from Tulip Labs: defender-first, evidence-first studies of the infrastructure modern AI runs on. Every finding ships with a tool you can run yourself.">
-  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/research.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="Research — Tulip Labs">
+  <meta property="og:description" content="Defender-first, evidence-first studies of the infrastructure modern AI runs on. Every finding ships with a tool you can run yourself.">
+  <meta property="og:url" content="https://tuliplabs.ai/research.html">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -16,16 +29,13 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Tulip Labs home">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M50 86 C 30 78 17 58 19 34 C 34 42 47 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 70 78 83 58 81 34 C 66 42 53 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 44 60 44 38 50 18 C 56 38 56 60 50 86 Z" fill="#D6336C"/>
-      </svg>
+      <img class="brand-mark" src="assets/tulip-mark-pink.png" width="38" height="38" alt="">
       <span class="wordmark">Tulip <b>Labs</b></span>
     </a>
     <nav class="nav">
-      <a href="research.html" style="color:var(--ink)">Research</a>
+      <a href="research.html" class="active">Research</a>
       <a href="open-source.html">Open source</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -54,12 +64,19 @@
         <div class="stat"><div class="n">94%</div><div class="k">model-ID accuracy</div></div>
         <div class="stat"><div class="n">~25%</div><div class="k">mitigation throughput cost</div></div>
       </div>
+      <pre class="code" style="margin:0 0 2.2rem"><span class="c"># fingerprint an endpoint from its GPU timing — grounded by construction</span>
+<span class="k">from</span> tulip_integrations.compute <span class="k">import</span> probe_to_finding
+
+finding = <span class="fn">probe_to_finding</span>(<span class="s">"https://target/v1"</span>, provider=<span class="s">"runpod"</span>)
+v = finding.verdict
+<span class="fn">print</span>(v.model, <span class="s">"·"</span>, v.engine, <span class="s">"·"</span>, v.hardware)
+<span class="c"># 7-8B class · vLLM (continuous-batching) · H100/A100 class</span></pre>
       <div class="col">
         <p>Clusiana is our research program on the infrastructure AI runs on. Its first project is a cross-process GPU timing side channel that fingerprints the inference engine and the language model running on a co-located NVIDIA GPU — from an ordinary, unprivileged process sharing the same silicon. We publish the risk, the result, and the defense; the offensive method stays in the lab.</p>
         <p>True to how we work, the single most useful artifact isn't the attack — it's <strong>a 140-line, standard-library audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. Alongside it: a mitigation we measured honestly at roughly a quarter of throughput.</p>
-        <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). It does <em>not</em> defeat dedicated single-tenant GPUs or MIG-partitioned A100/H100s, where compute and memory bandwidth are hardware-isolated.</p>
+        <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). A dedicated single-tenant GPU — with no co-tenant to observe — is out of scope.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="https://github.com/tuliplabs-ai">Code &amp; report <span class="arrow">→</span></a>
+          <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/clusiana">Code &amp; report <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -139,6 +156,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Tulip Labs</span>
+      <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>
   </div>

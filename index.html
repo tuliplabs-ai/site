@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tulip Labs — agentic AI & security research</title>
   <meta name="description" content="Tulip Labs is an independent lab working at the seam of agentic AI and security research. We build systems you can verify — agents that show their work, and security findings you can reproduce.">
-  <link rel="icon" href="assets/tulip-mark.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -13,7 +16,24 @@
   <meta property="og:title" content="Tulip Labs — agentic AI & security research">
   <meta property="og:description" content="An independent lab at the seam of agentic AI and security research. We build systems you can verify.">
   <meta property="og:url" content="https://tuliplabs.ai/">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tulip Labs — systems you can verify.">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tulip Labs",
+    "url": "https://tuliplabs.ai/",
+    "description": "An independent lab at the seam of agentic AI and security research, building systems you can verify.",
+    "logo": "https://tuliplabs.ai/assets/tulip-mark-pink.png",
+    "sameAs": ["https://github.com/tuliplabs-ai"]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,16 +45,13 @@
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Tulip Labs home">
-      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path d="M50 86 C 30 78 17 58 19 34 C 34 42 47 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 70 78 83 58 81 34 C 66 42 53 60 50 86 Z" fill="#E86A98"/>
-  <path d="M50 86 C 44 60 44 38 50 18 C 56 38 56 60 50 86 Z" fill="#D6336C"/>
-      </svg>
+      <img class="brand-mark" src="assets/tulip-mark-pink.png" width="38" height="38" alt="">
       <span class="wordmark">Tulip <b>Labs</b></span>
     </a>
     <nav class="nav">
       <a href="research.html">Research</a>
       <a href="open-source.html">Open source</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -44,16 +61,20 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero--split">
     <div class="wrap">
       <div class="col">
         <p class="kicker">Independent AI security research</p>
         <h1>An independent lab for <span class="accent">AI you can verify</span>.</h1>
         <p class="lede">We research the security of AI systems — the models, the agents, and the infrastructure they run on — and ship what we find: a published grounding method, an open-source SDK that only acts on evidence, and a defender tool with every result.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="research.html">Our research <span class="arrow">→</span></a>
-          <a class="btn btn--ghost" href="open-source.html">Open source</a>
+          <a class="btn btn--primary" href="open-source.html">Explore the SDK <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="research.html">Read the research</a>
         </div>
+        <p class="pip">$ pip install <b>tulip-agents</b></p>
+      </div>
+      <div class="hero__media">
+        <img src="assets/hero-verify.svg" width="520" height="440" alt="Three claims are checked against evidence; a finding ships only when its evidence clears the grounding bar, otherwise the agent abstains and records why.">
       </div>
     </div>
   </section>
@@ -71,30 +92,36 @@
   <!-- TWO PILLARS -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">What we produce</span><span class="line"></span></div>
-      <div class="grid-2">
-        <div class="card">
-          <span class="label">Open source</span>
-          <h3>Tulip — the cybersecurity agent SDK</h3>
-          <p>A Python SDK for grounded security agents: every claim checked against evidence, every action a typed replayable event, every risky step gated. Apache-2.0.</p>
-          <p><a class="more" href="open-source.html">Explore the SDK →</a></p>
+      <div class="eyebrow-row"><span class="label">Two pillars</span><span class="line"></span></div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar__head"><span class="label">Pillar 01</span><h3>Open source</h3></div>
+          <div class="card">
+            <span class="label">Tulip · Apache-2.0</span>
+            <h3>The agentic AI-security SDK</h3>
+            <p>A Python SDK for grounded security agents: every claim checked against evidence, every action a typed replayable event, every risky step gated.</p>
+            <p><a class="more" href="open-source.html">Explore the SDK →</a></p>
+          </div>
         </div>
-        <div class="card">
-          <span class="label">Research · GSAR</span>
-          <h3>A method for grounding</h3>
-          <p>Our published method for verifying that an AI's conclusions are actually supported by its evidence — peer-readable, and the engine behind the SDK's findings.</p>
-          <p><a class="more" href="research.html">Read the research →</a></p>
-        </div>
-        <div class="card">
-          <span class="label">Program · Clusiana</span>
-          <h3>The security of AI infrastructure</h3>
-          <p>Ongoing research into the systems AI runs on. First result: identify a co-tenant's model on a shared GPU — and the audit tool to detect it.</p>
-          <p><a class="more" href="research.html">See the program →</a></p>
-        </div>
-        <div class="card">
-          <span class="label">In progress · Security SLMs</span>
-          <h3>Small models for the SOC</h3>
-          <p>A research direction: compact, self-hostable language models specialised for security work — fast, private, and grounded by construction. Early, and in the open as it matures.</p>
+        <div class="pillar pillar--research">
+          <div class="pillar__head"><span class="label teal">Pillar 02</span><h3>Research</h3></div>
+          <div class="card">
+            <span class="label teal">GSAR · grounding</span>
+            <h3>A method for grounding</h3>
+            <p>Our published method for verifying that an AI's conclusions are actually supported by its evidence — the engine behind the SDK's findings.</p>
+            <p><a class="more" href="research.html">Read the research →</a></p>
+          </div>
+          <div class="card">
+            <span class="label teal">Clusiana · AI infrastructure</span>
+            <h3>The security of AI infrastructure</h3>
+            <p>Ongoing research into the systems AI runs on. First result: identify a co-tenant's model on a shared GPU — and the audit tool to detect it.</p>
+            <p><a class="more" href="research.html">See the program →</a></p>
+          </div>
+          <div class="card">
+            <span class="label teal">Detection · exploratory</span>
+            <h3>Catching the co-tenant</h3>
+            <p>The flip side of the side-channel work: detecting when a neighbour is fingerprinting <em>you</em> on a shared GPU. Early-stage, defender-first, developed in the open.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -119,9 +146,9 @@
 <span class="k">from</span> tulip.security <span class="k">import</span> create_soc_analyst, ground_report, is_finding
 
 analyst = <span class="fn">create_soc_analyst</span>(model=<span class="s">"anthropic:claude-sonnet-4-6"</span>)
-result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span class="s">"Audit this account's IAM posture."</span>)
+result = analyst.<span class="fn">run_sync</span>(<span class="s">"Audit this account's IAM posture."</span>)
 
-<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.output):
+<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.parsed):
     <span class="k">if</span> <span class="fn">is_finding</span>(f):        <span class="c"># ships only when evidence clears the bar</span>
         <span class="fn">print</span>(f.severity, f.title, f.gsar_score)
     <span class="k">else</span>:
@@ -147,7 +174,7 @@ result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span 
           <p class="label" style="margin-bottom:1rem">Research · grounding</p>
           <h2>GSAR</h2>
           <p class="lede" style="margin-bottom:1.3rem">How do you know an AI's conclusion is actually supported by its evidence?</p>
-          <p>Often it isn't — every fact it cites is real, but the conclusion over-reaches. GSAR is our method for catching that: it scores how well an answer's claims are grounded in the evidence behind them, with six monotonicity and adversarial-robustness properties proven and locked under tests. It's published and peer-readable — and it's the engine that makes Tulip's findings trustworthy. Grounding is the lab's signature contribution.</p>
+          <p>Often it isn't — every fact it cites is real, but the conclusion over-reaches. GSAR scores how well an answer's claims are grounded in the evidence behind them, then decides: proceed, regenerate, or replan. It's published, peer-readable, and the engine that makes Tulip's findings trustworthy.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="research.html">Read the research <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://arxiv.org/abs/2604.23366">Paper (arXiv)</a>
@@ -163,21 +190,41 @@ result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span 
       <div class="work flip">
         <div class="work__media">
           <div class="stats">
-            <div class="stat"><div class="n">1.2 s</div><div class="k">probe window</div></div>
-            <div class="stat"><div class="n">94%</div><div class="k">model ID accuracy</div></div>
+            <div class="stat"><div class="n">~1 s</div><div class="k">probe window</div></div>
+            <div class="stat"><div class="n">46</div><div class="k">model·engine classes</div></div>
             <div class="stat"><div class="n">0</div><div class="k">special privileges</div></div>
           </div>
-          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A cross-process GPU timing side channel that fingerprints the inference engine and model running on a co-located GPU — plus the defender CLI to detect it and a measured mitigation.</p>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A cross-process GPU timing side channel that fingerprints the inference engine and model on a co-located GPU — and crosses a MIG partition through the shared clock domain. We report accuracies with confidence intervals, position the work against prior GPU side-channel research, and ship a defender self-audit with the findings.</p>
         </div>
         <div class="work__copy">
           <p class="label" style="margin-bottom:1rem">Security research</p>
           <h2>Clusiana</h2>
           <p class="lede" style="margin-bottom:1.3rem">What can a neighbour learn about your model on a shared GPU?</p>
-          <p>More than you'd think — and with no exploit, no privileged access, in about a second. Clusiana is our research program on the infrastructure AI actually runs on. Its first project is a cross-process GPU timing side channel: the full write-up, a 140-line audit tool you run yourself, and a mitigation we measured at a real throughput cost. The pattern for all our security work: name the risk precisely, prove it, then hand defenders something they can act on.</p>
+          <p>More than you'd think — no exploit, no privileged access, in about a second. Clusiana is our program on the infrastructure AI runs on; its first project is a cross-process GPU timing side channel that fingerprints a co-tenant's model. The pattern for all our work: name the risk, prove it, then hand defenders a tool they can run.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="research.html">Read the report <span class="arrow">→</span></a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">About the lab</span><span class="line"></span></div>
+      <div class="about-grid">
+        <div>
+          <p class="lede" style="margin-bottom:1.2rem">Tulip Labs is an independent research lab working where agentic AI meets security.</p>
+          <p>We're small and self-directed, and we publish in the open — the SDK under Apache-2.0, the research with its methods and tools included. We study how AI systems can be attacked and how their actions can be made auditable, and we hold our own work to the same bar we ask of an agent: state the scope, show the evidence, and ship something a defender can run.</p>
+          <p>If our work touches a system you operate — or you'd like to collaborate — <a href="mailto:hello@tuliplabs.ai">get in touch</a>.</p>
+        </div>
+        <ul class="about-facts">
+          <li><b>Focus</b> — agentic-AI security &amp; the infrastructure AI runs on</li>
+          <li><b>Output</b> — an open-source SDK, published research, defender tools</li>
+          <li><b>Licensing</b> — Apache-2.0 SDK; research published in full</li>
+          <li><b>Disclosure</b> — coordinated, via <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -230,6 +277,7 @@ result = <span class="k">await</span> analyst.<span class="fn">run</span>(<span 
     </div>
     <div class="foot-bottom">
       <span>© 2026 Tulip Labs</span>
+      <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>
   </div>
