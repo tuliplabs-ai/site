@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tulip — the open-source cybersecurity agent SDK</title>
-  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for building grounded cybersecurity agents — agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure, and only ship findings backed by evidence. Apache-2.0.">
+  <title>Tulip — the open-source SDK for cybersecurity agents you can let act</title>
+  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for cybersecurity agents that take real action — every risky step policy-gated, human-approvable, and recorded in a tamper-evident audit trail. You can fool the model; you can't talk past the runtime. Apache-2.0.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
   <link rel="canonical" href="https://tuliplabs.ai/open-source.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Tulip — the open-source agentic AI-security SDK">
-  <meta property="og:description" content="An open-source Python SDK for grounded cybersecurity agents — only ships a finding when the evidence clears the bar. Apache-2.0.">
+  <meta property="og:title" content="Tulip — cybersecurity agents you can let act">
+  <meta property="og:description" content="Open-source Python SDK: agents that take real action, with every risky step policy-gated, human-approvable, and recorded in a tamper-evident trail. Apache-2.0.">
   <meta property="og:url" content="https://tuliplabs.ai/open-source.html">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
@@ -47,7 +47,7 @@
     <div class="wrap"><div class="col">
       <p class="kicker">Open source · Apache-2.0</p>
       <h1>Tulip</h1>
-      <p class="lede">The open-source SDK for building <strong>grounded</strong> cybersecurity agents — agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure, and only ship a finding when the evidence clears the bar.</p>
+      <p class="lede">The open-source SDK for cybersecurity agents you can let <strong>act</strong> — isolate a host, block an IP, disable an account — where every risky step is policy-gated, human-approvable, and recorded in a tamper-evident audit trail. <em>You can fool the model; you can't talk past the runtime.</em></p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://tulipagents.ai/">Read the docs <span class="arrow">→</span></a>
         <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">GitHub</a>
@@ -58,10 +58,11 @@
 
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Findings you can trust, by construction</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">Action you can trust — control, not just intelligence</span><span class="line"></span></div>
       <div class="col">
-        <p>Most agent frameworks give you an answer and ask you to trust it. Tulip is built the opposite way: a security <code>Finding</code> can only be produced from evidence that clears the grounding threshold. Below the bar, the agent abstains and records why — so an ungrounded finding is a false positive <em>by construction</em>. There's no public path that builds one.</p>
-        <p>That's the difference between an AI-security SDK and an agent framework with a security demo. The same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, and the whole time it narrates itself: every reasoning step, tool call, and hand-off is a typed event you can stream, replay, and test against.</p>
+        <p>A frontier model is smart. The one thing it can't do — no matter how smart — is <em>prove it won't take a catastrophic action</em>. Tulip closes that gap: a side-effecting action runs only after it clears the admission gate — policy, risk, and approval — and a bare model reaching for something dangerous is <strong>stopped cold</strong>. Jailbreak the model all you like; you can't talk past the runtime.</p>
+        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay and can't forge</strong>. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the moat is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
+        <p class="muted"><strong>Can you make the agent go rogue?</strong> Three runnable demos ship in <code>examples/</code> — a jailbreak-the-agent challenge (breaches: 0), a governed SOC action (gate → hold-for-human → tamper-evident audit), and an honest grounding ablation.</p>
       </div>
     </div>
   </section>
