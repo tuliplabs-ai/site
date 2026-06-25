@@ -60,9 +60,9 @@
     <div class="wrap">
       <div class="col">
         <p class="label" style="margin-bottom:1rem">Drop the gate around an action your agent already takes</p>
-        <pre class="code"><span class="k">from</span> tulip.security <span class="k">import</span> Action, admit, SecurityPolicy, AuditTrail, AdmissionError
+        <pre class="code"><span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
 
-policy = <span class="fn">SecurityPolicy</span>()   <span class="c"># prod → human</span>
+policy = <span class="fn">ControlPolicy</span>()    <span class="c"># prod → human</span>
 trail  = <span class="fn">AuditTrail</span>()
 
 <span class="c"># the model decided to refund a customer</span>
@@ -74,7 +74,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
 <span class="k">except</span> AdmissionError <span class="k">as</span> e:
     <span class="fn">print</span>(e.decision.outcome)   <span class="c"># → "require_human"; refund NOT run</span>
 
-<span class="c"># Held for a human, on a record you can replay and can't forge.</span></pre>
+<span class="c"># Held for a human, on a tamper-evident record you can replay.</span></pre>
       </div>
     </div>
   </section>
@@ -84,7 +84,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
       <div class="eyebrow-row"><span class="label">Action you can trust — control, not just intelligence</span><span class="line"></span></div>
       <div class="col">
         <p>A frontier model is smart. The one thing it can't do — no matter how smart — is <em>prove it won't take a catastrophic action</em>. Tulip closes that gap: a side-effecting action runs only after it clears the admission gate — policy, risk, and approval — and a bare model reaching for something dangerous is <strong>stopped cold</strong>. Jailbreak the model all you like; you can't talk past the runtime.</p>
-        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay and can't forge</strong>. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the moat is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
+        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay</strong>, tamper-evident against a trusted head hash. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the moat is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
         <p class="muted"><strong>Can you make the agent go rogue?</strong> Three runnable demos ship in <code>examples/</code> — a jailbreak-the-agent challenge (breaches: 0), a governed SOC action (gate → hold-for-human → tamper-evident audit), and an honest grounding ablation.</p>
       </div>
     </div>

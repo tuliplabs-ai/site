@@ -135,7 +135,7 @@
           <p class="label" style="margin-bottom:1rem">Open source · Apache-2.0</p>
           <h2>Tulip</h2>
           <p class="lede" style="margin-bottom:1.3rem">Our flagship open-source SDK — grounded findings, governable actions.</p>
-          <p>Drop the admission gate around an action your agent already takes — a refund, a host isolation, an account disable. It runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay and can't forge. Grounded findings (GSAR) and abstentions still ship with the evidence behind them. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
+          <p>Drop the admission gate around an action your agent already takes — a refund, a host isolation, an account disable. It runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay — a hash chain that detects any edit against a trusted head hash. Grounded findings (GSAR) and abstentions still ship with the evidence behind them. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
@@ -143,9 +143,9 @@
         </div>
         <div class="work__media">
           <pre class="code"><span class="c"># drop the gate around an action your agent already takes</span>
-<span class="k">from</span> tulip.security <span class="k">import</span> Action, admit, SecurityPolicy, AuditTrail, AdmissionError
+<span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
 
-policy = <span class="fn">SecurityPolicy</span>()   <span class="c"># prod → human</span>
+policy = <span class="fn">ControlPolicy</span>()    <span class="c"># prod → human</span>
 trail  = <span class="fn">AuditTrail</span>()
 
 risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, asset=<span class="s">"cust:4821"</span>,
