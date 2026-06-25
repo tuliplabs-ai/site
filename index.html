@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tulip Labs — agentic AI & security research</title>
-  <meta name="description" content="Tulip Labs is an independent lab working at the seam of agentic AI and security research. We build systems you can verify — agents that show their work, and security findings you can reproduce.">
+  <title>Tulip Labs — the control runtime for agents you can let act</title>
+  <meta name="description" content="Tulip Labs builds the open-source control runtime for AI agents: every risky action policy-gated, human-approvable, and recorded in a tamper-evident audit trail. Proven first in security, backed by our own published research.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
@@ -13,13 +13,13 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Tulip Labs — agentic AI & security research">
-  <meta property="og:description" content="An independent lab at the seam of agentic AI and security research. We build systems you can verify.">
+  <meta property="og:title" content="Tulip Labs — agents you can let act">
+  <meta property="og:description" content="The open-source control runtime for AI agents: every risky action policy-gated, human-approvable, and recorded in a tamper-evident audit trail. Proven first in security.">
   <meta property="og:url" content="https://tuliplabs.ai/">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Tulip Labs — systems you can verify.">
+  <meta property="og:image:alt" content="Tulip Labs — agents you can let act.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
 
@@ -29,7 +29,7 @@
     "@type": "Organization",
     "name": "Tulip Labs",
     "url": "https://tuliplabs.ai/",
-    "description": "An independent lab at the seam of agentic AI and security research, building systems you can verify.",
+    "description": "An independent lab building the open-source control runtime for AI agents — agents you can let act, with every risky action policy-gated, human-approvable, and recorded in a tamper-evident audit trail.",
     "logo": "https://tuliplabs.ai/assets/tulip-mark-pink.png",
     "sameAs": ["https://github.com/tuliplabs-ai"]
   }
@@ -65,8 +65,8 @@
     <div class="wrap">
       <div class="col">
         <p class="kicker">Independent AI security research</p>
-        <h1>An independent lab for <span class="accent">AI you can verify</span>.</h1>
-        <p class="lede">We research the security of AI systems — the models, the agents, and the infrastructure they run on — and ship what we find: a published grounding method, an open-source SDK that only acts on evidence, and a defender tool with every result.</p>
+        <h1>The lab behind <span class="accent">agents you can let act</span>.</h1>
+        <p class="lede">We build the open-source control runtime for AI agents — every risky action policy-gated, human-approvable, and recorded in a tamper-evident audit trail. <em>You can fool the model; you can't talk past the runtime.</em> Proven first in security, and backed by our own published research.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="open-source.html">Explore the SDK <span class="arrow">→</span></a>
           <a class="btn btn--ghost" href="research.html">Read the research</a>
@@ -98,8 +98,8 @@
           <div class="pillar__head"><span class="label">Pillar 01</span><h3>Open source</h3></div>
           <div class="card">
             <span class="label">Tulip · Apache-2.0</span>
-            <h3>The agentic AI-security SDK</h3>
-            <p>A Python SDK for grounded security agents: every claim checked against evidence, every action a typed replayable event, every risky step gated.</p>
+            <h3>The control runtime for agents</h3>
+            <p>A Python SDK for agents you can let act: every risky step policy-gated and human-approvable, every action a typed replayable event on a tamper-evident trail, every claim checked against evidence.</p>
             <p><a class="more" href="open-source.html">Explore the SDK →</a></p>
           </div>
         </div>
@@ -134,25 +134,29 @@
         <div class="work__copy">
           <p class="label" style="margin-bottom:1rem">Open source · Apache-2.0</p>
           <h2>Tulip</h2>
-          <p class="lede" style="margin-bottom:1.3rem">A Python SDK for grounded security agents.</p>
-          <p>Build agents that audit cloud posture, triage alerts, and fingerprint AI infrastructure — and only ship a finding when the evidence clears the bar. The same <code>Agent</code> class scales to a multi-agent SOC, every step a typed, replayable event. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
+          <p class="lede" style="margin-bottom:1.3rem">The control runtime for agents you can let act.</p>
+          <p>Drop the admission gate around an action your agent already takes — a refund, a host isolation, an account disable. It runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay and can't forge. Grounded findings (GSAR) and abstentions still ship with the evidence behind them. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
           </div>
         </div>
         <div class="work__media">
-          <pre class="code"><span class="c"># audit a cloud account — grounded by construction</span>
-<span class="k">from</span> tulip.security <span class="k">import</span> create_soc_analyst, ground_report, is_finding
+          <pre class="code"><span class="c"># drop the gate around an action your agent already takes</span>
+<span class="k">from</span> tulip.security <span class="k">import</span> Action, admit, SecurityPolicy, AuditTrail, AdmissionError
 
-analyst = <span class="fn">create_soc_analyst</span>(model=<span class="s">"anthropic:claude-sonnet-4-6"</span>)
-result = analyst.<span class="fn">run_sync</span>(<span class="s">"Audit this account's IAM posture."</span>)
+policy = <span class="fn">SecurityPolicy</span>()   <span class="c"># prod → human</span>
+trail  = <span class="fn">AuditTrail</span>()
 
-<span class="k">for</span> f <span class="k">in</span> <span class="fn">ground_report</span>(result.parsed):
-    <span class="k">if</span> <span class="fn">is_finding</span>(f):        <span class="c"># ships only when evidence clears the bar</span>
-        <span class="fn">print</span>(f.severity, f.title, f.gsar_score)
-    <span class="k">else</span>:
-        <span class="fn">print</span>(<span class="s">"withheld:"</span>, f.reason)   <span class="c"># ungrounded → abstains</span></pre>
+risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, asset=<span class="s">"cust:4821"</span>,
+              blast_radius=1, kind=<span class="s">"payment"</span>, environment=<span class="s">"production"</span>)
+
+<span class="k">try</span>:
+    <span class="k">await</span> <span class="fn">admit</span>(risky, <span class="k">lambda</span>: <span class="fn">refund</span>(<span class="s">"cust:4821"</span>), policy=policy, trail=trail)
+<span class="k">except</span> AdmissionError <span class="k">as</span> e:
+    <span class="fn">print</span>(e.decision.outcome)   <span class="c"># → "require_human"; refund NOT run</span>
+
+<span class="c"># Held for a human, on the audit trail. Fool the model; not the runtime.</span></pre>
         </div>
       </div>
     </div>
