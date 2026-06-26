@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tulip — the open-source SDK for agents you can let act</title>
-  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for agents that take real action — every risky step policy-gated, human-approvable, and recorded in a tamper-evident audit trail. You can fool the model; you can't talk past the runtime. Proven first in security. Apache-2.0.">
+  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for agents that take real action — every risky step policy-gated, human-approvable, and recorded in a tamper-evident audit trail. Trick the model all you want; the action still has to clear the gate before it runs. Proven first in security. Apache-2.0.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
@@ -47,7 +47,7 @@
     <div class="wrap"><div class="col">
       <p class="kicker">Open source · Apache-2.0</p>
       <h1>Tulip</h1>
-      <p class="lede">The open-source control layer for agents that <strong>act</strong> — move money, delete a resource, disable an account, isolate a host. Add it to the agent you already have, on any framework (LangChain, CrewAI, the OpenAI Agents SDK), and every risky step is policy-gated, human-approvable, and recorded in a tamper-evident audit trail. <em>You can fool the model; you can't talk past the runtime.</em> Proven first in security.</p>
+      <p class="lede">The open-source control layer for agents that <strong>act</strong> — move money, delete a resource, disable an account, isolate a host. Add it to the agent you already have, on any framework (LangChain, CrewAI, the OpenAI Agents SDK), and every risky step is policy-gated, human-approvable, and recorded in a tamper-evident audit trail. <em>Trick the model all you want — the action still has to clear the gate before it runs.</em> Proven first in security.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://tulipagents.ai/">Read the docs <span class="arrow">→</span></a>
         <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">GitHub</a>
@@ -83,8 +83,8 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">Action you can trust — control, not just intelligence</span><span class="line"></span></div>
       <div class="col">
-        <p>A frontier model is smart. The one thing it can't do — no matter how smart — is <em>prove it won't take a catastrophic action</em>. Tulip closes that gap: a side-effecting action runs only after it clears the admission gate — policy, risk, and approval — and a bare model reaching for something dangerous is <strong>stopped cold</strong>. Jailbreak the model all you like; you can't talk past the runtime.</p>
-        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay</strong>, tamper-evident against a trusted head hash. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the moat is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
+        <p>A frontier model is smart. The one thing it can't do — no matter how smart — is <em>prove it won't take a catastrophic action</em>. Tulip closes that gap: a side-effecting action runs only after it clears the admission gate — policy, risk, and approval — and a bare model reaching for something dangerous is <strong>blocked before it runs</strong>. Jailbreak the model all you want — the gate, not the prompt, decides what executes.</p>
+        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay</strong>, tamper-evident against a trusted head hash. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the core is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
         <p class="muted"><strong>Can you make the agent go rogue?</strong> Three runnable demos ship in <code>examples/</code> — a jailbreak-the-agent challenge (breaches: 0), a governed SOC action (gate → hold-for-human → tamper-evident audit), and an honest grounding ablation.</p>
       </div>
     </div>
