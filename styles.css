@@ -86,13 +86,24 @@ strong { font-weight: 600; }
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--ink); font-weight: 600; }
 .brand:hover { text-decoration: none; }
 .brand svg, .brand img { width: 38px; height: 38px; display: block; }
-.brand .wordmark { font-family: var(--serif); font-size: 1.6rem; letter-spacing: -0.01em; }
+.brand .wordmark { font-family: var(--serif); font-size: 1.6rem; letter-spacing: -0.01em; white-space: nowrap; }
 .brand .wordmark b { font-weight: 600; }
 .nav { display: flex; gap: 1.6rem; align-items: center; }
 .nav a { color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 .nav a.active { color: var(--ink); }
-@media (max-width: 620px) { .nav a.hide-sm { display: none; } }
+.nav a { white-space: nowrap; }
+@media (max-width: 620px) {
+  .nav a.hide-sm { display: none; }
+  /* Keep the lockup and the three remaining links on one 4.75rem row:
+     smaller mark + wordmark, tighter nav. Nothing may wrap. */
+  .site-head .wrap { padding: 0 1rem; }
+  .brand { gap: 0.5rem; }
+  .brand svg, .brand img { width: 30px; height: 30px; }
+  .brand .wordmark { font-size: 1.3rem; }
+  .nav { gap: 0.9rem; }
+  .nav a { font-size: 0.875rem; }
+}
 
 /* ---- buttons ------------------------------------------------------------- */
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
