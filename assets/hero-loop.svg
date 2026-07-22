@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 440" role="img"
+     aria-label="A large model plans; a fleet of small Clusiana models runs and controls the orchestration; every decision crosses the gate — allow, hold, or deny — and lands on a tamper-evident record; the record trains the next generation of Clusiana."
+     font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#1B1620"/>
+    </marker>
+    <marker id="arA" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="7.5" markerHeight="7.5" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#D6336C"/>
+    </marker>
+  </defs>
+
+  <rect x="1.5" y="1.5" width="517" height="437" rx="18" fill="#FFFFFF" stroke="#E7E0DB"/>
+  <text x="34" y="40" font-size="11" font-weight="600" letter-spacing="0.15em" fill="#78716C">PLAN · CONTROL · PROVE · LEARN</text>
+
+  <!-- PLAN -->
+  <rect x="120" y="54" width="260" height="44" rx="12" fill="#1B1620"/>
+  <text x="250" y="81" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">The large model plans</text>
+
+  <line x1="250" y1="98" x2="250" y2="114" stroke="#1B1620" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <!-- CLUSIANA -->
+  <rect x="120" y="116" width="260" height="86" rx="12" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.7"/>
+  <text x="138" y="145" font-family="Georgia,'Times New Roman',serif" font-size="19" font-weight="700" fill="#D6336C">Clusiana</text>
+  <text x="138" y="169" font-size="12.5" fill="#4A434C">route · select tool · ground · admit · judge</text>
+  <text x="138" y="189" font-size="11.5" fill="#78716C">small open-weight models — one per step</text>
+
+  <line x1="250" y1="202" x2="250" y2="218" stroke="#1B1620" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <!-- GATE -->
+  <rect x="120" y="220" width="260" height="54" rx="12" fill="#F4EFEC"/>
+  <text x="138" y="243" font-size="12" font-weight="600" letter-spacing="0.04em" fill="#1B1620">THE GATE</text>
+  <circle cx="144" cy="259" r="4" fill="#1F7A54"/><text x="154" y="263" font-size="11.5" fill="#4A434C">allow</text>
+  <circle cx="212" cy="259" r="4" fill="#B26B00"/><text x="222" y="263" font-size="11.5" fill="#4A434C">hold</text>
+  <circle cx="276" cy="259" r="4" fill="#C2384F"/><text x="286" y="263" font-size="11.5" fill="#4A434C">deny</text>
+
+  <line x1="250" y1="274" x2="250" y2="290" stroke="#1B1620" stroke-width="1.8" marker-end="url(#ar)"/>
+
+  <!-- RECORD -->
+  <rect x="120" y="292" width="260" height="46" rx="12" fill="#1B1620"/>
+  <text x="250" y="320" text-anchor="middle" font-size="13.5" font-weight="600" fill="#FFFFFF">The record — tamper-evident</text>
+
+  <!-- flywheel: record trains Clusiana -->
+  <path d="M380,315 H444 V159 H384" fill="none" stroke="#D6336C" stroke-width="1.6" stroke-dasharray="5,3.5" marker-end="url(#arA)"/>
+  <text x="451" y="230" font-size="11" font-weight="600" fill="#D6336C">flywheel</text>
+  <text x="451" y="245" font-size="10.5" fill="#78716C">trains</text>
+
+  <text x="34" y="414" font-size="11.5" font-style="italic" fill="#78716C">plan → Clusiana controls the loop → gate → record → trains Clusiana</text>
+</svg>
