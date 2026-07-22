@@ -65,7 +65,7 @@
       <div class="col">
         <p class="kicker">Research AI company</p>
         <h1>Everyone studies what models say. We study <span class="accent">what agents do</span>.</h1>
-        <p class="lede">AI agents now take real actions — they move money, change infrastructure, touch customer data. Tulip Labs trains the small control models a multi-agent framework needs but none ship — models that decide whether an action may fire, whether a claim is grounded, whether a run went well — and builds the runtime that enforces them: every consequential action checked before it runs, held for a person when it matters, written to a record that fails verification if anyone edits it. The models and research are open. The runtime is open source.</p>
+        <p class="lede">AI agents now take real actions — they move money, change infrastructure, touch customer data. Tulip Labs trains <strong>Clusiana</strong>: small models for multi-agent orchestration — the ones that decide whether an action may fire, whether a claim is grounded, whether a run went well — that no framework ships. They run on the open-source SDK that is the foundation for everything we build, which enforces every action before it runs, holds the risky ones for a person, and writes them to a record that fails verification if anyone edits it. The models and research are open. The SDK is open source.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="research.html">The research <span class="arrow">→</span></a>
           <a class="btn btn--ghost" href="https://tulipagents.ai/">The runtime</a>
@@ -83,7 +83,7 @@
     <div class="wrap">
       <div class="col">
         <p class="label" style="margin-bottom:1.5rem">One thesis</p>
-        <p class="thesis">Agentic AI becomes real infrastructure only when what agents <b>do</b> is controllable, provable, and safe by construction. So we train the models that make it so — the control models a multi-agent framework needs but none ship — and build the runtime that enforces them. The runtime, the platform, the lab: one thesis at three layers of the stack, joined by a single spine — a tamper-evident record of every decision.</p>
+        <p class="thesis">Agentic AI becomes real infrastructure only when what agents <b>do</b> is controllable, provable, and safe by construction. So we train <b>Clusiana</b> — the small models that run and control multi-agent orchestration — on the open-source SDK that is the foundation of everything: the runtime, the platform, the lab. One thesis at three layers of the stack, joined by a single spine — a tamper-evident record of every decision.</p>
       </div>
     </div>
   </section>
@@ -97,8 +97,8 @@
           <div class="pillar__head"><span class="label">01</span><h3>The runtime</h3></div>
           <div class="card">
             <span class="label">tulipagents.ai · Apache-2.0</span>
-            <h3>One control runtime, three placements</h3>
-            <p>The gate that decides whether an agent's action runs — <b>in-process</b> as a Python SDK and framework bridges, <b>as a service</b> for agents in any language, and <b>around the code</b> in sandboxes from Docker to Firecracker micro-VMs. Placement is a deployment detail; the gate and the record are the product.</p>
+            <h3>The SDK is the foundation</h3>
+            <p>The open-source SDK — <code>tulip-agents</code> — is the base everything builds on: the gate that decides whether an action runs, the hash-chained record, and the harness the Clusiana models plug into. It runs <b>in-process</b>, <b>as a service</b> for any language, and <b>around the code</b> in sandboxes. Placement is a detail; the gate and the record are the product.</p>
             <p><a class="more" href="open-source.html">The short version →</a></p>
           </div>
         </div>
@@ -114,10 +114,10 @@
         <div class="pillar pillar--research">
           <div class="pillar__head"><span class="label teal">03</span><h3>The lab</h3></div>
           <div class="card">
-            <span class="label teal">Control models · open weights</span>
-            <h3>We train the control models for multi-agent frameworks</h3>
-            <p>Frontier labs train capability; we train control — the small models a multi-agent system needs but no framework ships: a model to decide which agent runs, whether an action may fire, whether a claim is grounded, and whether a run went well for the right reason. Framework-neutral, open weights, small enough to run in the hot path and inside air-gapped walls.</p>
-            <p><a class="more" href="research.html">The five programs →</a></p>
+            <span class="label teal">Clusiana · open weights</span>
+            <h3>We train Clusiana, the models for orchestration</h3>
+            <p>Frontier labs train capability; we train control. <b>Clusiana</b> is a family of small, open-weight models for multi-agent orchestration — a model to route, select a tool, ground a claim, admit an action, and judge a run. Framework-neutral, small enough to run in the hot path and inside air-gapped walls, and specialized to each customer from their own record.</p>
+            <p><a class="more" href="research.html">Clusiana &amp; the five programs →</a></p>
           </div>
         </div>
       </div>
@@ -127,16 +127,16 @@
   <!-- THE FIVE PROGRAMS -->
   <section class="band">
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Five programs · a control model at the core of each</span><span class="line"></span></div>
-      <p class="lede" style="margin-bottom:0.5rem">Each program asks one question a multi-agent framework leaves open — and answers it with a small model any framework can plug in, released open.</p>
+      <div class="eyebrow-row"><span class="label">Five programs · a Clusiana model at the core of each</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:0.5rem">Each program asks one question a multi-agent framework leaves open — and answers it with a Clusiana model any framework can plug in, released open.</p>
       <div class="programs">
         <div class="prog">
           <div class="prog__head"><span class="prog__id">P1</span><h3>Grounding — when may an agent assert?</h3><span class="status ok">Shipped</span></div>
-          <p class="prog__body">The <b>grounding judge</b>: a claim counts only with evidence above a set bar; otherwise the agent abstains. Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>), shipped in the runtime.</p>
+          <p class="prog__body">The Clusiana <b>grounding judge</b>: a claim counts only with evidence above a set bar; otherwise the agent abstains. Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>), the first Clusiana model shipped in the runtime.</p>
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">P2</span><h3>Admission — when may an agent act?</h3><span class="status wip">In progress</span></div>
-          <p class="prog__body">The <b>admission classifier</b>: the allow / deny / hold-for-a-person decision, made enforceable — and fast enough to sit in front of every tool call. Small open-weight action-risk models, with the dataset, recipe, and weights released open.</p>
+          <p class="prog__body">The Clusiana <b>admission classifier</b>: the allow / deny / hold-for-a-person decision, made enforceable — and fast enough to sit in front of every tool call. A small open-weight action-risk model, with the dataset, recipe, and weights released open.</p>
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">P3</span><h3>Evidence — how do you prove what an agent did?</h3><span class="status ok">Record shipped</span></div>
@@ -144,11 +144,11 @@
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">P4</span><h3>Substrate — what does agent code run on?</h3><span class="status ok">Reported · upstream</span></div>
-          <p class="prog__body">The hardware the models train and run on, understood and defended. <b>Clusiana</b> is defender-side research on shared GPUs — a timing side channel that fingerprints a co-tenant's model in about a second, disclosed in coordination with NVIDIA's security team, with two fixes merged upstream into vLLM and an audit tool defenders can run.</p>
+          <p class="prog__body">The substrate research behind Clusiana — the shared GPUs the models run on, understood and defended. A cross-process timing side channel fingerprints a co-tenant's model in about a second; learning to identify a model on the metal is what gave Clusiana its name and its ground truth. Two fixes merged upstream into vLLM, and an audit tool defenders can run.</p>
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">P5</span><h3>Judgment — did the agent do well, for the right reason?</h3><span class="status dev">In development</span></div>
-          <p class="prog__body">The <b>trajectory evaluator</b>: task completion, right-reason root cause, no wandering — scored over the same tamper-evident trace the gate wrote, so a passing score is evidence, not a screenshot.</p>
+          <p class="prog__body">The Clusiana <b>trajectory evaluator</b>: task completion, right-reason root cause, no wandering — scored over the same tamper-evident trace the gate wrote, so a passing score is evidence, not a screenshot.</p>
         </div>
       </div>
       <p style="margin-top:2rem"><a class="more" href="research.html">All five programs, in depth →</a></p>
