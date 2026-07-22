@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tulip Labs — independent AI research lab</title>
-  <meta name="description" content="Tulip Labs is an independent AI research lab. We research how to make AI grounded, verifiable, and safe to act on — and ship what we find in the open. Flagship: the Tulip SDK and the GSAR grounding research behind it.">
+  <title>Tulip Labs — research AI company</title>
+  <meta name="description" content="Tulip Labs is a research AI company. Everyone studies what models say; we study what agents do — and build the control runtime that makes agent actions checkable, approvable, and provable. Research published; runtime open source.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
@@ -13,13 +13,13 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Tulip Labs — independent AI research lab">
-  <meta property="og:description" content="An independent AI research lab. We make AI grounded, verifiable, and safe to act on — and ship it in the open. Flagship: the Tulip SDK and GSAR grounding research.">
+  <meta property="og:title" content="Tulip Labs — research AI company">
+  <meta property="og:description" content="Everyone studies what models say. We study what agents do — and build the control runtime that makes agent actions checkable, approvable, and provable.">
   <meta property="og:url" content="https://tuliplabs.ai/">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Tulip Labs — independent AI research lab.">
+  <meta property="og:image:alt" content="Tulip Labs — research AI company.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
 
@@ -29,9 +29,9 @@
     "@type": "Organization",
     "name": "Tulip Labs",
     "url": "https://tuliplabs.ai/",
-    "description": "An independent AI research lab researching how to make AI grounded, verifiable, and safe to act on — shipping an open-source SDK and published research.",
+    "description": "A research AI company studying how AI agents can be trusted with real actions — publishing the research and shipping the open-source control runtime that enforces it.",
     "logo": "https://tuliplabs.ai/assets/tulip-mark-pink.png",
-    "sameAs": ["https://github.com/tuliplabs-ai"]
+    "sameAs": ["https://github.com/tuliplabs-ai", "https://tulipagents.ai/"]
   }
   </script>
 
@@ -50,8 +50,7 @@
     </a>
     <nav class="nav">
       <a href="research.html">Research</a>
-      <a class="hide-sm" href="open-source.html">Open source</a>
-      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -64,12 +63,12 @@
   <section class="hero hero--split">
     <div class="wrap">
       <div class="col">
-        <p class="kicker">Independent AI research lab</p>
-        <h1>An independent lab for <span class="accent">AI you can trust to act</span>.</h1>
-        <p class="lede">We study how to let AI agents take real actions — move money, change infrastructure, touch customer data — without losing control. We publish what we learn in the open. Our flagship is <strong>Tulip</strong>, an SDK that checks every action an agent takes against your rules before it runs — built on our <strong>GSAR</strong> grounding research.</p>
+        <p class="kicker">Research AI company</p>
+        <h1>Everyone studies what models say. We study <span class="accent">what agents do</span>.</h1>
+        <p class="lede">AI agents now take real actions — they move money, change infrastructure, touch customer data. Tulip Labs trains the small control models a multi-agent framework needs but none ship — models that decide whether an action may fire, whether a claim is grounded, whether a run went well — and builds the runtime that enforces them: every consequential action checked before it runs, held for a person when it matters, written to a record that fails verification if anyone edits it. The models and research are open. The runtime is open source.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="open-source.html">Explore the SDK <span class="arrow">→</span></a>
-          <a class="btn btn--ghost" href="research.html">Read the research</a>
+          <a class="btn btn--primary" href="research.html">The research <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="https://tulipagents.ai/">The runtime</a>
         </div>
         <p class="pip">$ pip install <b>tulip-agents</b></p>
       </div>
@@ -83,59 +82,88 @@
   <section class="band">
     <div class="wrap">
       <div class="col">
-        <p class="label" style="margin-bottom:1.5rem">What we believe</p>
-        <p class="thesis">As AI systems take more consequential actions, the question stops being <i>can they?</i> and becomes <b>can you check?</b> We build for the second question — agents whose every decision is a typed, replayable event, and security work that ships the audit tool, not just the headline.</p>
+        <p class="label" style="margin-bottom:1.5rem">One thesis</p>
+        <p class="thesis">Agentic AI becomes real infrastructure only when what agents <b>do</b> is controllable, provable, and safe by construction. So we train the models that make it so — the control models a multi-agent framework needs but none ship — and build the runtime that enforces them. The runtime, the platform, the lab: one thesis at three layers of the stack, joined by a single spine — a tamper-evident record of every decision.</p>
       </div>
     </div>
   </section>
 
-  <!-- TWO PILLARS -->
+  <!-- THREE AREAS -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Two pillars</span><span class="line"></span></div>
-      <div class="pillars">
+      <div class="eyebrow-row"><span class="label">Three areas</span><span class="line"></span></div>
+      <div class="pillars pillars--three">
         <div class="pillar">
-          <div class="pillar__head"><span class="label">Pillar 01</span><h3>Open source</h3></div>
+          <div class="pillar__head"><span class="label">01</span><h3>The runtime</h3></div>
           <div class="card">
-            <span class="label">Tulip · Apache-2.0</span>
-            <h3>The Tulip SDK</h3>
-            <p>Our flagship — an open-source SDK for grounded agents: findings backed by evidence (GSAR), and risky actions policy-gated, human-approvable, and recorded. Drop it into the agent you already have, on any framework.</p>
-            <p><a class="more" href="open-source.html">Explore the SDK →</a></p>
+            <span class="label">tulipagents.ai · Apache-2.0</span>
+            <h3>One control runtime, three placements</h3>
+            <p>The gate that decides whether an agent's action runs — <b>in-process</b> as a Python SDK and framework bridges, <b>as a service</b> for agents in any language, and <b>around the code</b> in sandboxes from Docker to Firecracker micro-VMs. Placement is a deployment detail; the gate and the record are the product.</p>
+            <p><a class="more" href="open-source.html">The short version →</a></p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar__head"><span class="label">02</span><h3>The platform</h3></div>
+          <div class="card">
+            <span class="label">Studio &amp; Registry</span>
+            <h3>Where a team defines its agents</h3>
+            <p>Agents, playbooks, and skills as governed, versioned definitions — forkable, multi-tenant, with roles and sign-on, a live approval queue, and a signed audit a compliance team can export. Because the policy is part of the definition, an agent is safe the moment it exists.</p>
+            <p><a class="more" href="mailto:hello@tuliplabs.ai">Early access →</a></p>
           </div>
         </div>
         <div class="pillar pillar--research">
-          <div class="pillar__head"><span class="label teal">Pillar 02</span><h3>Research</h3></div>
+          <div class="pillar__head"><span class="label teal">03</span><h3>The lab</h3></div>
           <div class="card">
-            <span class="label teal">GSAR · grounding</span>
-            <h3>A method for grounding</h3>
-            <p>Our published method for verifying that an AI's conclusions are actually supported by its evidence — the engine behind the SDK's findings.</p>
-            <p><a class="more" href="research.html">Read the research →</a></p>
-          </div>
-          <div class="card">
-            <span class="label teal">Clusiana · AI infrastructure</span>
-            <h3>The security of AI infrastructure</h3>
-            <p>Ongoing research into the systems AI runs on. First result: identify a co-tenant's model on a shared GPU — and the audit tool to detect it.</p>
-            <p><a class="more" href="research.html">See the program →</a></p>
-          </div>
-          <div class="card">
-            <span class="label teal">Detection · exploratory</span>
-            <h3>Catching the co-tenant</h3>
-            <p>The flip side of the side-channel work: detecting when a neighbour is fingerprinting <em>you</em> on a shared GPU. Early-stage, defender-first, developed in the open.</p>
+            <span class="label teal">Control models · open weights</span>
+            <h3>We train the control models for multi-agent frameworks</h3>
+            <p>Frontier labs train capability; we train control — the small models a multi-agent system needs but no framework ships: a model to decide which agent runs, whether an action may fire, whether a claim is grounded, and whether a run went well for the right reason. Framework-neutral, open weights, small enough to run in the hot path and inside air-gapped walls.</p>
+            <p><a class="more" href="research.html">The five programs →</a></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED: TULIP -->
+  <!-- THE FIVE PROGRAMS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Five programs · a control model at the core of each</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:0.5rem">Each program asks one question a multi-agent framework leaves open — and answers it with a small model any framework can plug in, released open.</p>
+      <div class="programs">
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">P1</span><h3>Grounding — when may an agent assert?</h3><span class="status ok">Shipped</span></div>
+          <p class="prog__body">The <b>grounding judge</b>: a claim counts only with evidence above a set bar; otherwise the agent abstains. Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>), shipped in the runtime.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">P2</span><h3>Admission — when may an agent act?</h3><span class="status wip">In progress</span></div>
+          <p class="prog__body">The <b>admission classifier</b>: the allow / deny / hold-for-a-person decision, made enforceable — and fast enough to sit in front of every tool call. Small open-weight action-risk models, with the dataset, recipe, and weights released open.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">P3</span><h3>Evidence — how do you prove what an agent did?</h3><span class="status ok">Record shipped</span></div>
+          <p class="prog__body">What separates a <b>record</b> from a log: hash-chained, signed, verification fails on any edit — specified canonically so a trail written in one language verifies in another.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">P4</span><h3>Substrate — what does agent code run on?</h3><span class="status ok">Reported · upstream</span></div>
+          <p class="prog__body">The hardware the models train and run on, understood and defended. <b>Clusiana</b> is defender-side research on shared GPUs — a timing side channel that fingerprints a co-tenant's model in about a second, disclosed in coordination with NVIDIA's security team, with two fixes merged upstream into vLLM and an audit tool defenders can run.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">P5</span><h3>Judgment — did the agent do well, for the right reason?</h3><span class="status dev">In development</span></div>
+          <p class="prog__body">The <b>trajectory evaluator</b>: task completion, right-reason root cause, no wandering — scored over the same tamper-evident trace the gate wrote, so a passing score is evidence, not a screenshot.</p>
+        </div>
+      </div>
+      <p style="margin-top:2rem"><a class="more" href="research.html">All five programs, in depth →</a></p>
+    </div>
+  </section>
+
+  <!-- FEATURED: THE RUNTIME -->
   <section>
     <div class="wrap">
       <div class="work">
         <div class="work__copy">
-          <p class="label" style="margin-bottom:1rem">Open source · Apache-2.0</p>
+          <p class="label" style="margin-bottom:1rem">The runtime · Apache-2.0</p>
           <h2>Tulip</h2>
-          <p class="lede" style="margin-bottom:1.3rem">Our flagship open-source SDK — grounded findings, governable actions.</p>
-          <p>Drop the admission gate around an action your agent already takes — a refund, a host isolation, an account disable. It runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay — a hash chain that detects any edit against a trusted head hash. Grounded findings (GSAR) and abstentions still ship with the evidence behind them. Provider-agnostic: OpenAI, Anthropic, self-hosted vLLM.</p>
+          <p class="lede" style="margin-bottom:1.3rem">Drop the admission gate around an action your agent already takes.</p>
+          <p>A refund, a host isolation, an account disable — it runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay. Wraps agents from LangChain, LangGraph, CrewAI, OpenAI Agents, LlamaIndex, and Google ADK — in Python and TypeScript, no rewrite. Fool the model; not the runtime.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
@@ -162,7 +190,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     </div>
   </section>
 
-  <!-- FEATURED: GSAR (the AI-research anchor) -->
+  <!-- FEATURED: GSAR (P1) -->
   <section class="band">
     <div class="wrap">
       <div class="work flip">
@@ -175,10 +203,10 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
           <p class="muted" style="font-size:0.9rem;margin-top:1rem">A typed grounding layer: partition an answer's claims into grounded / ungrounded / contradicted / complementary, score the support, and decide — proceed, regenerate, or replan.</p>
         </div>
         <div class="work__copy">
-          <p class="label" style="margin-bottom:1rem">Research · grounding</p>
+          <p class="label" style="margin-bottom:1rem">The lab · P1 Grounding</p>
           <h2>GSAR</h2>
           <p class="lede" style="margin-bottom:1.3rem">How do you know an AI's conclusion is actually supported by its evidence?</p>
-          <p>Often it isn't — every fact it cites is real, but the conclusion over-reaches. GSAR scores how well an answer's claims are grounded in the evidence behind them, then decides: proceed, regenerate, or replan. It's published, peer-readable, and the engine that makes Tulip's findings trustworthy.</p>
+          <p>Often it isn't — every fact it cites is real, but the conclusion over-reaches. GSAR scores how well an answer's claims are grounded in the evidence behind them, then decides: proceed, regenerate, or replan. It's published, peer-readable, and the engine that makes the runtime's findings trustworthy.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="research.html">Read the research <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://arxiv.org/abs/2604.23366">Paper (arXiv)</a>
@@ -188,7 +216,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     </div>
   </section>
 
-  <!-- FEATURED: RESEARCH (Clusiana) -->
+  <!-- FEATURED: CLUSIANA (P4) -->
   <section class="band">
     <div class="wrap">
       <div class="work flip">
@@ -198,13 +226,13 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
             <div class="stat"><div class="n">46</div><div class="k">model·engine classes</div></div>
             <div class="stat"><div class="n">0</div><div class="k">special privileges</div></div>
           </div>
-          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A cross-process GPU timing side channel that fingerprints the inference engine and model on a co-located GPU — and crosses a MIG partition through the shared clock domain. We report accuracies with confidence intervals, position the work against prior GPU side-channel research, and ship a defender self-audit with the findings.</p>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A cross-process GPU timing side channel that fingerprints the inference engine and model on a co-located GPU — and crosses a MIG partition through the shared clock domain. Reported with confidence intervals, positioned against prior work, shipped with a defender self-audit.</p>
         </div>
         <div class="work__copy">
-          <p class="label" style="margin-bottom:1rem">Security research</p>
+          <p class="label" style="margin-bottom:1rem">The lab · P4 Substrate</p>
           <h2>Clusiana</h2>
           <p class="lede" style="margin-bottom:1.3rem">What can a neighbour learn about your model on a shared GPU?</p>
-          <p>More than you'd think — no exploit, no privileged access, in about a second. Clusiana is our program on the infrastructure AI runs on; its first project is a cross-process GPU timing side channel that fingerprints a co-tenant's model. The pattern for all our work: name the risk, prove it, then hand defenders a tool they can run.</p>
+          <p>More than you'd think — no exploit, no privileged access, in about a second. Clusiana is the substrate program's first project: name the risk, prove it, disclose it in coordination, then hand defenders a tool they can run. Two fixes from this work are merged upstream into vLLM.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="research.html">Read the report <span class="arrow">→</span></a>
           </div>
@@ -216,17 +244,17 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
   <!-- ABOUT -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">About the lab</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">About</span><span class="line"></span></div>
       <div class="about-grid">
         <div>
-          <p class="lede" style="margin-bottom:1.2rem">Tulip Labs is an independent AI research lab.</p>
-          <p>We're small and self-directed, and we publish in the open — the SDK under Apache-2.0, the research with its methods and tools included. We study how AI systems can be attacked and how their actions can be made auditable, and we hold our own work to the same bar we ask of an agent: state the scope, show the evidence, and ship something a defender can run.</p>
+          <p class="lede" style="margin-bottom:1.2rem">Tulip Labs is a research AI company.</p>
+          <p>That means the research is not the marketing arm of the product — it is where the product's claims get attacked in public. A runtime that says "the model cannot talk its way past the gate" and "the record cannot be forged" makes falsifiable claims, and falsifiable claims need a lab the way a lock company needs lockpickers. We publish the methods, release the datasets and weights, merge the fixes upstream, and disclose in coordination — and we hold our own work to the bar we ask of an agent: state the scope, show the evidence, ship something a defender can run.</p>
           <p>If our work touches a system you operate — or you'd like to collaborate — <a href="mailto:hello@tuliplabs.ai">get in touch</a>.</p>
         </div>
         <ul class="about-facts">
-          <li><b>Focus</b> — agentic-AI security &amp; the infrastructure AI runs on</li>
-          <li><b>Output</b> — an open-source SDK, published research, defender tools</li>
-          <li><b>Licensing</b> — Apache-2.0 SDK; research published in full</li>
+          <li><b>Company</b> — TulipLabs Inc.</li>
+          <li><b>Areas</b> — the runtime · the platform · the lab</li>
+          <li><b>Output</b> — published research, open datasets &amp; weights, an Apache-2.0 runtime, upstream fixes</li>
           <li><b>Disclosure</b> — coordinated, via <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a></li>
         </ul>
       </div>
@@ -240,7 +268,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
         <div class="eyebrow-row"><span class="label">How we work</span><span class="line"></span></div>
         <div class="principle">
           <h3><span class="idx">01</span>Open by default</h3>
-          <p>The work that matters is the work others can build on. Our SDK is Apache-2.0; our research is published in full, tools included.</p>
+          <p>The work that matters is the work others can build on. The runtime is Apache-2.0; the research is published in full, tools included.</p>
         </div>
         <div class="principle">
           <h3><span class="idx">02</span>Measured claims</h3>
@@ -265,13 +293,13 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     <div class="foot-grid">
       <div class="foot-brand">
         <p class="wordmark">Tulip Labs</p>
-        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent AI research lab. We ship what we find, in the open.</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
       </div>
       <div class="foot-col">
-        <h4>Work</h4>
-        <a href="open-source.html">Tulip SDK</a>
-        <a href="research.html">Research</a>
-        <a href="https://tulipagents.ai/">Documentation</a>
+        <h4>Areas</h4>
+        <a href="https://tulipagents.ai/">The runtime</a>
+        <a href="mailto:hello@tuliplabs.ai">The platform</a>
+        <a href="research.html">The lab</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
@@ -280,7 +308,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Tulip Labs</span>
+      <span>© 2026 TulipLabs Inc.</span>
       <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>

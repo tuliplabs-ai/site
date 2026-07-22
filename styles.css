@@ -201,6 +201,8 @@ strong { font-weight: 600; }
 
 /* ---- two pillars --------------------------------------------------------- */
 .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.pillars--three { grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+@media (max-width: 1000px) { .pillars--three { grid-template-columns: 1fr; gap: 2rem; } }
 @media (max-width: 820px) { .pillars { grid-template-columns: 1fr; gap: 2rem; } }
 .pillar__head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 1.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--rule); }
 .pillar__head h3 { font-family: var(--serif); font-size: 1.4rem; margin: 0; }
@@ -221,3 +223,20 @@ strong { font-weight: 600; }
 .eyebrow-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
 .eyebrow-row .line { flex: 1; height: 1px; background: var(--rule); }
 hr.soft { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+/* ---- research programs (home) — structured list with status ------------- */
+.programs { margin-top: 2.5rem; }
+.prog { padding: 1.7rem 0; border-top: 1px solid var(--rule); }
+.prog:first-child { border-top: 0; padding-top: 0.5rem; }
+.prog__head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.prog__id { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; color: var(--red); letter-spacing: 0.03em; }
+.prog__head h3 { margin: 0; font-size: 1.32rem; font-weight: 440; flex: 1 1 22ch; }
+.prog__body { color: var(--ink-soft); max-width: 62rem; line-height: 1.62; margin: 0; }
+.status { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.09em;
+  padding: 0.34rem 0.7rem; border-radius: 999px; border: 1px solid; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 0.45rem; }
+.status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.status.ok  { color: #1F7A54; border-color: color-mix(in srgb, #1F7A54 34%, transparent); }
+.status.wip { color: #B26B00; border-color: color-mix(in srgb, #B26B00 34%, transparent); }
+.status.dev { color: var(--mute); border-color: var(--rule); }
+@media (max-width: 620px) { .prog__head h3 { flex-basis: 100%; order: 3; } }

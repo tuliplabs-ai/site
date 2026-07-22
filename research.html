@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research — Tulip Labs</title>
-  <meta name="description" content="Security research from Tulip Labs: defender-first, evidence-first studies of the infrastructure modern AI runs on. Every finding ships with a tool you can run yourself.">
+  <title>The lab — Tulip Labs</title>
+  <meta name="description" content="The lab at Tulip Labs trains the small control models a multi-agent system needs but no framework ships — governed, and specialized to the customer's own record. Five research programs on agents that act, with published methods, coordinated disclosures, and upstream fixes.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
   <link rel="canonical" href="https://tuliplabs.ai/research.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Research — Tulip Labs">
-  <meta property="og:description" content="Defender-first, evidence-first studies of the infrastructure modern AI runs on. Every finding ships with a tool you can run yourself.">
+  <meta property="og:title" content="The lab — Tulip Labs">
+  <meta property="og:description" content="Five research programs on agents that act: assert, act, prove, run, judge. Published methods, coordinated disclosures, upstream fixes, tools defenders can run.">
   <meta property="og:url" content="https://tuliplabs.ai/research.html">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
@@ -34,8 +34,7 @@
     </a>
     <nav class="nav">
       <a href="research.html" class="active">Research</a>
-      <a class="hide-sm" href="open-source.html">Open source</a>
-      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -43,26 +42,129 @@
 </header>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero" style="padding-bottom:3.5rem">
     <div class="wrap"><div class="col">
-      <p class="kicker">Security research</p>
-      <h1>We study the systems<br>AI actually runs on.</h1>
-      <p class="lede">Models get the scrutiny. The infrastructure underneath them — shared GPUs, inference engines, agent runtimes — often doesn't. That's where we look: for the side channels, the trust assumptions, and the failure modes no one has named yet. Then we hand defenders a tool, not just a warning.</p>
+      <p class="kicker">The lab · Tulip Labs</p>
+      <h1>The science of agents <span class="accent">that act</span>.</h1>
+      <p class="lede">Five programs, one question each: when may an agent <b>assert</b>, when may it <b>act</b>, how do you <b>prove</b> what it did, what does its code <b>run</b> on, and did it do well for the right reason — <b>judgment</b>. Each program publishes its method, ships its receipts, and states its status honestly.</p>
     </div></div>
   </section>
 
-  <!-- Clusiana feature -->
+  <!-- WHAT WE TRAIN, AND WHY -->
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">What we train, and why</span><span class="line"></span></div>
+      <h2>Frontier labs train capability. We train <span class="accent">control</span>.</h2>
+      <p class="lede" style="margin-bottom:1.7rem">A modern agent is not one model reasoning. It is a pipeline of narrow decisions — which agent shape runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Most of those decisions are small, repeating, and bounded — exactly what a small model does best. So we train a fleet of small, open-weight <b>control models</b>, one per decision, and govern every one of them.</p>
+      <div class="principle">
+        <h3><span class="idx">01</span>A large model plans; small models control</h3>
+        <p>The open-ended reasoning stays on a general model — systems are planner-limited, and planning is where judgment lives. Around it, small specialists handle the mechanics and the control decisions: route, select a tool, build its arguments, check the schema, verify the step, ground the claim, admit the action, judge the run. We never train the planner; we train everything that governs it. <a href="https://arxiv.org/abs/2506.02153">NVIDIA's own research</a> makes the same argument — small models are the right tool for most nodes of an agent graph, in heterogeneous systems.</p>
+      </div>
+      <div class="principle">
+        <h3><span class="idx">02</span>Small, because control runs in the hot path</h3>
+        <p>A control model sits in front of every action, so it must answer in tens of milliseconds — and it often must run inside a regulated or air-gapped network where no data may leave. Small, open-weight, self-hosted models are not a compromise here; they are the requirement. They also cost an order of magnitude less than a frontier call, on decisions that happen constantly.</p>
+      </div>
+      <div class="principle">
+        <h3><span class="idx">03</span>The record is the training data no one else has</h3>
+        <p>Every governed action — the decision, the policy, the outcome, and the human approval when there was one — lands on a tamper-evident record. That record is a labeled dataset of your own actions and judgments, and it specializes your control models to your world: the admission model gets sharper about your risky actions, the evaluator learns your definition of a good run. The audit trail you keep for compliance is also the flywheel that makes the models better. A framework or a frontier lab cannot have this data; it is yours.</p>
+      </div>
+      <div class="principle">
+        <h3><span class="idx">04</span>Not a better guard model — a governed, self-improving one</h3>
+        <p>Excellent open guard models already exist, and we use the category. But they are generic filters, trained once, the same for everyone. Ours differ on three axes: <b>specific</b> to your tools and policy, <b>self-improving</b> from your record, and <b>governed</b> — a guard model flags a score; the runtime stops the action, holds it for a person when policy says so, and writes tamper-evident proof. Where a good open model already fits a task, we specialize it on your record rather than rebuild it. The moat is the assembly, not the weights.</p>
+      </div>
+      <p class="muted" style="margin-top:1.8rem;font-size:0.95rem">These models ship into the open-source runtime at <a href="https://tulipagents.ai/">tulipagents.ai</a>, where the gate enforces them and the record trains the next generation. The five programs below are how we get there — each one a control model, each with its status stated plainly.</p>
+    </div></div>
+  </section>
+
+  <!-- P1 GROUNDING -->
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">P1 · Grounding</span><span class="line"></span><span class="label">Shipped</span></div>
+      <h2>When may an agent assert?</h2>
+      <p><b>Mechanism.</b> A claim counts only when the evidence behind it clears a set bar; below the bar the agent abstains, and the abstention is recorded with its reason. GSAR partitions an answer's claims into grounded, ungrounded, contradicted, and complementary, scores how well the whole is supported, and decides: proceed, regenerate, or replan.</p>
+      <p><b>Receipts.</b> Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>) and shipped in the runtime — the same scoring gates what a Tulip agent is allowed to conclude. Deep dive below.</p>
+    </div></div>
+  </section>
+
+  <!-- P2 ADMISSION -->
+  <section>
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">P2 · Admission</span><span class="line"></span><span class="label">Gate shipped · classifiers in progress</span></div>
+      <h2>When may an agent act?</h2>
+      <p><b>Mechanism.</b> Every consequential action passes an admission decision before it runs: allow, deny, or hold for a person. The decision is enforced by the runtime, not suggested to the model — a prompt can change what the model wants; it cannot change what the gate admits.</p>
+      <p><b>Receipts.</b> The enforced allow / deny / hold gate ships in the runtime today. In progress: small open-weight action-risk classifiers to make the decision fast and learnable — with the dataset, the training recipe, and the weights released open, so the result can be checked rather than trusted.</p>
+    </div></div>
+  </section>
+
+  <!-- P3 EVIDENCE -->
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">P3 · Evidence</span><span class="line"></span><span class="label">Record shipped · spec in progress</span></div>
+      <h2>How do you prove what an agent did?</h2>
+      <p><b>Mechanism.</b> What separates a record from a log: every decision and action lands on a hash-chained, signed trail, and verification fails on any edit. A log tells you what someone wrote down; a record is evidence that what it says happened, happened, in that order, untouched.</p>
+      <p><b>Receipts.</b> The hash-chained, signed record ships in the runtime and is the spine through everything else the company builds. In progress: a canonical cross-language serialization spec, so a trail written in one language verifies in another.</p>
+    </div></div>
+  </section>
+
+  <!-- P4 SUBSTRATE -->
+  <section>
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">P4 · Substrate</span><span class="line"></span><span class="label">Reported · fixes upstream</span></div>
+      <h2>What does agent code actually run on?</h2>
+      <p><b>Mechanism.</b> Defender-side research on the shared hardware underneath agents — starting with GPUs, where isolation is assumed more often than it is measured. The first project, Clusiana, is a cross-process GPU timing side channel that fingerprints a co-tenant's model from an ordinary, unprivileged process.</p>
+      <p><b>Receipts.</b> Results reported with confidence intervals; disclosed in coordination with NVIDIA's security team; two fixes merged upstream into vLLM; a self-audit tool ships with the findings so defenders can measure their own exposure. Deep dive below.</p>
+    </div></div>
+  </section>
+
+  <!-- P5 JUDGMENT -->
+  <section class="band">
+    <div class="wrap"><div class="col">
+      <div class="eyebrow-row"><span class="label">P5 · Judgment</span><span class="line"></span><span class="label">In development</span></div>
+      <h2>Did the agent do well, for the right reason?</h2>
+      <p><b>Mechanism.</b> Trajectory evaluation a risk owner can trust: did the agent complete the task, did it succeed for the right reason at the root, did it wander. Scored over the same tamper-evident trace the admission gate wrote — so a passing score is evidence about what actually ran, not a screenshot of a happy path.</p>
+      <p><b>Receipts.</b> In development. Nothing to cite yet; when there is, it will appear here with its method.</p>
+    </div></div>
+  </section>
+
+  <!-- DEEP DIVE: GSAR -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Deep dive · P1 Grounding</span><span class="line"></span></div>
+      <div class="work flip">
+        <div class="work__media">
+          <div class="stats">
+            <div class="stat"><div class="n">1</div><div class="k">scoring equation</div></div>
+            <div class="stat"><div class="n">6</div><div class="k">proven properties</div></div>
+            <div class="stat"><div class="n">1</div><div class="k">type to integrate</div></div>
+          </div>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">A typed grounding layer: partition an answer's claims into grounded / ungrounded / contradicted / complementary, score the support, and decide — proceed, regenerate, or replan.</p>
+        </div>
+        <div class="work__copy">
+          <h2>GSAR — grounded answer verification</h2>
+          <p class="lede" style="margin-bottom:1.3rem">When an AI draws a conclusion, is it actually supported by the evidence it cites?</p>
+          <p>Often not — every fact is real, but the conclusion over-reaches. GSAR measures that gap: it partitions an answer's claims into grounded, ungrounded, contradicted, and complementary; scores how well the whole is supported; and decides whether to proceed, regenerate, or replan — with six monotonicity and adversarial-robustness properties proven and locked under tests. It's published and peer-readable, and it's the engine behind the runtime: a finding ships only when its evidence clears the bar.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://arxiv.org/abs/2604.23366">Read the paper <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEEP DIVE: CLUSIANA -->
   <section class="band">
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Featured · GPU side channels</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">Deep dive · P4 Substrate</span><span class="line"></span></div>
       <div class="col">
         <h2>Clusiana</h2>
-        <p class="lede">Identify which LLM another tenant is running on a shared GPU. A 1.2-second probe. 94% accuracy. No special privileges. No exploit.</p>
+        <p class="lede">What can a neighbour learn about your model on a shared GPU? A timing probe of about a second, from an ordinary unprivileged process, distinguishes 46 model·engine classes — and crosses a MIG partition through the shared clock domain.</p>
       </div>
       <div class="stats" style="margin:2rem 0">
-        <div class="stat"><div class="n">1.2 s</div><div class="k">probe window</div></div>
-        <div class="stat"><div class="n">94%</div><div class="k">model-ID accuracy</div></div>
-        <div class="stat"><div class="n">~25%</div><div class="k">mitigation throughput cost</div></div>
+        <div class="stat"><div class="n">~1 s</div><div class="k">probe window</div></div>
+        <div class="stat"><div class="n">46</div><div class="k">model·engine classes</div></div>
+        <div class="stat"><div class="n">0</div><div class="k">special privileges</div></div>
       </div>
       <pre class="code" style="margin:0 0 2.2rem"><span class="c"># fingerprint an endpoint from its GPU timing — grounded by construction</span>
 <span class="k">from</span> tulip_integrations.compute <span class="k">import</span> probe_to_finding
@@ -72,8 +174,8 @@ v = finding.verdict
 <span class="fn">print</span>(v.model, <span class="s">"·"</span>, v.engine, <span class="s">"·"</span>, v.hardware)
 <span class="c"># 7-8B class · vLLM (continuous-batching) · H100/A100 class</span></pre>
       <div class="col">
-        <p>Clusiana is our research program on the infrastructure AI runs on. Its first project is a cross-process GPU timing side channel that fingerprints the inference engine and the language model running on a co-located NVIDIA GPU — from an ordinary, unprivileged process sharing the same silicon. We publish the risk, the result, and the defense; the offensive method stays in the lab.</p>
-        <p>True to how we work, the single most useful artifact isn't the attack — it's <strong>a 140-line, standard-library audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. Alongside it: a mitigation we measured honestly at roughly a quarter of throughput.</p>
+        <p>Clusiana is the substrate program's first project: a cross-process GPU timing side channel that fingerprints the inference engine and the language model running on a co-located NVIDIA GPU — no exploit, no privileged access. Results are reported with confidence intervals and positioned against prior work. We publish the risk, the result, and the defense; the offensive method stays in the lab.</p>
+        <p>True to the defender-first rule, the single most useful artifact isn't the attack — it's <strong>a standard-library self-audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. The finding was disclosed in coordination with NVIDIA's security team, and two fixes from this work are merged upstream into vLLM.</p>
         <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). A dedicated single-tenant GPU — with no co-tenant to observe — is out of scope.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/clusiana">Code &amp; report <span class="arrow">→</span></a>
@@ -82,57 +184,14 @@ v = finding.verdict
     </div>
   </section>
 
-  <!-- GSAR feature -->
+  <!-- DISCLOSURE -->
   <section>
-    <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Published · grounding</span><span class="line"></span></div>
-      <div class="col">
-        <h2>GSAR — grounded answer verification</h2>
-        <p class="lede">When an AI draws a conclusion, is it actually supported by the evidence it cites? Often not — every fact is real, but the conclusion over-reaches.</p>
-        <p>GSAR is our method for measuring that gap. It partitions an answer's claims into grounded, ungrounded, contradicted, and complementary; scores how well the whole is supported; and decides whether to proceed, regenerate, or replan — with six monotonicity and adversarial-robustness properties proven and locked under tests. It's published and peer-readable, and it is the engine behind the Tulip SDK: a security finding ships only when its evidence clears the bar.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="https://arxiv.org/abs/2604.23366">Read the paper <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- research agenda -->
-  <section>
-    <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Where we're looking next</span><span class="line"></span></div>
-      <div class="grid-3">
-        <div class="card">
-          <span class="label">AI infrastructure</span>
-          <h3>Isolation on shared accelerators</h3>
-          <p>Timing, thermal, and contention channels across GPU multi-tenancy — and what real isolation costs.</p>
-        </div>
-        <div class="card">
-          <span class="label">Agent security</span>
-          <h3>Trust boundaries in agent runtimes</h3>
-          <p>Tool execution, prompt-borne actions, and inter-agent messages: where an autonomous system can be steered, and how to make its decisions auditable.</p>
-        </div>
-        <div class="card">
-          <span class="label">Evaluation</span>
-          <h3>Measuring what models leak</h3>
-          <p>Reproducible, defender-runnable methods for quantifying side-channel and inference-time leakage — the audit shipped, the attack held back.</p>
-        </div>
-        <div class="card">
-          <span class="label">Security models</span>
-          <h3>Small models for the SOC</h3>
-          <p>Compact, self-hostable language models specialised for security work — fast, private, and grounded by construction. An early direction; in the open as it matures.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- disclosure -->
-  <section class="band">
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">Disclosure</span><span class="line"></span></div>
-      <p>We practice coordinated disclosure. If our work touches a system you operate, or you believe you've found an issue in something we publish, reach us at <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a>. We acknowledge reports promptly and work to a sensible timeline before anything goes public.</p>
+      <div class="eyebrow-row"><span class="label">How we disclose</span><span class="line"></span></div>
+      <p>We practice coordinated disclosure, and we work defender-first: every security finding ships with something a defender can run today, and the offensive tooling stays in the lab. If our work touches a system you operate, or you believe you've found an issue in something we publish, reach us at <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a>. We acknowledge reports promptly and work to a sensible timeline before anything goes public.</p>
     </div></div>
   </section>
+
 </main>
 
 <footer class="site-foot">
@@ -140,13 +199,13 @@ v = finding.verdict
     <div class="foot-grid">
       <div class="foot-brand">
         <p class="wordmark">Tulip Labs</p>
-        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent lab for agentic AI and security research. Systems you can verify.</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
       </div>
       <div class="foot-col">
-        <h4>Work</h4>
-        <a href="open-source.html">Tulip SDK</a>
-        <a href="research.html">Research</a>
-        <a href="https://tulipagents.ai/">Documentation</a>
+        <h4>Areas</h4>
+        <a href="https://tulipagents.ai/">The runtime</a>
+        <a href="mailto:hello@tuliplabs.ai">The platform</a>
+        <a href="research.html">The lab</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
@@ -155,11 +214,12 @@ v = finding.verdict
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Tulip Labs</span>
+      <span>© 2026 TulipLabs Inc.</span>
       <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>
   </div>
 </footer>
+
 </body>
 </html>

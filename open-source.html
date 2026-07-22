@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tulip — the open-source SDK for agents you can let act</title>
-  <meta name="description" content="Tulip is the open-source Python SDK from Tulip Labs for agents that take real action — every risky step policy-gated, human-approvable, and recorded in a tamper-evident audit trail. Trick the model all you want; the action still has to clear the gate before it runs. Proven first in security. Apache-2.0.">
+  <title>The runtime — Tulip Labs</title>
+  <meta name="description" content="The Tulip runtime: one open-source control runtime, three placements — in-process SDK and framework bridges, as-a-service gateway, and sandboxes. Every consequential agent action checked against policy, holdable for a human, recorded on a tamper-evident trail. Apache-2.0.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
   <link rel="canonical" href="https://tuliplabs.ai/open-source.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Tulip — agents you can let act">
-  <meta property="og:description" content="Open-source Python SDK: agents that take real action, with every risky step policy-gated, human-approvable, and recorded in a tamper-evident trail. Apache-2.0.">
+  <meta property="og:title" content="The runtime — Tulip Labs">
+  <meta property="og:description" content="One open-source control runtime, three placements: in-process, as a service, around the code. The gate and the record are the product. Apache-2.0.">
   <meta property="og:url" content="https://tuliplabs.ai/open-source.html">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
@@ -34,8 +34,7 @@
     </a>
     <nav class="nav">
       <a href="research.html">Research</a>
-      <a class="hide-sm active" href="open-source.html">Open source</a>
-      <a class="hide-sm" href="https://tulipagents.ai/">Docs</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="mailto:hello@tuliplabs.ai">Contact</a>
     </nav>
@@ -43,29 +42,32 @@
 </header>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero" style="padding-bottom:3.5rem">
     <div class="wrap"><div class="col">
-      <p class="kicker">Open source · Apache-2.0</p>
-      <h1>Tulip</h1>
-      <p class="lede">The open-source control layer for agents that <strong>act</strong> — move money, delete a resource, disable an account, isolate a host. Add it to the agent you already have, on any framework (LangChain, CrewAI, the OpenAI Agents SDK), and every risky step is policy-gated, human-approvable, and recorded in a tamper-evident audit trail. <em>Trick the model all you want — the action still has to clear the gate before it runs.</em> Proven first in security.</p>
+      <p class="kicker">The runtime · Apache-2.0</p>
+      <h1>One control runtime, <span class="accent">three placements</span>.</h1>
+      <p class="lede">Tulip is the gate that decides whether an agent's action runs. A refund, a host isolation, an account disable — it executes only after it clears policy, holds for a human when it matters, and lands on a hash-chained audit trail that fails verification if anyone edits it. Where the gate sits — in your process, as a service, or around the code in a sandbox — is a deployment detail; the gate and the record are the product. The full documentation lives at <a href="https://tulipagents.ai/">tulipagents.ai</a>; this page is the short version.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://tulipagents.ai/">Read the docs <span class="arrow">→</span></a>
-        <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">GitHub</a>
+        <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai">GitHub</a>
       </div>
-      <p class="muted" style="font-family:var(--mono);font-size:0.85rem;margin-top:1.5rem">pip install tulip-agents</p>
+      <p class="pip">$ pip install <b>tulip-agents</b></p>
     </div></div>
   </section>
 
+  <!-- CODE SAMPLE -->
   <section style="padding-top:0">
     <div class="wrap">
       <div class="col">
         <p class="label" style="margin-bottom:1rem">Drop the gate around an action your agent already takes</p>
-        <pre class="code"><span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
+        <pre class="code"><span class="c"># drop the gate around an action your agent already takes</span>
+<span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
 
 policy = <span class="fn">ControlPolicy</span>()    <span class="c"># prod → human</span>
 trail  = <span class="fn">AuditTrail</span>()
 
-<span class="c"># the model decided to refund a customer</span>
 risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, asset=<span class="s">"cust:4821"</span>,
               blast_radius=1, kind=<span class="s">"payment"</span>, environment=<span class="s">"production"</span>)
 
@@ -74,64 +76,55 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
 <span class="k">except</span> AdmissionError <span class="k">as</span> e:
     <span class="fn">print</span>(e.decision.outcome)   <span class="c"># → "require_human"; refund NOT run</span>
 
-<span class="c"># Held for a human, on a tamper-evident record you can replay.</span></pre>
+<span class="c"># Held for a human, on the audit trail. Fool the model; not the runtime.</span></pre>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Action you can trust — control, not just intelligence</span><span class="line"></span></div>
-      <div class="col">
-        <p>A frontier model is smart. The one thing it can't do — no matter how smart — is <em>prove it won't take a catastrophic action</em>. Tulip closes that gap: a side-effecting action runs only after it clears the admission gate — policy, risk, and approval — and a bare model reaching for something dangerous is <strong>blocked before it runs</strong>. Jailbreak the model all you want — the gate, not the prompt, decides what executes.</p>
-        <p>And nothing is un-recorded: every decision and action is a hash-chained event you can <strong>replay</strong>, tamper-evident against a trusted head hash. Findings still carry the evidence behind them (GSAR grounding) and abstentions stay explicit — but the core is <em>control</em>: the same <code>Agent</code> class scales from a five-line script to a multi-agent SOC, auditable the whole way.</p>
-        <p class="muted"><strong>Can you make the agent go rogue?</strong> Three runnable demos ship in <code>examples/</code> — a jailbreak-the-agent challenge (breaches: 0), a governed SOC action (gate → hold-for-human → tamper-evident audit), and an honest grounding ablation.</p>
-      </div>
-    </div>
-  </section>
-
+  <!-- WHAT'S IN THE BOX -->
   <section class="band">
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">What's inside</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">What's in the box</span><span class="line"></span></div>
+      <div class="stats" style="margin-bottom:2rem">
+        <div class="stat"><div class="n">v2.1</div><div class="k">on PyPI · Apache-2.0</div></div>
+        <div class="stat"><div class="n">4,900+</div><div class="k">tests</div></div>
+        <div class="stat"><div class="n">95%</div><div class="k">coverage, enforced in CI</div></div>
+      </div>
       <div class="grid-3">
-        <div class="card"><span class="label">Grounding</span><h3>Findings backed by evidence</h3><p>A security finding is admitted only when its evidence clears the GSAR threshold; below the bar it abstains, with an audit trail. Tagged to MITRE ATLAS / OWASP, ready for a SIEM.</p></div>
-        <div class="card"><span class="label">Security tools</span><h3>Read-only by construction</h3><p>The cloud-posture auditor literally can't write — its tools admit only describe/list/get calls, with the IAM identity as the backstop. Pair guardrails and a model-judge on every tool call.</p></div>
-        <div class="card"><span class="label">Coordination</span><h3>Eight shapes, one class</h3><p>Single agent, pipelines, loops, orchestrator + specialists, swarm, hand-off, and cross-process A2A — composed from the task, not hand-wired.</p></div>
-        <div class="card"><span class="label">Observability</span><h3>Typed event stream</h3><p>An opt-in event bus surfaces 40+ canonical events from every layer through one context — no external broker — with an OpenTelemetry hook when you want it.</p></div>
-        <div class="card"><span class="label">Durability</span><h3>Pause &amp; resume</h3><p>Idempotent tools so a risky action never fires twice; checkpoint to Redis, Postgres, or S3; interrupt for human approval and resume exactly where it stopped.</p></div>
-        <div class="card"><span class="label">Reach</span><h3>Provider-agnostic</h3><p>OpenAI, Anthropic, self-hosted vLLM, or any OpenAI-compatible endpoint via <code>base_url</code>. RAG, MCP client + server, and a FastAPI agent server included — plus vendor security integrations (SIEM, EDR, identity, threat-intel) in the companion <code>tulip-integrations</code> package.</p></div>
+        <div class="card"><span class="label">Admission</span><h3>The admit() gate</h3><p>Every consequential action passes allow / deny / hold-for-a-person before it runs — enforced by the runtime, not suggested to the model.</p></div>
+        <div class="card"><span class="label">Evidence</span><h3>Hash-chained AuditTrail</h3><p>Every decision and action lands on a hash-chained trail; verification fails on any edit. A record, not a log.</p></div>
+        <div class="card"><span class="label">Grounding</span><h3>GSAR built in</h3><p>A conclusion ships only when its evidence clears the grounding bar; below it, the agent abstains and records why. Published method (arXiv:2604.23366).</p></div>
+        <div class="card"><span class="label">Coordination</span><h3>8 agent shapes, one router</h3><p>Single agent, pipelines, loops, orchestrator + specialists, and more — a cognitive router compiles the task into the shape, rather than you hand-wiring it.</p></div>
+        <div class="card"><span class="label">Bridges</span><h3>Six frameworks, no rewrite</h3><p>Wrap agents from LangChain, LangGraph, CrewAI, the OpenAI Agents SDK, LlamaIndex, and Google ADK — in Python, and in TypeScript via a gateway client.</p></div>
+        <div class="card"><span class="label">Enterprise</span><h3>11 integrations</h3><p>SIEM, SOAR, and identity integrations, so the gate's decisions and the trail's events land in the systems a security team already watches.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- THREE PLACEMENTS -->
   <section>
     <div class="wrap">
-      <div class="work">
-        <div class="work__copy">
-          <p class="label" style="margin-bottom:1rem">Try it in the browser</p>
-          <h2>The Workbench</h2>
-          <p>A self-contained playground for every Tulip pattern — vanilla-TS UI, a thin Node proxy, and the SDK runner behind it. Bring your own provider key and watch a multi-agent run emit its event stream live. Run it on localhost in three terminals, or as a single Docker container.</p>
-          <div class="btn-row">
-            <a class="btn btn--ghost" href="https://tulipagents.ai/workbench/">Workbench guide <span class="arrow">→</span></a>
-          </div>
-        </div>
-        <div class="work__media">
-          <img class="shot" src="assets/workbench.png" width="2720" height="1680" loading="lazy" alt="The Tulip Workbench browser UI: a notebook sidebar on the left, a running multi-agent example in the centre, and its live typed event stream.">
-        </div>
+      <div class="eyebrow-row"><span class="label">Three placements, one gate</span><span class="line"></span></div>
+      <div class="grid-3">
+        <div class="card"><span class="label">01 · In-process</span><h3>SDK &amp; bridges</h3><p>The gate runs inside your agent's process: the Python SDK for agents you define, and the framework bridges for agents you already have. The shortest path from <code>pip install</code> to a governed action.</p></div>
+        <div class="card"><span class="label">02 · As a service</span><h3>Gateway</h3><p>The same gate as a service, for agents in any language: submit the action, get the decision, with holds that survive process restarts and a signed audit on the server side. This is how the TypeScript bridges reach the gate.</p></div>
+        <div class="card"><span class="label">03 · Around the code</span><h3>Sandboxes</h3><p>The gate wrapped around code you don't fully trust, from Docker containers to Firecracker micro-VMs — the same rules at every edge, whatever the code does inside.</p></div>
       </div>
     </div>
   </section>
 
+  <!-- HANDOFF -->
   <section class="band">
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">License &amp; provenance</span><span class="line"></span></div>
-      <p>Tulip is released under the <strong>Apache License 2.0</strong> — a real patent grant, and the standard every legal team already recognizes. It began as a fork of an earlier project released under the Universal Permissive License v1.0; those original portions remain available under the UPL, and all new work is Apache-2.0. The <code>NOTICE</code> file records the lineage in full.</p>
+      <div class="eyebrow-row"><span class="label">Everything else lives at tulipagents.ai</span><span class="line"></span></div>
+      <p>Quickstarts, the policy model, the bridge guides, the gateway API, and the sandbox setup are all in the runtime's own documentation — kept there, in one place, next to the code.</p>
       <div class="btn-row">
-        <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/sdk-python">Star on GitHub <span class="arrow">→</span></a>
-        <a class="btn btn--ghost" href="https://tulipagents.ai/">Documentation</a>
+        <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
+        <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai">Source on GitHub</a>
       </div>
     </div></div>
   </section>
+
 </main>
 
 <footer class="site-foot">
@@ -139,13 +132,13 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     <div class="foot-grid">
       <div class="foot-brand">
         <p class="wordmark">Tulip Labs</p>
-        <p class="muted" style="max-width:24rem;margin-top:0.6rem">An independent lab for agentic AI and security research. Systems you can verify.</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
       </div>
       <div class="foot-col">
-        <h4>Work</h4>
-        <a href="open-source.html">Tulip SDK</a>
-        <a href="research.html">Research</a>
-        <a href="https://tulipagents.ai/">Documentation</a>
+        <h4>Areas</h4>
+        <a href="https://tulipagents.ai/">The runtime</a>
+        <a href="mailto:hello@tuliplabs.ai">The platform</a>
+        <a href="research.html">The lab</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
@@ -154,11 +147,12 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Tulip Labs</span>
+      <span>© 2026 TulipLabs Inc.</span>
       <span><a href="legal.html">Legal &amp; disclaimer</a></span>
       <span>Built in the open.</span>
     </div>
   </div>
 </footer>
+
 </body>
 </html>
