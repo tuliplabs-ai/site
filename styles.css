@@ -240,3 +240,28 @@ hr.soft { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
 .status.wip { color: #B26B00; border-color: color-mix(in srgb, #B26B00 34%, transparent); }
 .status.dev { color: var(--mute); border-color: var(--rule); }
 @media (max-width: 620px) { .prog__head h3 { flex-basis: 100%; order: 3; } }
+
+/* ---- contact page -------------------------------------------------------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: start; }
+@media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.contact-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: clamp(1.6rem, 3vw, 2.4rem); }
+.form { display: grid; gap: 1.25rem; }
+.field { display: grid; gap: 0.45rem; }
+.field label { font-family: var(--sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--mute); }
+.field input, .field textarea {
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 10px; padding: 0.72rem 0.9rem; width: 100%;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--mute); }
+.field input:focus, .field textarea:focus {
+  outline: none; background: var(--surface);
+  border-color: var(--red); box-shadow: 0 0 0 3px rgba(214, 51, 108, 0.12);
+}
+.field textarea { min-height: 8.5rem; resize: vertical; line-height: 1.55; }
+.form .btn { margin-top: 0.3rem; justify-self: start; }
+.form-note { font-size: 0.85rem; color: var(--mute); margin: 0; }
+.form-status { font-size: 0.95rem; margin: 0; min-height: 1.2em; }
+.form-status.ok  { color: #1F7A54; }
+.form-status.err { color: var(--red-deep); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

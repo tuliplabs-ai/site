@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Tulip Labs</title>
+  <meta name="description" content="Get in touch with Tulip Labs — general enquiries, collaboration, and design-partner conversations. For security disclosures, email security@tuliplabs.ai.">
+  <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="Contact — Tulip Labs">
+  <meta property="og:description" content="Get in touch with Tulip Labs. For security disclosures, email security@tuliplabs.ai.">
+  <meta property="og:url" content="https://tuliplabs.ai/contact.html">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tulip Labs home">
+      <img class="brand-mark" src="assets/tulip-mark-pink.png" width="38" height="38" alt="">
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="research.html">Research</a>
+      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:3.5rem">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="col">
+          <p class="kicker">Contact</p>
+          <h1>Get in <span class="accent">touch</span>.</h1>
+          <p class="lede">General enquiries, collaboration, and design-partner conversations. If our work touches a system you operate, or you'd like to talk about running Clusiana on your own record, this reaches us.</p>
+          <ul class="about-facts" style="margin-top:2rem">
+            <li><b>General</b> — <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a></li>
+            <li><b>Security disclosures</b> — <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a> (coordinated, defender-first)</li>
+            <li><b>Open source</b> — <a href="https://github.com/tuliplabs-ai">github.com/tuliplabs-ai</a></li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <form id="contact-form" class="form" action="https://formsubmit.co/ajax/info@tuliplabs.ai" method="POST">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="cf-subject">Subject</label>
+              <input id="cf-subject" name="_subject" type="text" value="Website enquiry — tuliplabs.ai">
+            </div>
+            <div class="field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <!-- honeypot: bots fill this, humans don't -->
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit" class="btn btn--primary">Send <span class="arrow">→</span></button>
+            <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+            <p class="form-note">Your message goes to info@tuliplabs.ai. We don't share it or use it for anything but replying.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Areas</h4>
+        <a href="https://tulipagents.ai/">The runtime</a>
+        <a href="contact.html">The platform</a>
+        <a href="research.html">The lab</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 TulipLabs Inc.</span>
+      <span><a href="legal.html">Legal &amp; disclaimer</a></span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('cf-status');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      status.className = 'form-status';
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (res.ok) {
+          form.reset();
+          status.textContent = 'Thanks — your message is on its way. We’ll be in touch.';
+          status.className = 'form-status ok';
+        } else {
+          status.textContent = (data && data.message) ? data.message : 'Something went wrong. Please email info@tuliplabs.ai directly.';
+          status.className = 'form-status err';
+        }
+      } catch (err) {
+        status.textContent = 'Could not send. Please email info@tuliplabs.ai directly.';
+        status.className = 'form-status err';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
