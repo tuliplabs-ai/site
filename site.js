@@ -30,4 +30,9 @@
     }
     observer.observe(el);
   });
+
+  // Printing renders the whole page at once — reveal everything first.
+  window.addEventListener("beforeprint", function () {
+    targets.forEach(function (el) { el.classList.add("in-view"); });
+  });
 })();
