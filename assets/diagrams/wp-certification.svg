@@ -1,0 +1,69 @@
+<svg viewBox="0 0 960 430" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ca" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1B1620"/>
+    </marker>
+  </defs>
+
+  <!-- zones -->
+  <rect x="24" y="46" width="596" height="310" rx="8" fill="#FBF9F7" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="46" y="74" font-family="'JetBrains Mono', monospace" font-size="10.5" letter-spacing="1.8" fill="#78716C">DRAFTING — TEST-TIER CREDENTIALS &#183; DECLARED EGRESS</text>
+  <rect x="756" y="46" width="180" height="310" rx="8" fill="#FBF6F8" stroke="#E7CBD6" stroke-width="1.2"/>
+  <text x="846" y="74" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10.5" letter-spacing="1.8" fill="#AD2E5C">PRODUCTION</text>
+
+  <!-- DRAFT -->
+  <rect x="48" y="150" width="120" height="96" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="108" y="186" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1B1620">Draft</text>
+  <text x="108" y="207" text-anchor="middle" font-size="10" fill="#78716C">authored by hand or</text>
+  <text x="108" y="222" text-anchor="middle" font-size="10" fill="#78716C">by the authoring agent</text>
+
+  <line x1="168" y1="198" x2="194" y2="198" stroke="#1B1620" stroke-width="1.4" marker-end="url(#ca)"/>
+
+  <!-- CERTIFICATION RUNS -->
+  <rect x="198" y="96" width="204" height="222" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="300" y="124" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1B1620">Certification runs</text>
+  <g font-family="'JetBrains Mono', monospace" font-size="10" fill="#3F3A44">
+    <rect x="214" y="138" width="172" height="24" rx="3" fill="#FBF8F6" stroke="#EFE8E2" stroke-width="0.8"/>
+    <text x="222" y="154">L1  recorded fixtures</text>
+    <rect x="214" y="168" width="172" height="24" rx="3" fill="#FBF8F6" stroke="#EFE8E2" stroke-width="0.8"/>
+    <text x="222" y="184">L2  mock services</text>
+    <rect x="214" y="198" width="172" height="24" rx="3" fill="#FBF8F6" stroke="#EFE8E2" stroke-width="0.8"/>
+    <text x="222" y="214">L3  your staging</text>
+    <rect x="214" y="228" width="172" height="24" rx="3" fill="#FBF8F6" stroke="#EFE8E2" stroke-width="0.8"/>
+    <text x="222" y="244">L4  live test endpoints</text>
+    <rect x="214" y="258" width="172" height="24" rx="3" fill="#FBF6F8" stroke="#E7CBD6" stroke-width="0.8"/>
+    <text x="222" y="274" fill="#AD2E5C">L5  supervised canary</text>
+  </g>
+  <text x="300" y="304" text-anchor="middle" font-size="9.5" fill="#78716C">adversarial prompts &#183; boundary probes &#183; contract tests</text>
+
+  <line x1="402" y1="198" x2="428" y2="198" stroke="#1B1620" stroke-width="1.4" marker-end="url(#ca)"/>
+
+  <!-- EVIDENCE -->
+  <rect x="432" y="150" width="150" height="96" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="507" y="186" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1B1620">Evidence</text>
+  <text x="507" y="207" text-anchor="middle" font-size="10" fill="#78716C">signed &#183; pinned to the</text>
+  <text x="507" y="222" text-anchor="middle" font-size="10" fill="#78716C">exact artifact digest</text>
+
+  <line x1="582" y1="198" x2="648" y2="198" stroke="#1B1620" stroke-width="1.4" marker-end="url(#ca)"/>
+
+  <!-- GATE (straddles zones) -->
+  <rect x="652" y="110" width="100" height="196" rx="6" fill="#D6336C"/>
+  <text x="702" y="166" text-anchor="middle" font-size="12.5" font-weight="600" fill="#FFFFFF">Named</text>
+  <text x="702" y="184" text-anchor="middle" font-size="12.5" font-weight="600" fill="#FFFFFF">approver</text>
+  <text x="702" y="212" text-anchor="middle" font-size="9.8" fill="#FBE3EC">authority enforced</text>
+  <text x="702" y="228" text-anchor="middle" font-size="9.8" fill="#FBE3EC">justification recorded</text>
+  <text x="702" y="244" text-anchor="middle" font-size="9.8" fill="#FBE3EC">holds expire</text>
+  <text x="702" y="286" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.4" fill="#FFFFFF">THE AIRLOCK</text>
+
+  <line x1="752" y1="198" x2="778" y2="198" stroke="#1B1620" stroke-width="1.4" marker-end="url(#ca)"/>
+
+  <!-- PUBLISHED -->
+  <rect x="782" y="128" width="132" height="140" rx="6" fill="#FFFFFF" stroke="#1B1620" stroke-width="1.5"/>
+  <text x="848" y="162" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1B1620">Published vN</text>
+  <text x="848" y="182" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1.2" fill="#AD2E5C">= THE CERTIFICATE</text>
+  <text x="848" y="206" text-anchor="middle" font-size="10" fill="#78716C">immutable &#183; audit-chained</text>
+  <text x="848" y="226" text-anchor="middle" font-size="10" fill="#78716C">governed runs resolve</text>
+  <text x="848" y="241" text-anchor="middle" font-size="10" fill="#78716C">exactly this version</text>
+
+  <text x="480" y="396" text-anchor="middle" font-size="10.5" fill="#78716C" font-style="italic">Certification never transfers: a new draft version repeats the pipeline. The sandbox produces evidence — it never grades itself.</text>
+</svg>

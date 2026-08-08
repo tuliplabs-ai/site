@@ -1,0 +1,84 @@
+<svg viewBox="0 0 960 640" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1B1620"/>
+    </marker>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#AD2E5C"/>
+    </marker>
+  </defs>
+
+  <!-- ══════════ CONTROL PLANE ══════════ -->
+  <rect x="40" y="34" width="880" height="212" rx="8" fill="#FBF6F8" stroke="#E7CBD6" stroke-width="1.4"/>
+  <text x="64" y="62" font-family="'JetBrains Mono', monospace" font-size="11.5" letter-spacing="2.2" fill="#AD2E5C" font-weight="500">TULIP CONTROL PLANE</text>
+  <text x="896" y="62" text-anchor="end" font-size="11.5" fill="#78716C">Tulip-hosted SaaS · multi-tenant · RLS on every row</text>
+
+  <!-- Studio -->
+  <rect x="64" y="84" width="408" height="138" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="86" y="114" font-family="Fraunces, Georgia, serif" font-size="17.5" font-weight="600" fill="#1B1620">Studio</text>
+  <text x="86" y="115" font-size="11" fill="#78716C" dx="66">— the human surface</text>
+  <line x1="86" y1="126" x2="450" y2="126" stroke="#F0E9E4" stroke-width="1"/>
+  <text x="86" y="148" font-size="12.5" fill="#3F3A44">Author agents, tools, skills, playbooks</text>
+  <text x="86" y="169" font-size="12.5" fill="#3F3A44">Policies &#183; approval queue &#183; trace explorer</text>
+  <text x="86" y="190" font-size="12.5" fill="#3F3A44">Certification review &#183; deployments</text>
+
+  <!-- Registry -->
+  <rect x="488" y="84" width="408" height="138" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="510" y="114" font-family="Fraunces, Georgia, serif" font-size="17.5" font-weight="600" fill="#1B1620">Registry</text>
+  <text x="510" y="115" font-size="11" fill="#78716C" dx="80">— the system of record</text>
+  <line x1="510" y1="126" x2="874" y2="126" stroke="#F0E9E4" stroke-width="1"/>
+  <text x="510" y="148" font-size="12.5" fill="#3F3A44">Versioned, immutable definitions &#183; policy bundles</text>
+  <text x="510" y="169" font-size="12.5" fill="#3F3A44">Certification records &#183; hash-chained audit</text>
+  <text x="510" y="190" font-size="12.5" fill="#3F3A44">Tenant-scoped embeddings &#183; semantic search</text>
+
+  <!-- ══════════ TRUST BOUNDARY ══════════ -->
+  <line x1="40" y1="288" x2="920" y2="288" stroke="#AD2E5C" stroke-width="1.2" stroke-dasharray="7 5"/>
+  <rect x="330" y="276" width="300" height="24" rx="12" fill="#FFFFFF" stroke="#E7CBD6" stroke-width="1"/>
+  <text x="480" y="292" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1.4" fill="#AD2E5C">TRUST BOUNDARY &#183; SERVICE TOKENS</text>
+
+  <!-- crossing arrows -->
+  <line x1="200" y1="246" x2="200" y2="326" stroke="#1B1620" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="214" y="270" font-size="11.5" fill="#3F3A44">immutable versions &#183; policy bundles</text>
+  <line x1="760" y1="326" x2="760" y2="246" stroke="#1B1620" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="746" y="322" font-size="11.5" fill="#3F3A44" text-anchor="end">trace spans &#183; certification evidence</text>
+  <text x="746" y="338" font-size="10.5" fill="#78716C" text-anchor="end">sensitive payloads may stay customer-side</text>
+
+  <!-- ══════════ DATA PLANE ══════════ -->
+  <rect x="40" y="344" width="880" height="262" rx="8" fill="#FBF9F7" stroke="#E5DED9" stroke-width="1.4"/>
+  <text x="64" y="372" font-family="'JetBrains Mono', monospace" font-size="11.5" letter-spacing="2.2" fill="#1B1620" font-weight="500">CUSTOMER DATA PLANE</text>
+  <text x="896" y="372" text-anchor="end" font-size="11.5" fill="#78716C">your account &#183; your VPC &#183; secrets never leave</text>
+
+  <!-- Gateway -->
+  <rect x="64" y="392" width="520" height="192" rx="6" fill="#FFFFFF" stroke="#1B1620" stroke-width="1.5"/>
+  <text x="86" y="422" font-family="Fraunces, Georgia, serif" font-size="17.5" font-weight="600" fill="#1B1620">Gateway</text>
+  <text x="86" y="423" font-size="11" fill="#78716C" dx="82">— the harness, trusted</text>
+  <line x1="86" y1="434" x2="562" y2="434" stroke="#F0E9E4" stroke-width="1"/>
+  <text x="86" y="456" font-size="12.5" fill="#3F3A44">Agent loop &#183; model routing &#183; tool routing</text>
+  <text x="86" y="477" font-size="12.5" fill="#3F3A44">Secrets broker &#183; run state &#183; trace collection</text>
+  <text x="86" y="498" font-size="12.5" fill="#3F3A44">Holds, park &amp; resume &#183; sandbox provisioning</text>
+  <!-- admit pill -->
+  <rect x="86" y="518" width="474" height="42" rx="21" fill="#D6336C"/>
+  <text x="112" y="544" font-family="'JetBrains Mono', monospace" font-size="13" fill="#FFFFFF" font-weight="500">admit()</text>
+  <text x="186" y="544" font-size="12.5" fill="#FBE3EC">every consequential action &#8594; allow &#183; hold &#183; deny</text>
+
+  <!-- Models -->
+  <rect x="614" y="392" width="282" height="84" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+  <text x="634" y="418" font-family="Fraunces, Georgia, serif" font-size="14.5" font-weight="600" fill="#1B1620">Customer models</text>
+  <text x="634" y="440" font-size="11.5" fill="#3F3A44">Anthropic &#183; OpenAI &#183; Bedrock &#183; your vLLM</text>
+  <text x="634" y="459" font-size="10.5" fill="#78716C">routing is configuration, not code</text>
+
+  <!-- Sandbox -->
+  <rect x="614" y="500" width="282" height="84" rx="6" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="634" y="526" font-family="Fraunces, Georgia, serif" font-size="14.5" font-weight="600" fill="#1B1620">Sandbox sessions</text>
+  <text x="768" y="526" font-family="'JetBrains Mono', monospace" font-size="9" letter-spacing="1" fill="#AD2E5C">UNTRUSTED</text>
+  <text x="634" y="548" font-size="11.5" fill="#3F3A44">shell &#183; files &#183; code &#183; browser &#183; previews</text>
+  <text x="634" y="567" font-size="10.5" fill="#78716C">no credentials inside &#183; declared egress only</text>
+
+  <!-- gateway -> models / sandbox arrows -->
+  <line x1="584" y1="424" x2="612" y2="424" stroke="#AD2E5C" stroke-width="1.4" marker-end="url(#arrR)"/>
+  <text x="598" y="410" text-anchor="middle" font-size="10" fill="#AD2E5C" font-family="'JetBrains Mono', monospace">brokered</text>
+  <line x1="584" y1="540" x2="612" y2="540" stroke="#1B1620" stroke-width="1.4" marker-end="url(#arr)"/>
+  <line x1="612" y1="556" x2="584" y2="556" stroke="#1B1620" stroke-width="1.4" marker-end="url(#arr)"/>
+  <text x="598" y="596" text-anchor="middle" font-size="10" fill="#78716C" font-family="'JetBrains Mono', monospace"></text>
+  <text x="740" y="622" font-size="10.5" fill="#78716C" text-anchor="middle">work dispatched down &#183; results &amp; artifacts back up</text>
+</svg>

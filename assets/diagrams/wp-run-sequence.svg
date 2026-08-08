@@ -1,0 +1,86 @@
+<svg viewBox="0 0 960 668" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="sa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1B1620"/>
+    </marker>
+    <marker id="sao" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11" fill="none" stroke="#78716C" stroke-width="1.6"/>
+    </marker>
+  </defs>
+
+  <!-- participant headers -->
+  <g font-size="13" font-weight="600" fill="#1B1620" text-anchor="middle">
+    <rect x="40"  y="26" width="100" height="34" rx="5" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+    <text x="90"  y="48">Client</text>
+    <rect x="204" y="26" width="132" height="34" rx="5" fill="#1B1620"/>
+    <text x="270" y="48" fill="#FFFFFF">Gateway</text>
+    <rect x="392" y="26" width="116" height="34" rx="5" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+    <text x="450" y="48">Registry</text>
+    <rect x="558" y="26" width="104" height="34" rx="5" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2"/>
+    <text x="610" y="48">Model</text>
+    <rect x="708" y="26" width="110" height="34" rx="5" fill="#FFFFFF" stroke="#E5DED9" stroke-width="1.2" stroke-dasharray="5 3"/>
+    <text x="763" y="48">Sandbox</text>
+    <rect x="842" y="26" width="104" height="34" rx="5" fill="#FBF6F8" stroke="#E7CBD6" stroke-width="1.2"/>
+    <text x="894" y="48" fill="#AD2E5C">Approver</text>
+  </g>
+
+  <!-- lifelines -->
+  <g stroke="#D8D0CA" stroke-width="1" stroke-dasharray="3 4">
+    <line x1="90"  y1="60" x2="90"  y2="640"/>
+    <line x1="450" y1="60" x2="450" y2="640"/>
+    <line x1="610" y1="60" x2="610" y2="640"/>
+    <line x1="763" y1="60" x2="763" y2="640"/>
+    <line x1="894" y1="60" x2="894" y2="640"/>
+  </g>
+  <!-- gateway activation bar -->
+  <rect x="264" y="88" width="12" height="530" fill="#F4EFEC" stroke="#D8D0CA" stroke-width="0.8"/>
+
+  <!-- 1 submit -->
+  <line x1="90" y1="104" x2="262" y2="104" stroke="#1B1620" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="176" y="94" text-anchor="middle" font-size="11" fill="#3F3A44">POST /v1/runs &#183; agent@17</text>
+
+  <!-- 2/3 resolve -->
+  <line x1="276" y1="140" x2="448" y2="140" stroke="#1B1620" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="362" y="130" text-anchor="middle" font-size="11" fill="#3F3A44">resolve immutable version</text>
+  <line x1="448" y1="170" x2="278" y2="170" stroke="#78716C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="362" y="188" text-anchor="middle" font-size="10.5" fill="#78716C">bundle: tools &#183; skills &#183; playbook &#183; policy &#183; sandbox manifest</text>
+
+  <!-- 4/5 model -->
+  <line x1="276" y1="216" x2="608" y2="216" stroke="#1B1620" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="442" y="206" text-anchor="middle" font-size="11" fill="#3F3A44">model call — credential brokered, never stored client-side</text>
+  <line x1="608" y1="246" x2="278" y2="246" stroke="#78716C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="442" y="264" text-anchor="middle" font-size="10.5" fill="#78716C">proposes a tool action</text>
+
+  <!-- admit pill -->
+  <rect x="196" y="282" width="148" height="26" rx="13" fill="#D6336C"/>
+  <text x="270" y="299" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#FFFFFF">admit(action)</text>
+
+  <!-- alt frame -->
+  <rect x="56" y="324" width="874" height="230" rx="4" fill="none" stroke="#C9BFB8" stroke-width="1.2"/>
+  <path d="M56,324 h64 v20 l-10,10 h-54 z" fill="#F4EFEC" stroke="#C9BFB8" stroke-width="1"/>
+  <text x="72" y="340" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#1B1620">alt</text>
+  <text x="140" y="344" font-size="11" fill="#1B1620" font-weight="600">[ allowed under policy ]</text>
+
+  <line x1="276" y1="372" x2="761" y2="372" stroke="#1B1620" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="518" y="362" text-anchor="middle" font-size="11" fill="#3F3A44">dispatch model-directed work — data + scoped caps, no secrets</text>
+  <line x1="761" y1="402" x2="278" y2="402" stroke="#78716C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="518" y="420" text-anchor="middle" font-size="10.5" fill="#78716C">results &#183; artifacts</text>
+
+  <line x1="56" y1="436" x2="930" y2="436" stroke="#C9BFB8" stroke-width="1" stroke-dasharray="6 5"/>
+  <text x="72" y="456" font-size="11" fill="#1B1620" font-weight="600">[ held — policy requires a person ]</text>
+
+  <line x1="262" y1="480" x2="92" y2="480" stroke="#78716C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="176" y="470" text-anchor="middle" font-size="10.5" fill="#78716C">paused &#183; approval id</text>
+  <line x1="276" y1="480" x2="892" y2="480" stroke="#AD2E5C" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="590" y="470" text-anchor="middle" font-size="11" fill="#AD2E5C">hold: action &#183; arguments &#183; policy line &#183; evidence</text>
+  <line x1="892" y1="512" x2="278" y2="512" stroke="#AD2E5C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="590" y="530" text-anchor="middle" font-size="10.5" fill="#AD2E5C">approve + written justification — the run resumes in the same workspace</text>
+
+  <!-- record + final -->
+  <line x1="276" y1="586" x2="448" y2="586" stroke="#1B1620" stroke-width="1.4" marker-end="url(#sa)"/>
+  <text x="362" y="576" text-anchor="middle" font-size="11" fill="#3F3A44">append events &#183; audit link</text>
+  <line x1="262" y1="618" x2="92" y2="618" stroke="#78716C" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#sao)"/>
+  <text x="176" y="608" text-anchor="middle" font-size="10.5" fill="#78716C">final result &#183; trace &#183; artifacts</text>
+
+  <text x="480" y="658" text-anchor="middle" font-size="10.5" fill="#78716C" font-style="italic">Every decision — allowed, held, denied — is written to the hash-chained audit trail as it happens.</text>
+</svg>
