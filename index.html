@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tulip Labs — the control layer for AI agents that act</title>
-  <meta name="description" content="Tulip Labs builds the control layer for agentic execution: tulip-agents, the open-source runtime; Tulip, the authorization control plane; and Clusiana, the control models. Every consequential action is weighed against policy before it runs.">
+  <title>Tulip Labs — build, certify, and run AI agents that do real work</title>
+  <meta name="description" content="Build, certify, and run AI agents that do real work — on your own models and infrastructure. Every consequential action clears your policy, the risky ones wait for a named person, and the record cannot be altered. Open-source runtime; Clusiana control models.">
   <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
   <meta name="theme-color" content="#FBF9F8">
@@ -13,8 +13,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tulip Labs">
-  <meta property="og:title" content="Tulip Labs — the control layer for AI agents that act">
-  <meta property="og:description" content="An open-source runtime that enforces every consequential action, a control plane where a team defines agents and policy once, and Clusiana — the control models trained to make those decisions.">
+  <meta property="og:title" content="Tulip Labs — agents that do real work, on your models, in your cloud">
+  <meta property="og:description" content="Author an agent in an afternoon, certify it on evidence, and run it in production — every consequential action cleared by your policy, the risky ones waiting for a named person, all of it on a tamper-evident record.">
   <meta property="og:url" content="https://tuliplabs.ai/">
   <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
   <meta property="og:image:width" content="1200">
@@ -60,46 +60,134 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO — the press release headline -->
   <section class="hero">
     <div class="wrap">
       <div class="col">
-        <p class="kicker">One thesis · three artifacts</p>
-        <h1>The control layer for AI agents that <span class="accent">act</span>.</h1>
-        <p class="lede">AI agents now take real actions. We build the layer that keeps those actions under control: an open-source runtime that checks each one before it runs, a platform where a team sets the rules once, and <strong>Clusiana</strong> — small models we train to help make those calls.</p>
+        <p class="kicker">Build · Certify · Run</p>
+        <h1>Agents that do <span class="accent">real work</span> — on your models, in your cloud.</h1>
+        <p class="lede">Author an agent in an afternoon — in conversation, if you like. Hand it real work in a real workspace. Put it into production knowing every consequential action clears your policy, the risky ones wait for a named person, and the record of all of it cannot be altered afterward. It runs next to your models, your data, your secrets — Tulip never holds any of them.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="platform.html">The platform <span class="arrow">→</span></a>
-          <a class="btn btn--ghost" href="open-source.html">The runtime</a>
+          <a class="btn btn--ghost" href="open-source.html">The open-source runtime</a>
         </div>
         <p class="pip">$ pip install <b>tulip-agents</b></p>
       </div>
     </div>
   </section>
 
-  <!-- THESIS -->
+  <!-- THE PROBLEM + THE QUOTE -->
   <section class="band band--ink">
     <div class="wrap">
       <div class="col" style="max-width:52rem">
-        <p class="label" style="margin-bottom:1.8rem">One thesis</p>
-        <p class="thesis">Agents become infrastructure only when what they <b>do</b> is governed: every risky action checked before it runs, held for a person when it matters, written to a record no one can quietly edit. The open-source runtime is the foundation — the platform operates it for a team, the lab's models plug into it, and everything writes to the same record.</p>
+        <p class="label" style="margin-bottom:1.8rem">Why Tulip</p>
+        <p style="font-size:1.1rem;color:#D6CFDC;margin-bottom:2.2rem">Every company wants to give its agents more to do, and every one of them is nervous about it — usually because someone on the security team asked a question nobody could answer. So capable prototypes sit in review for quarters, while the actions they could be taking pile up.</p>
+        <p class="thesis">"The answer can't be a promise about model behavior. It has to be <b>architecture</b>: the loop runs in a trusted place, the work runs in a place that holds nothing, the credentials stay in your account, and the record can't be edited. Once those are structural, the interesting conversation starts — which is everything the agent can now be allowed to do."</p>
+        <p class="quote-attr">— Federico Kamelhar, founder, Tulip Labs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT AGENTS CAN DO -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">What agents can do here</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:2.5rem">Real work, in a real workspace — which is exactly why the workspace holds nothing worth stealing.</p>
+      <div class="grid-3">
+        <div class="card"><span class="label">Workspace</span><h3>A real computer</h3><p>A filesystem seeded with the job's documents and repositories, a shell, package installs — inside a sandbox that carries no credentials.</p></div>
+        <div class="card"><span class="label">Browser &amp; previews</span><h3>See what it built</h3><p>Browser automation, and ports an agent can expose so a person can preview the service or report it produced before it ships.</p></div>
+        <div class="card"><span class="label">Connections</span><h3>Your APIs, governed</h3><p>Connections to your own systems and MCP tools — the credential injected only after an action is admitted, never visible to the model.</p></div>
+        <div class="card"><span class="label">Models</span><h3>Yours, by name</h3><p>OpenAI, Anthropic, or your own OpenAI-compatible endpoint. Switching providers is configuration, not code.</p></div>
+        <div class="card"><span class="label">Memory</span><h3>It remembers</h3><p>What an agent learns persists across runs — and a run that pauses for review resumes in the same workspace, exactly where it parked.</p></div>
+        <div class="card"><span class="label">Frameworks</span><h3>Bring your agents</h3><p>Wrap agents from six frameworks, in Python or TypeScript, with no rewrite — or author natively, in conversation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FROM IDEA TO PRODUCTION -->
+  <section class="band">
+    <div class="wrap">
+      <div class="col">
+        <div class="eyebrow-row"><span class="label">From idea to production</span><span class="line"></span></div>
+        <p class="lede" style="margin-bottom:1.7rem">A pipeline, not a leap of faith.</p>
+        <div class="principle">
+          <h3><span class="idx">01</span>Author</h3>
+          <p>Describe the job in conversation — the agent, its policy, and its playbook are drafted together. Or write the definition by hand.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">02</span>Certify</h3>
+          <p>The draft is exercised at escalating levels of trust — recorded fixtures, mock services, your staging systems, real endpoints on test credentials. The evidence is signed and pinned to the exact version.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">03</span>Publish</h3>
+          <p>A named approver reviews the evidence and publishes an immutable version. An uncertified version cannot ship.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">04</span>Run</h3>
+          <p>In your environment, next to your models and your data. Tulip's hosted services never see a credential or a customer record.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">05</span>Approve</h3>
+          <p>The actions you flagged wait for a named person, who decides with everything in front of them — the action, the arguments, the policy line, the evidence.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">06</span>Audit</h3>
+          <p>"What did this agent do in Q3, and who authorized it" is a query, not a project — exported straight into the systems your security team already watches.</p>
+        </div>
+        <p style="margin-top:2rem">A developer can gate one agent this afternoon, locally and free. A team's first certified deployment is days, not months — the expensive part was never the agent; it was the approval to run it.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="platform.html">How the platform works <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MOMENT -->
+  <section>
+    <div class="wrap">
+      <div class="work">
+        <div class="work__copy">
+          <p class="label" style="margin-bottom:1rem">One action, end to end</p>
+          <h2>The $2,000 refund</h2>
+          <p class="lede" style="margin-bottom:1.3rem">The whole product, in one moment.</p>
+          <p>Your support agent decides to issue a $2,000 refund. Your rules hold anything over $500 — so the run parks, and the hold lands in the queue with everything a person needs to decide. Someone with the authority approves, with a written justification. Only then is the payment credential injected — the model never saw it — and the action executes. Every step joins a record that fails verification if anyone edits it later.</p>
+          <p><a class="more" href="platform.html">The full walkthrough →</a></p>
+        </div>
+        <div class="work__media">
+          <div class="mock" aria-hidden="true">
+            <div class="mock-card">
+              <div class="mock-head"><span class="status wip">Held for approval</span><span class="mock-id">run #1042 · support-agent v3</span></div>
+              <p class="mock-action">refund(customer="cust:4821", amount=2000)</p>
+              <p class="mock-policy">policy: refunds over $500 hold for a named person</p>
+              <div class="mock-btns"><span class="btn btn--primary">Approve…</span><span class="btn btn--ghost">Reject</span></div>
+            </div>
+            <div class="mock-record">
+              <span class="mut">#1041&nbsp; allow&nbsp;&nbsp;&nbsp; lookup_order("ord:9915") — in policy</span>
+              <span>#1042&nbsp; hold&nbsp;&nbsp;&nbsp;&nbsp; refund $2,000 — over threshold</span>
+              <span class="ok">#1043&nbsp; approve&nbsp; j.alvarez — "verified with customer"</span>
+              <span class="ok">#1044&nbsp; execute&nbsp; refund $2,000 ✓ chained · verified</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- THE ARCHITECTURE, AT A GLANCE -->
-  <section>
+  <section class="band">
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">The architecture, at a glance</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:2.5rem">The architecture is the pitch — because the architecture is what a security review approves.</p>
       <div style="max-width:42rem;margin:0 auto">
-        <img src="assets/architecture.svg" width="680" height="634" style="width:100%;height:auto;display:block" alt="Two planes. The Tulip-hosted control plane — Studio and Registry — defines agents, policies and connections, certifies versions, and reviews holds; it runs no agents. Definitions and policy flow down; verdicts, traces and evidence flow up; your data never crosses the boundary. In your environment, the runtime — one installed process — runs the agent loop with your models, injects credentials at call time, passes every action through the gate (allow, hold, deny) onto a tamper-evident record, with Clusiana models advising but never able to override your rules. Model-directed work runs in a sandbox that holds no credentials, with network reach declared up front.">
+        <img src="assets/architecture.svg" width="680" height="668" style="width:100%;height:auto;display:block" alt="Two planes. The Tulip-hosted control plane — Studio and Registry — defines agents, policies and connections, certifies versions, and reviews holds; it runs no agents. Definitions and policy flow down; verdicts, traces and evidence flow up; your data never crosses the boundary. In your environment, the runtime — one installed process — runs the agent loop with your models, injects credentials at call time, passes every action through the gate (allow, hold, deny) onto a tamper-evident record. Inside the runtime: tulip-agents, the open-source engine — the loop, the gate, and the record. Clusiana, a family of small control models, one per decision, advises the gate and can never override your rules. Model-directed work runs in a sandbox that holds no credentials, with network reach declared up front.">
       </div>
     </div>
   </section>
 
-  <!-- THREE AREAS -->
+  <!-- THREE ARTIFACTS -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">Three areas</span><span class="line"></span></div>
+      <div class="eyebrow-row"><span class="label">Three artifacts</span><span class="line"></span></div>
       <div class="pillars pillars--three">
         <div class="pillar">
           <div class="pillar__head"><span class="label">01</span><h3>The runtime</h3></div>
@@ -123,8 +211,8 @@
           <div class="pillar__head"><span class="label teal">03</span><h3>The lab</h3></div>
           <div class="card">
             <span class="label teal">Clusiana · control models</span>
-            <h3>Trained to keep agents careful</h3>
-            <p>Frontier labs train models to be capable; we train small models to keep agents careful — one for each decision in an agent's loop. The first, a model that decides whether an action should run, is trained and tested; a grounding judge already ships in the runtime; run judgment and routing are next. By design, none of them holds authority — a Clusiana opinion can never override your rules.</p>
+            <h3>Small models, built for control</h3>
+            <p><b>Clusiana</b> is our family of small control models — one for each decision in an agent's loop, trained to advise the gate and specialized from your own record. The first, a model that decides whether an action should run, is trained and tested; a grounding judge already ships in the runtime; run judgment and routing are next. None of them holds authority — a Clusiana opinion can never override your rules.</p>
             <p><a class="more" href="research.html">The research →</a></p>
           </div>
         </div>
@@ -132,15 +220,15 @@
     </div>
   </section>
 
-  <!-- FEATURED: THE RUNTIME -->
-  <section>
+  <!-- FOR DEVELOPERS -->
+  <section class="band">
     <div class="wrap">
       <div class="work">
         <div class="work__copy">
-          <p class="label" style="margin-bottom:1rem">The runtime · Apache-2.0</p>
-          <h2>Tulip, the runtime</h2>
+          <p class="label" style="margin-bottom:1rem">For developers · Apache-2.0</p>
+          <h2>Start this afternoon</h2>
           <p class="lede" style="margin-bottom:1.3rem">Drop the admission gate around an action your agent already takes.</p>
-          <p>A refund, a host isolation, an account disable — it runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay. Wraps agents from LangChain, LangGraph, CrewAI, OpenAI Agents, LlamaIndex, and Google ADK — in Python and TypeScript, no rewrite.</p>
+          <p>A refund, a host isolation, an account disable — it runs only after it clears policy, holds for a human when it matters, and lands on a tamper-evident audit trail you can replay. Wraps agents from LangChain, LangGraph, CrewAI, OpenAI Agents, LlamaIndex, and Google ADK.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
             <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai/sdk-python">Source</a>
@@ -173,8 +261,8 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     </div>
   </section>
 
-  <!-- FEATURED: THE LAB RESULT -->
-  <section class="band">
+  <!-- THE LAB RESULT -->
+  <section>
     <div class="wrap">
       <div class="work flip">
         <div class="work__media">
@@ -195,34 +283,6 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
             <a class="btn btn--ghost" href="research.html">The research</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED: THE PLATFORM -->
-  <section>
-    <div class="wrap">
-      <div class="eyebrow-row"><span class="label">The platform</span><span class="line"></span></div>
-      <p class="lede" style="margin-bottom:2rem">Author → certify → publish → run → approve → audit.</p>
-      <div class="grid-3">
-        <div class="card">
-          <span class="label">Certification</span>
-          <h3>Certified before it runs</h3>
-          <p>A new agent version cannot ship until it passes certification, and the evidence behind each certificate is signed and tied to the exact version it describes.</p>
-        </div>
-        <div class="card">
-          <span class="label">Execution</span>
-          <h3>Your environment runs it</h3>
-          <p>Models, credentials, files, and APIs stay with you. Tulip's hosted services never hold your secrets.</p>
-        </div>
-        <div class="card">
-          <span class="label">The boundary</span>
-          <h3>Decisions cross, data doesn't</h3>
-          <p>The platform sets the rules and receives the decisions — not your data. Every decision lands on the same tamper-evident record.</p>
-        </div>
-      </div>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="platform.html">The control plane <span class="arrow">→</span></a>
       </div>
     </div>
   </section>
