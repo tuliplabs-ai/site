@@ -1,7 +1,7 @@
 # tuliplabs.ai
 
-The company website for **Tulip Labs** — an independent lab working at the
-seam of agentic AI and security research.
+The company website for **Tulip Labs** — the control layer for AI agents
+that act: the runtime, the platform, and the lab.
 
 A static, no-build site: plain HTML + one CSS file + Google Fonts. Nothing
 to install.
@@ -10,17 +10,28 @@ to install.
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home — positioning, the two pillars, featured work, principles |
-| `research.html` | Security research — Clusiana, the research agenda, disclosure |
-| `open-source.html` | Tulip, the open-source SDK |
+| `index.html` | Home — the company umbrella: one thesis, three areas, featured work |
+| `open-source.html` | The runtime — `tulip-agents`, the open-source SDK (short version; docs live at tulipagents.ai) |
+| `platform.html` | The platform — Tulip, the authorization control plane |
+| `research.html` | The lab — Clusiana control models and the five research programs |
+| `contact.html` | Contact form (formsubmit.co → info@) |
+| `legal.html` | Legal, disclaimer, license provenance |
 | `styles.css` | The whole design system |
-| `assets/tulip-mark.svg` | Logo mark / favicon |
+| `assets/tulip-mark-pink.png` | Logo mark / favicon |
 
 ## Preview locally
 
 ```bash
 python3 -m http.server 8000     # → http://localhost:8000
 ```
+
+## CI
+
+`.github/workflows/validate.yml` gates every push/PR:
+
+- **html5validator** over the whole root — pages must be valid HTML5
+- **lychee `--offline`** — every local `href`/`src` must resolve
+- **Trivy** — HIGH/CRITICAL secret scan
 
 ## Deploy
 
@@ -31,12 +42,14 @@ by [`CNAME`](CNAME); point the apex DNS at GitHub Pages and enable Pages
 
 ## Brand notes
 
-- **Voice:** measured, evidence-first. State scope and limits as plainly as
-  results. No hype.
+- **Voice:** measured, evidence-first, mechanism before slogan. State scope
+  and limits as plainly as results. A claim the product cannot prove does
+  not go on the site.
+- **Naming:** "Clusiana" refers to the control-model family only. The GPU
+  side-channel work is "the substrate program" (the work that gave Clusiana
+  its name).
 - **Type:** Fraunces (serif display), Inter (body), JetBrains Mono
   (findings / code). One accent — tulip red `#D6336C` — on warm paper.
-- Email addresses (`hello@`, `security@`) are placeholders; wire up real
-  inboxes before launch.
 
 ## License
 
