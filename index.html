@@ -82,7 +82,7 @@
       <div class="col" style="max-width:52rem">
         <p class="label" style="margin-bottom:1.8rem">Why Tulip</p>
         <p style="font-size:1.1rem;color:#D6CFDC;margin-bottom:2.2rem">Every company wants to give its agents more to do, and every one of them is nervous about it — usually because someone on the security team asked a question nobody could answer. So capable prototypes sit in review for quarters, while the actions they could be taking pile up.</p>
-        <p class="thesis">"The answer can't be a promise about model behavior. It has to be <b>architecture</b>: the loop runs in a trusted place, the work runs in a place that holds nothing, the credentials stay in your account, and the record can't be edited. Once those are structural, the interesting conversation starts — which is everything the agent can now be allowed to do."</p>
+        <p class="thesis">"The answer can't be a promise about model behavior. It has to be <b>architecture</b>: the agent runs in a trusted place, its work runs in a place that holds nothing, the credentials stay in your account, and the record can't be edited. Once those are structural, the interesting conversation starts — which is everything the agent can now be allowed to do."</p>
         <p class="quote-attr">— Federico Kamelhar, founder, Tulip Labs</p>
       </div>
     </div>
@@ -226,7 +226,7 @@
       <div class="eyebrow-row"><span class="label">The architecture, at a glance</span><span class="line"></span></div>
       <p class="lede" style="margin-bottom:2.5rem">The architecture is the pitch — because the architecture is what a security review approves.</p>
       <div style="max-width:42rem;margin:0 auto">
-        <img src="assets/architecture.svg" width="680" height="668" style="width:100%;height:auto;display:block" alt="Two planes. The Tulip-hosted control plane — Studio and Registry — defines agents, policies and connections, certifies versions, and reviews holds; it runs no agents. Definitions and policy flow down; verdicts, traces and evidence flow up; your data never crosses the boundary. In your environment, the runtime — one installed process — runs the agent loop with your models, injects credentials at call time, passes every action through the gate (allow, hold, deny) onto a tamper-evident record. Inside the runtime: tulip-agents, the open-source engine — the loop, the gate, and the record. Clusiana, a family of small control models, one per decision, advises the gate and can never override your rules. Model-directed work runs in a sandbox that holds no credentials, with network reach declared up front.">
+        <img src="assets/architecture.svg" width="680" height="668" style="width:100%;height:auto;display:block" alt="Two planes. The Tulip-hosted control plane — Studio and Registry — defines agents, policies and connections, certifies versions, and reviews holds; it runs no agents. Definitions and policy flow down; verdicts, traces and evidence flow up; your data never crosses the boundary. In your environment, the runtime — one installed process — runs your agents with your models, injects credentials at call time, passes every action through the gate (allow, hold, deny) onto a tamper-evident record. Inside the runtime: tulip-agents, the open-source engine — the agent, the gate, and the record. Clusiana, a family of small control models, one per decision, advises the gate and can never override your rules. Model-directed work runs in a sandbox that holds no credentials, with network reach declared up front.">
       </div>
     </div>
   </section>
@@ -259,7 +259,7 @@
           <div class="card">
             <span class="label teal">Clusiana · control models</span>
             <h3>Small models, built for control</h3>
-            <p><b>Clusiana</b> is our family of small control models — one for each decision in an agent's loop, trained to advise the gate and specialized from your own record. The first, a model that decides whether an action should run, is trained and tested; a grounding judge already ships in the runtime; run judgment and routing are next. None of them holds authority — a Clusiana opinion can never override your rules.</p>
+            <p><b>Clusiana</b> is our family of small control models — one for each decision an agent makes, trained to advise the gate and specialized from your own record. The first, a model that decides whether an action should run, is trained and tested; a grounding judge already ships in the runtime; run judgment and routing are next. None of them holds authority — a Clusiana opinion can never override your rules.</p>
             <p><a class="more" href="research.html">The research →</a></p>
           </div>
         </div>

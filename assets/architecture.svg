@@ -28,7 +28,7 @@
   <!-- the runtime -->
   <rect x="60" y="248" width="560" height="204" rx="12" fill="#FFFFFF" stroke="#E7E0DB"/>
   <text x="84" y="276" font-size="10.5" letter-spacing="2" fill="#78716C">THE RUNTIME · ONE INSTALLED PROCESS</text>
-  <text x="84" y="300" font-size="12.5" fill="#1B1620">the agent loop · your models · credentials injected at call time</text>
+  <text x="84" y="300" font-size="12.5" fill="#1B1620">your agents · your models · credentials injected at call time</text>
 
   <rect x="84" y="316" width="242" height="34" rx="17" fill="#F4EFEC"/>
   <text x="102" y="338" font-size="11" font-weight="600" letter-spacing="1" fill="#1B1620">THE GATE</text>
@@ -46,7 +46,7 @@
 
   <rect x="84" y="394" width="516" height="44" rx="10" fill="#F4EFEC"/>
   <text x="102" y="412" font-size="10" font-family="JetBrains Mono,monospace" letter-spacing="1" fill="#4A434C">TULIP-AGENTS · THE OPEN-SOURCE ENGINE INSIDE — APACHE-2.0</text>
-  <text x="102" y="429" font-size="10.5" fill="#78716C">the loop · the gate · the record — pip install tulip-agents · tulipagents.ai</text>
+  <text x="102" y="429" font-size="10.5" fill="#78716C">the agent · the gate · the record — pip install tulip-agents · tulipagents.ai</text>
 
   <!-- runtime ⇄ sandbox -->
   <path d="M310 452 L310 484" stroke="#1B1620" stroke-width="1.6" marker-end="url(#ink)"/>
