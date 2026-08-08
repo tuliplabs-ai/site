@@ -91,6 +91,19 @@
     </div>
   </section>
 
+
+  <!-- WHERE THE OPEN CODE SITS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Where the open code sits</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:0.5rem">The runtime you install is the whole bottom half of this picture. The top half — Studio and Registry — is the hosted platform; the open-source runtime works with it, or entirely without it.</p>
+      <figure class="figure figure--scroll">
+        <img src="assets/diagrams/wp-two-plane.svg" width="960" height="640" alt="The two-plane split: the Tulip control plane (Studio — authoring, policies, approval queue, certification review — and Registry — versioned immutable definitions, policy bundles, certification records, hash-chained audit) sits above a trust boundary crossed by immutable versions and policy bundles going down and trace spans and certification evidence going up; sensitive payloads may stay customer-side. Below, in the customer data plane — your account, your VPC, secrets never leave — the gateway (the trusted harness) runs admit() over every consequential action, next to your models (Anthropic, OpenAI, your own vLLM — routing is configuration, not code) and untrusted sandbox sessions with no credentials inside and declared egress only.">
+        <figcaption>The gateway, the gate, the record, and the sandbox contract are Apache-2.0 — the same harness whether you run it from a laptop or under the hosted control plane.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- HANDOFF -->
   <section class="band">
     <div class="wrap"><div class="col">

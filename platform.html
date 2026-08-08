@@ -64,6 +64,84 @@
     </div>
   </section>
 
+
+  <!-- THE SPLIT — interactive -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">The split</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:2.5rem">Two planes with a trust boundary between them. You rent the control plane; you own the data plane where your models, secrets, and execution live. Select any component to see what it owns, what it deliberately does not, and how that's proven.</p>
+      <div class="stage">
+        <div>
+          <div class="diagram">
+            <div class="plane ctrl">
+              <p class="plane-tag">Control plane <span class="who">Tulip-hosted · you rent</span></p>
+              <button class="node" data-node="studio" type="button">
+                <span class="nh"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M3 9h18M8 21h8M12 17v4"/></svg></span><span class="nm">Studio</span><span class="role">operate</span></span>
+                <span class="nd">Author agents, review certifications, decide holds, watch every run. The face a person operates.</span>
+              </button>
+              <button class="node" data-node="registry" type="button">
+                <span class="nh"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3Z"/><path d="M4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><span class="nm">Registry</span><span class="role">declare</span></span>
+                <span class="nd">Declarative truth: immutable agent versions, policy bundles, sandbox manifests, certifications.</span>
+              </button>
+            </div>
+            <div class="seam">
+              <div class="barline"><span class="label">Trust boundary</span></div>
+              <div class="flows">
+                <span class="flow">&#8595; versions &amp; policy</span>
+                <span class="flow">&#8593; traces &amp; evidence</span>
+                <span class="flow no">&#10005; secrets never cross</span>
+              </div>
+            </div>
+            <div class="plane data">
+              <p class="plane-tag">Data plane <span class="who">Your account · you own</span></p>
+              <div class="node" data-node="gateway">
+                <button class="nh nh-btn" data-node="gateway" type="button"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="nm">The runtime</span><span class="role">the harness</span></button>
+                <span class="nd">Thinks, coordinates, authorizes, remembers, records. The agent loop and the gate live here — never in the box that runs the code.</span>
+                <span class="chips"><span class="chip"><b>admit()</b> the gate</span><span class="chip">agent loop</span><span class="chip"><b>audit chain</b></span><span class="chip">approvals</span><span class="chip">memory</span></span>
+                <span class="leash">provisions &#8595; &nbsp;<b>brokered · secret-free</b></span>
+                <div class="cage" role="group">
+                  <span class="cage-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Untrusted compute</span>
+                  <button class="node" data-node="sandbox" type="button" style="margin-top:4px">
+                    <span class="nh"><span class="nm">Sandbox</span><span class="role">execute only</span></span>
+                    <span class="nd">Runs shell, generated code, browsers, untrusted files — per tenant, identity fixed at creation, network declared. Decides nothing.</span>
+                  </button>
+                </div>
+              </div>
+              <div class="aside-nodes">
+                <button class="node mini" data-node="models" type="button" style="margin:0">
+                  <span class="mt"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>Models</span>
+                  <span class="md">Your providers, your keys. OpenAI · Anthropic · your own vLLM.</span>
+                </button>
+                <button class="node mini" data-node="secrets" type="button" style="margin:0">
+                  <span class="mt"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>Secrets</span>
+                  <span class="md">A broker in your plane holds them. Never reach Tulip, never enter the box.</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="diagram-legend">
+            <span><span class="d" style="background:#1F7A54"></span>Proven — by a test against the running system</span>
+            <span><span class="d" style="background:transparent;border:1.5px solid #B26B00"></span>In development — designed, on the roadmap</span>
+          </div>
+        </div>
+        <aside class="inspect" aria-live="polite">
+          <div id="inspContent">
+            <div class="insp-top"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg></span><span><span class="insp-t1">Data plane · you own</span><span class="insp-t2">The runtime — the harness</span></span></div>
+            <p class="insp-role">It <span class="hl">thinks, coordinates, authorizes, remembers and records.</span> The agent loop, the policy gate, the approvals and the audit chain all live in the trusted harness — never in the box that runs untrusted code.</p>
+            <p class="insp-h">Owns</p>
+            <ul class="insp-list"><li>The agent loop &amp; model calls</li><li>admit() — every risky action clears policy first</li><li>Approvals &amp; approver authority</li><li>The hash-chained audit trail</li><li>Durable run state — a parked run resumes where it stopped</li></ul>
+            <p class="insp-h">Does not own</p>
+            <ul class="insp-list not"><li>Shell or generated-code execution</li><li>A browser or an untrusted document</li><li>Long-lived business credentials in the loop</li></ul>
+            <p class="insp-h">The receipts</p>
+            <div class="proof"><span class="tag p">argument-derived</span><span class="claim">A $10 refund passes and a $10,000 refund holds on the same tool — the amount itself derives the label the policy matches.</span></div>
+            <div class="proof"><span class="tag p">exactly-once</span><span class="claim">An approval executes exactly once; a decision is single-use, bound to the exact arguments, and expires.</span></div>
+            <div class="proof"><span class="tag p">any framework</span><span class="claim">A wrapped LangChain or CrewAI agent is held exactly like a native one — same gate, same chain.</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
   <!-- THREE TIERS -->
   <section class="band">
     <div class="wrap">
@@ -88,6 +166,19 @@
           <p><span class="status wip">Hosted beta in progress</span> <span class="label" style="margin-left:0.5rem">Sep 30 target</span></p>
         </div>
       </div>
+    </div>
+  </section>
+
+
+  <!-- WHAT YOU AUTHOR -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">What you author</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:0.5rem">An agent is one versioned definition: the model, the tools it may call, the systems it may reach, what it knows, how it works, and what must happen.</p>
+      <figure class="figure figure--scroll">
+        <img src="assets/diagrams/wp-definition-system.svg" width="960" height="600" alt="The registry object model: an agent definition named payments-expert references a tool (what it can do), an include-scoped MCP server (what it reaches — new tools are not granted, auth is brokered and never stored), a knowledge base (what it knows — search is an access, learn is a governed write), a skill (how to do it), and a playbook (what must happen — deviations are recorded as events on the trace). Every kind is versioned, tenant-scoped, and referenced by name.">
+        <figcaption>Every reference is a name, validated at publication — a dangling reference is caught at the airlock, not at runtime.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -122,6 +213,10 @@
           <p>Every decision lands on a hash-chained, signed trail. Export re-verifies outside the registry, from the exported bytes and a public key alone — evidence, not a screenshot of a dashboard.</p>
         </div>
       </div>
+      <figure class="figure figure--scroll">
+        <img src="assets/diagrams/wp-certification.svg" width="960" height="430" alt="The certification airlock: a draft — authored by hand or by the authoring agent — is exercised by certification runs at five escalating levels of trust (recorded fixtures, mock services, your staging, live test endpoints, supervised canary) with adversarial prompts, boundary probes, and contract tests. The signed evidence, pinned to the exact artifact, goes to a named approver whose authority is enforced and whose justification is recorded. What crosses the airlock into production is a published, immutable version — the certificate itself.">
+        <figcaption>Certification never transfers: a new draft repeats the pipeline. The sandbox produces evidence — it never grades itself.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -133,7 +228,59 @@
       <p class="lede" style="margin-bottom:1.5rem">The whole architecture, in one action.</p>
       <p>Your support agent decides to issue a $2,000 refund. Your rules hold anything over $500 — so the run parks, its workspace preserved exactly as it was. The hold lands in the Studio queue with everything a person needs to decide: the action, the arguments, the policy line that held it, and the evidence behind the claim that prompted it. Someone with the authority to approve does so, with a written justification. Only then does the runtime inject the payment credential — the model never saw it — and execute. The decision, the approval, and the outcome join a record that fails verification if anyone edits it later.</p>
       <p>An $80 refund clears the same check in-line, with the same record written. You choose where the friction is, and there is none where you haven't asked for it.</p>
-    </div></div>
+    </div>
+      <figure class="figure figure--scroll">
+        <img src="assets/diagrams/wp-run-sequence.svg" width="960" height="668" alt="One governed run as a sequence diagram: the client posts a run; the runtime resolves the immutable version from the registry and receives the bundle of tools, skills, playbook, policy, and sandbox manifest; the model call is brokered — the credential is never stored client-side; the model proposes a tool action; admit() weighs it. If allowed, model-directed work is dispatched to the sandbox with data and scoped capabilities but no secrets, and results come back. If held, the run pauses, the hold carries the action, arguments, policy line, and evidence, a person approves with a written justification, and the run resumes in the same workspace. Every decision is written to the hash-chained audit trail as it happens.">
+        <figcaption>Every decision — allowed, held, denied — is written to the hash-chained audit trail as it happens.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- SIX SEATS -->
+  <section class="band" id="seats">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Six seats, one record</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:2.5rem">The platform is one pipeline — author &rarr; certify &rarr; publish &rarr; run &rarr; approve &rarr; audit — seen from six seats. Every story below runs on the same architecture.</p>
+      <div class="seats">
+        <div class="seat">
+          <span class="num">01</span>
+          <h3>The developer with an agent that already exists</h3>
+          <p>She runs agents in LangChain today. <code>pip install tulip-agents</code>, wrap the agent, write a short policy: now every consequential action is weighed, the risky ones hold, and a hash-chained record accumulates — no rebuild, no lock-in. When her team wants shared agents and approvals, what she built locally moves onto the platform unchanged, because the open-source runtime and the platform are the same harness.</p>
+          <span class="outcome">pip install &rarr; wrapped &rarr; governed, in an afternoon</span>
+        </div>
+        <div class="seat">
+          <span class="num">02</span>
+          <h3>The operations lead who doesn't write code</h3>
+          <p>He describes the job in conversation: "when a delivery fails twice, open a carrier claim, notify the customer, and credit shipping." The authoring agent drafts the agent, the playbook, and a starting policy; he tightens the thresholds, runs certification against staging, and sends it to his security counterpart to publish. He never left the conversation-and-forms surface; the result is a versioned, certified, governed agent — not a script someone will find in a wiki.</p>
+          <span class="outcome">described in conversation &rarr; certified &rarr; published</span>
+        </div>
+        <div class="seat">
+          <span class="num">03</span>
+          <h3>The security engineer who owns the policy</h3>
+          <p>She doesn't build agents; she decides what any agent may do. She maintains the policy bundles — thresholds, environments, denied actions, which actions demand a person — and the grants that say who may approve what. Approver authority is enforced by the platform, holds expire instead of dangling, and every decision requires a written justification that lands in the chain. What she reviews is evidence from certification runs, not a demo.</p>
+          <span class="outcome">editor &ne; approver — enforced, not promised</span>
+        </div>
+        <div class="seat">
+          <span class="num">04</span>
+          <h3>The approver on the queue</h3>
+          <p>A held action arrives with everything needed to decide: the agent, the version, the action, its arguments, the policy line that held it, and the evidence behind the claim that prompted it. He approves the $1,400 refund with a justification; the run resumes exactly where it parked — same workspace, same state. He rejects the bulk-email; the run records why. His decisions are the audit trail's spine, and he can defend any of them a year later.</p>
+          <span class="outcome">decide with everything attached &rarr; the run resumes where it parked</span>
+        </div>
+        <div class="seat">
+          <span class="num">05</span>
+          <h3>The compliance officer at audit time</h3>
+          <p>She exports the record — every action, every decision, who approved what and why, chained so that any edit breaks verification — straight into the SIEM. The certification evidence for each deployed version is attached to the version itself. Agent activity stopped being the scary exception in the compliance story and became its best-documented part.</p>
+          <span class="outcome">"what did this agent do in Q3, and who authorized it" is a query, not a project</span>
+        </div>
+        <div class="seat">
+          <span class="num">06</span>
+          <h3>The platform architect who owns the infrastructure</h3>
+          <p>He runs the data plane — the runtime and the sandboxes — in the company's own account: their VPC, their models, their secret store. Tulip's control plane never sees a credential or a customer record; trace payloads with sensitive content can stay on his side. Sandbox compute runs in per-tenant pools on infrastructure he already operates, behind a provider-neutral contract.</p>
+          <span class="outcome">your VPC · your models · your secret store — routing is configuration</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- THREE ENFORCEMENT POINTS -->
