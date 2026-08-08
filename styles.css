@@ -95,7 +95,7 @@ strong { font-weight: 600; }
 .nav a { white-space: nowrap; }
 @media (max-width: 620px) {
   .nav a.hide-sm { display: none; }
-  /* Keep the lockup and the three remaining links on one 4.75rem row:
+  /* Keep the lockup and the remaining links on one 4.75rem row:
      smaller mark + wordmark, tighter nav. Nothing may wrap. */
   .site-head .wrap { padding: 0 1rem; }
   .brand { gap: 0.5rem; }
@@ -103,6 +103,11 @@ strong { font-weight: 600; }
   .brand .wordmark { font-size: 1.3rem; }
   .nav { gap: 0.9rem; }
   .nav a { font-size: 0.875rem; }
+}
+@media (max-width: 480px) {
+  /* Four nav items no longer fit beside the full lockup — mark only. */
+  .brand .wordmark { display: none; }
+  .nav { gap: 0.8rem; }
 }
 
 /* ---- buttons ------------------------------------------------------------- */
