@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Should this action run? — Tulip Labs</title>
+  <meta name="description" content="Training and certifying Clusiana-Admit, our first admission model: four checkpoints in four days, a certificate that can quietly lie, and the number that missed its target.">
+  <link rel="icon" href="../assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/notes/clusiana-admit.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="Should this action run?">
+  <meta property="og:description" content="Training and certifying Clusiana-Admit, our first admission model — including the certificate that can quietly lie, and the number that missed its target.">
+  <meta property="og:url" content="https://tuliplabs.ai/notes/clusiana-admit.html">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tulip Labs — the control layer for AI agents that act.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="Tulip Labs home">
+      <img class="brand-mark" src="../assets/tulip-mark-pink.png" width="38" height="38" alt="">
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="../open-source.html">Runtime</a>
+      <a href="../platform.html">Platform</a>
+      <a class="active" href="../research.html">Research</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="post">
+
+  <section class="post-hero">
+    <div class="wrap">
+      <p class="kicker">Research notes · P2 Admission</p>
+      <h1>Should this action <span class="accent">run</span>?</h1>
+      <p class="lede">We trained a small model to answer that one question — and certified how often it gets it wrong. This note reports what happened, including a way this kind of certificate can quietly lie, and the number that missed its target.</p>
+      <div class="post-meta">
+        <span>Tulip Labs</span>
+        <span>August 2026</span>
+        <span>10 min read</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="post-body">
+    <div class="wrap"><div class="col">
+
+      <p>An AI agent about to act — issue a refund, restart a service, delete a role — passes through a gate in our runtime. Deterministic policy code decides: allow it, hold it for a person, or deny it. That gate works, but it only knows what the policy says explicitly. We wanted a second opinion: a small model that reads the policy and the proposed action, and says what the policy <em>requires</em> — including for the phrasings and edge cases the rules don't literally cover.</p>
+
+      <p>Over four days on a single desk-side machine, we trained four checkpoints of that model. The last one answers correctly 96% of the time on held-out tests, up from 25% for the base model, which could not do the task at all. We also computed a formal certificate on how often it lets a bad action through — and along the way discovered that the standard way of computing such a certificate can silently overstate its own confidence. We found this in our own pipeline, fixed it, and the fix is part of this note. So is the one number that missed its target.</p>
+
+      <h2>The model cannot overrule you</h2>
+
+      <p>Before any numbers: the property that makes this model safe to deploy has nothing to do with how accurate it is.</p>
+
+      <p>The three verdicts are ordered by caution: <code>allow</code> &lt; <code>require_human</code> &lt; <code>deny</code>. The runtime combines the policy engine's verdict with the model's by taking whichever is <em>more cautious</em>. The model can escalate — turn an allow into a hold, a hold into a deny — and can never do the reverse.</p>
+
+      <figure>
+        <svg viewBox="0 0 640 210" role="img" aria-label="Diagram: the policy says hold, the model says allow; the effective verdict is hold, the more cautious of the two. An arrow shows decisions can only move toward caution.">
+          <rect x="20" y="24" width="180" height="58" rx="10" fill="#FFFFFF" stroke="#E7E0DB"/>
+          <text x="110" y="48" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" fill="#78716C">your policy says</text>
+          <text x="110" y="70" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="15" font-weight="600" fill="#1B1620">require_human</text>
+          <rect x="20" y="104" width="180" height="58" rx="10" fill="#FFFFFF" stroke="#E7E0DB"/>
+          <text x="110" y="128" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" fill="#78716C">the model says</text>
+          <text x="110" y="150" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="15" font-weight="600" fill="#1B1620">allow</text>
+          <path d="M200 53 C 250 53, 250 93, 296 93" fill="none" stroke="#78716C" stroke-width="1.5"/>
+          <path d="M200 133 C 250 133, 250 93, 296 93" fill="none" stroke="#78716C" stroke-width="1.5"/>
+          <rect x="296" y="66" width="130" height="54" rx="27" fill="#17141C"/>
+          <text x="361" y="98" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">more cautious</text>
+          <path d="M426 93 L 470 93" fill="none" stroke="#78716C" stroke-width="1.5" marker-end="url(#arr)"/>
+          <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#78716C"/></marker></defs>
+          <rect x="478" y="66" width="146" height="54" rx="10" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.5"/>
+          <text x="551" y="88" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12.5" fill="#78716C">what happens</text>
+          <text x="551" y="109" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="15" font-weight="600" fill="#AD2E5C">require_human</text>
+          <text x="322" y="196" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-size="12" font-style="italic" fill="#78716C">a decision can move toward caution — never away from it</text>
+        </svg>
+        <figcaption>The combination rule. The model's opinion is advisory: it can raise a decision toward caution, and the runtime structurally prevents it from lowering one.</figcaption>
+      </figure>
+
+      <p>Three consequences follow, and they hold no matter how the model performs. A wrong model costs convenience — extra holds for humans to review — never safety, because every mistake lands on the cautious side of the policy's own answer. The model can be switched off at any moment without changing a single authorization outcome; only precision is lost. And a compromised model is an annoyance, not an incident. Every statistical result below is an <em>efficiency</em> claim sitting on top of that structural guarantee, not a safety claim replacing it.</p>
+
+      <h2>What we trained</h2>
+
+      <p>The model is Qwen3-4B with a LoRA adapter — 33 million trainable parameters, 0.8% of the base model's weights. It sees a written policy and a proposed action, and answers with exactly one word: <code>allow</code>, <code>require_human</code>, or <code>deny</code>. No reasoning trace, no explanation. It sits in an agent's hot path, so a single fast forward pass is the entire budget.</p>
+
+      <p>The corpus is 91,136 policy-and-action pairs from three kinds of source: published API specifications and agent benchmarks under compatible licences; semantic-preserving evasions of our own deterministic gate (the policy says "production", the action says "prod"); and — the workhorse — <strong>policies whose correct answer is computed, not judged</strong>. A policy with a numeric limit ("refunds up to $500") is labelled by comparison. A policy with a carve-out ("any role except the break-glass admin") is labelled by set membership. Both are decided by a few lines of code over the values that generated the text, which makes the labels exact, noise-free, and unlimited — where every other effort in this space is starved for labelled examples of the rare, dangerous class.</p>
+
+      <p>Nothing was trained on frontier-model output. OpenAI's terms permit classifier training only if the result is never distributed; Anthropic's require prior authorization. Since these models are built to be released, that constraint shaped the pipeline from the start — open-weight generators only — rather than being checked at the end.</p>
+
+      <p>Each training run took under three hours on one NVIDIA DGX Spark. The interesting work was never the compute; it was what the measurements kept revealing.</p>
+
+      <h2>Four checkpoints in four days</h2>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th></th><th class="num">accuracy</th><th class="num">false-allow</th><th class="num">over-hold</th><th class="num">hold recall</th><th class="num">deny recall</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>base Qwen3-4B</td><td class="num">25.4%</td><td class="num">73.8%</td><td class="num">20.0%</td><td class="num">8.4%</td><td class="num">—</td></tr>
+            <tr><td>v1 · Aug 4</td><td class="num">90.4%</td><td class="num">0.82%</td><td class="num">3.02%</td><td class="num">99.5%</td><td class="num">—</td></tr>
+            <tr><td>v2 · Aug 5</td><td class="num">84.6%</td><td class="num">0.73%</td><td class="num">1.04%</td><td class="num">99.7%</td><td class="num">15.4%</td></tr>
+            <tr><td>v3 · Aug 6</td><td class="num">93.7%</td><td class="num">0.89%</td><td class="num">1.44%</td><td class="num">99.5%</td><td class="num">69.8%</td></tr>
+            <tr class="hl"><td>v4 · Aug 7</td><td class="num">96.2%</td><td class="num">0.52%</td><td class="num">1.01%</td><td class="num">99.7%</td><td class="num">76.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:0.9rem">Held-out measurements, split so no policy appears in both training and evaluation. Test sets differ between versions as the corpus grew, so cross-version comparison is directional rather than controlled. <em>False-allow</em>: of the actions that should have been stopped, how many were allowed — the safety-relevant number. <em>Over-hold</em>: of the actions that were fine, how many were needlessly escalated — what gets a gate switched off in practice.</p>
+
+      <p>The base model established the premise: it could not do this task. 73.8% of the actions it should have stopped, it allowed. One 127-megabyte adapter later, that number was 0.82% — the finding the whole program rests on, and after v1, no longer a hypothesis.</p>
+
+      <p>Each subsequent version fixed the specific thing measurement exposed. Hand-probing v1 found two failures worth quoting: shown a policy with a $500 limit, it gave a $120 refund and a $2,500 refund <em>the same verdict</em> — it never read the number. And shown "agents may manage roles they created, but never the break-glass admin role," it allowed deleting the break-glass role with 99.2% confidence. Neither is a reasoning ceiling; both patterns were simply absent from the training data. v2 added 18,000 computed-label policies targeting exactly those shapes.</p>
+
+      <p>v2's weakness was <em>deny</em>: it recognized only 15% of truly forbidden actions as forbidden, collapsing nearly everything risky into "ask a person." Safe — the combination rule means a policy deny can never be softened — but it spends human attention, and it meant the model had not learned the difference between <em>forbidden</em> and <em>needs review</em>. The cause turned out to be corpus diversity: our 18,000 synthetic items came from only 50 distinct policy templates. v3 regenerated them across thousands of distinct policies, and deny recall went from 15% to 70% in one step. v4 widened the generator from 5 domains to 15, and every number improved at once.</p>
+
+      <p>For v4, on 13,327 held-out items (a majority-class baseline would score 51%):</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>expected ↓ · predicted →</th><th class="num">allow</th><th class="num">require_human</th><th class="num">deny</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>allow</td><td class="num">4,624</td><td class="num">2</td><td class="num">45</td></tr>
+            <tr><td>require_human</td><td class="num">4</td><td class="num">6,775</td><td class="num">15</td></tr>
+            <tr><td>deny</td><td class="num">41</td><td class="num">406</td><td class="num">1,415</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:0.9rem">The v4 confusion matrix. The largest remaining error mass — 406 denials answered as require_human — is the safe direction of wrong: a person still reviews the action.</p>
+
+      <h2>A certificate that can quietly lie</h2>
+
+      <p>Accuracy on a test set is an average. For a safety gate you want something stronger: a bound of the form <em>"with 95% confidence, this model's false-allow rate is at most one in a thousand."</em> There is a classical, distribution-free way to get one. Take a held-out set of genuinely unsafe examples, look at the scores the model gave them, and set your decision threshold at the <em>k</em>-th smallest — where <em>k</em> is chosen so the binomial arithmetic guarantees the bound. No assumptions about the model, no assumptions about the score distribution. It is an elegant construction, and we implemented it early.</p>
+
+      <p>It was also, for our first two model versions, silently invalid — and the way we discovered that is the most useful thing in this note.</p>
+
+      <p>The construction assumes the calibration examples and the traffic you will face are <em>exchangeable</em> — statistically interchangeable draws from the same population. But a responsible evaluation corpus is deliberately built to break that. Our corpus contains templated families: one policy text with the dollar amount varied, one carve-out clause with the protected resource swapped. To keep the test honest, the split is <em>group-disjoint</em> — every variant of a policy lands entirely in training, entirely in calibration, or entirely in test, so the model can never score well by recognizing a paraphrase of something it memorized. That is the correct split. And it means calibration and test are samples of <em>different policies</em> — which is exactly not exchangeable at the item level.</p>
+
+      <p>Nothing about this fails loudly. The arithmetic runs; the certificate prints a number. On v3 we measured what the number was worth, certifying the same model on the same data both ways:</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th class="num">target rate α</th><th>certified per item</th><th>certified per policy group</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">5 in 100</td><td>observed 100.0% — <strong>violated</strong></td><td>observed 4.56% — held</td></tr>
+            <tr><td class="num">1 in 100</td><td>observed 1.10% — <strong>violated</strong></td><td>observed 0.87% — held</td></tr>
+            <tr><td class="num">5 in 1,000</td><td>observed 0.58% — <strong>violated</strong></td><td>observed 0.49% — held</td></tr>
+            <tr><td class="num">1 in 1,000</td><td>observed 0.10% — held</td><td>observed 0.05% — held</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:0.9rem">The same model, the same data. "Violated" means the rate observed on the independent test set exceeded what the certificate claimed. At the loosest target the item-level threshold degenerated to the maximum calibration score — every unsafe test item slipped under it. Not slightly optimistic: meaningless.</p>
+
+      <p>The item-level certificate failed at three of four targets — and, most dangerously, <em>held at the tightest one</em>, by luck. A certification method that looks more trustworthy the stricter you make the target is precisely the failure you don't catch until it costs you.</p>
+
+      <p>The fix is small: pool scores by policy group before thresholding, taking each group's most permissive score — a family of near-duplicates is one unit of evidence, not eighteen hundred — and pool the test side the same way. What it costs is honesty about sample size: evidence is counted in distinct policies, not items. What had looked like 15,572 calibration examples was, honestly counted, 5,578.</p>
+
+      <blockquote>A better corpus revealed a flaw a worse one was hiding: an earlier corpus with only 50 distinct templates made calibration and test near-duplicates of each other, so both ways of computing the certificate happened to agree. Widening the corpus — the fix for an unrelated weakness — is what made the invalid method visibly fail.</blockquote>
+
+      <p>One more thing this episode taught us, one layer up: the corrected computation existed in our library, tested and correct, for two model versions <em>before the pipeline that produces a release certificate actually called it</em>. The published numbers were right only because someone re-derived them by hand. The durable fix wasn't statistical — it was wiring the grouped computation into the one code path that ships a certificate, with a test that constructs the correlated-family shape and fails if pooling ever stops changing the answer.</p>
+
+      <h2>The number that missed</h2>
+
+      <p>v4 was certified with the corrected, group-level method from the start: 18,990 calibration policy groups, targeting a false-allow rate of at most 1 in 1,000 at 95% confidence. The certificate is also more <em>robust</em> than any before it — its threshold tolerates eleven anomalous calibration groups before breaking, where v3's tolerated one.</p>
+
+      <p>On the independent held-out test set, the observed rate came in at <strong>0.105%, against the 0.1% target</strong>. A miss, by half a basis point.</p>
+
+      <div class="callout">
+        <span class="label">Why report a miss?</span>
+        <p>"95% confidence over the calibration draw" means up to one draw in twenty lands on the wrong side of the line, and this one landed close to it. The calibration math is sound; the draw was unlucky, or the target is not yet robustly reachable at this corpus size — the next corpus doubling will tell us which. Either way, a certification method is only worth trusting if the misses get published with the hits. At the same threshold, the needless-escalation rate on safe actions was 0.0%.</p>
+      </div>
+
+      <h2>What these numbers do not say</h2>
+
+      <p>Plainly, because an eval card that hides its limits is worse than none:</p>
+
+      <ul>
+        <li><strong>The certificate covers a specific population</strong> — policy evasions, numeric thresholds, and carve-out clauses, the classes where ground truth is computable. It says nothing about admission decisions in general; 11,354 corpus rows have no machine-checkable ground truth, and their status is unknown, not passing.</li>
+        <li><strong>Out-of-distribution behaviour is materially worse.</strong> Hand-written cases outside the corpus's domains have failed. The corpus speaks cloud-infrastructure, payments, and web-agent policy language; a novel vertical starts over.</li>
+        <li><strong>Deny recall is 76%.</strong> A quarter of truly forbidden actions are answered "ask a person" instead. The combination rule makes this safe, but it spends human attention, and it is the number we most want to move next.</li>
+        <li><strong>No adversarial guarantee.</strong> These bounds describe honest traffic. An attacker searching against the score is a different threat, and no statistical certificate of this kind survives it — which is why the escalate-only architecture, not the statistics, is what holds in that case.</li>
+      </ul>
+
+      <h2>What's next</h2>
+
+      <p>Three things, in order. The open release: the dataset, the training recipe, the evaluation harness, and the model weights, so these numbers can be checked rather than believed — with a full methodology write-up of the certification finding above. The wiring: connecting the model's advisory verdict into the runtime's gate, behind a kill switch, with conformance tests proving the escalate-only property across a process boundary before any deployment. And the robustness push: the certificate math says a robust 1-in-1,000 bound wants roughly 30,000 distinct calibration policies; computed labels make that a generation problem, not an annotation one.</p>
+
+      <p class="post-end">Questions, corrections, or interest in the artifacts: <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a> · security findings: <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a>. The runtime this model plugs into is open source: <a href="https://tulipagents.ai/">tulipagents.ai</a>.</p>
+
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">The control layer for AI agents that act — the runtime, the platform, and the lab.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Areas</h4>
+        <a href="../open-source.html">The runtime</a>
+        <a href="../platform.html">The platform</a>
+        <a href="../research.html">The lab</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="https://tulipagents.ai/">Docs</a>
+        <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 TulipLabs Inc.</span>
+      <span><a href="../legal.html">Legal &amp; disclaimer</a></span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

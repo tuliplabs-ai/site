@@ -14,6 +14,7 @@ to install.
 | `open-source.html` | The runtime — `tulip-agents`, the open-source SDK (short version; docs live at tulipagents.ai) |
 | `platform.html` | The platform — Tulip, the authorization control plane |
 | `research.html` | The lab — Clusiana control models and the five research programs |
+| `notes/clusiana-admit.html` | Research note — training and certifying Clusiana-Admit |
 | `contact.html` | Contact form (formsubmit.co → info@) |
 | `legal.html` | Legal, disclaimer, license provenance |
 | `styles.css` | The whole design system |
