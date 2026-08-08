@@ -103,7 +103,7 @@
 
       <p>The corpus is 91,136 policy-and-action pairs from three kinds of source: published API specifications and agent benchmarks under compatible licences; semantic-preserving evasions of our own deterministic gate (the policy says "production", the action says "prod"); and — the workhorse — <strong>policies whose correct answer is computed, not judged</strong>. A policy with a numeric limit ("refunds up to $500") is labelled by comparison. A policy with a carve-out ("any role except the break-glass admin") is labelled by set membership. Both are decided by a few lines of code over the values that generated the text, which makes the labels exact, noise-free, and unlimited — where every other effort in this space is starved for labelled examples of the rare, dangerous class.</p>
 
-      <p>Nothing was trained on frontier-model output. OpenAI's terms permit classifier training only if the result is never distributed; Anthropic's require prior authorization. Since these models are built to be released, that constraint shaped the pipeline from the start — open-weight generators only — rather than being checked at the end.</p>
+      <p>Nothing was trained on output from OpenAI's or Anthropic's models — OpenAI's terms permit classifier training only if the result is never distributed, and Anthropic's require prior authorization. Since these models are built to be released, that constraint shaped the pipeline from the start — open-weight generators only — rather than being checked at the end.</p>
 
       <p>Each training run took under three hours on one NVIDIA DGX Spark. The interesting work was never the compute; it was what the measurements kept revealing.</p>
 

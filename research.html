@@ -57,7 +57,7 @@
   <section class="band">
     <div class="wrap"><div class="col">
       <div class="eyebrow-row"><span class="label">What we train, and why</span><span class="line"></span><span class="label teal">Clusiana</span></div>
-      <h2>Frontier labs train capability. We train <span class="accent">Clusiana</span>.</h2>
+      <h2>Clusiana: small models, built for control.</h2>
       <p class="lede" style="margin-bottom:1.7rem">A multi-agent system is not one model reasoning. It is an orchestration loop of narrow decisions — which agent runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Those decisions are small, bounded, and constant — the regime where a small model beats a large one. <b>Clusiana</b> is our family of small control models, one for each of those decisions, all governed and built to be released open-weight; Clusiana-Admit's dataset, recipe, and weights are the next release.</p>
       <div class="principle">
         <h3><span class="idx">01</span>A large model plans; Clusiana controls</h3>
@@ -65,11 +65,11 @@
       </div>
       <div class="principle">
         <h3><span class="idx">02</span>Small, because control runs in the hot path</h3>
-        <p>A Clusiana model sits in front of every action, so it must answer in tens of milliseconds — and it often must run inside a regulated network where no data may leave. Small, self-hosted models are not a compromise here; they are the requirement. They also cost an order of magnitude less than a frontier call, on decisions that happen constantly. In practice the family is a shared small base with lightweight per-task adapters — and plain code where a decision needs no model at all.</p>
+        <p>A Clusiana model sits in front of every action, so it must answer in tens of milliseconds — and it often must run inside a regulated network where no data may leave. Small, self-hosted models are not a compromise here; they are the requirement. They also cost an order of magnitude less than a large hosted model, on decisions that happen constantly. In practice the family is a shared small base with lightweight per-task adapters — and plain code where a decision needs no model at all.</p>
       </div>
       <div class="principle">
         <h3><span class="idx">03</span>The record is the training data no one else has</h3>
-        <p>Every governed action — the decision, the policy, the outcome, and the human approval when there was one — lands on a tamper-evident record. That record is a labeled dataset of your own actions and judgments, and it specializes your Clusiana models to your world: the admission model gets sharper about your risky actions, the evaluator learns your definition of a good run. The audit trail you keep for compliance is also the flywheel that makes the models better. A framework or a frontier lab cannot have this data; it is yours. The bottleneck is data, not compute — and the record is the data.</p>
+        <p>Every governed action — the decision, the policy, the outcome, and the human approval when there was one — lands on a tamper-evident record. That record is a labeled dataset of your own actions and judgments, and it specializes your Clusiana models to your world: the admission model gets sharper about your risky actions, the evaluator learns your definition of a good run. The audit trail you keep for compliance is also the flywheel that makes the models better. No framework and no model provider can have this data; it is yours. The bottleneck is data, not compute — and the record is the data.</p>
       </div>
       <div class="principle">
         <h3><span class="idx">04</span>Not a better guard model — a governed, self-improving one</h3>

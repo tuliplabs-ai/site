@@ -362,3 +362,27 @@ pre code { background: none; padding: 0; font-size: inherit; }
   .pre-reveal { opacity: 1; transform: none; }
   .in-view { transition: none; }
 }
+
+/* ---- product moment mock (decorative UI, non-functional) ------------------ */
+.mock { display: grid; gap: 1rem; }
+.mock-card {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 16px;
+  padding: 1.5rem 1.6rem; box-shadow: 0 24px 48px -32px rgba(27,22,32,0.35);
+}
+.mock-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.mock-id { font-family: var(--mono); font-size: 0.72rem; color: var(--mute); }
+.mock-action {
+  font-family: var(--mono); font-size: 0.95rem; color: var(--ink);
+  margin: 0 0 0.45rem; overflow-wrap: anywhere;
+}
+.mock-policy { font-size: 0.85rem; color: var(--mute); margin: 0 0 1.2rem; }
+.mock-btns { display: flex; gap: 0.6rem; }
+.mock-btns .btn { font-size: 0.88rem; padding: 0.55rem 1.1rem; cursor: default; }
+.mock-record {
+  background: var(--ink-panel); color: #C9C2D0; border-radius: 14px;
+  padding: 1.1rem 1.4rem; font-family: var(--mono); font-size: 0.78rem;
+  line-height: 1.5; display: grid; gap: 0.45rem; overflow-x: auto;
+}
+.mock-record .ok { color: #7fc79b; }
+.mock-record .mut { color: #8c8497; }
+.quote-attr { font-size: 0.9rem; color: #9A90A5; margin-top: 1.6rem; }
