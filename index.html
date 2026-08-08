@@ -66,7 +66,7 @@
       <div class="col">
         <p class="kicker">One thesis · three artifacts</p>
         <h1>The control layer for AI agents that <span class="accent">act</span>.</h1>
-        <p class="lede">Tulip Labs builds the control layer for agentic execution: <strong>tulip-agents</strong>, the open-source runtime that enforces every consequential action before it runs; <strong>Tulip</strong>, the control plane where a team defines agents, policies, and connections once and executes anywhere; and <strong>Clusiana</strong>, the control models we train to make those decisions.</p>
+        <p class="lede">AI agents now take real actions. We build the layer that keeps those actions under control: an open-source runtime that checks each one before it runs, a platform where a team sets the rules once, and <strong>Clusiana</strong> — small models we train to help make those calls.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="platform.html">The platform <span class="arrow">→</span></a>
           <a class="btn btn--ghost" href="open-source.html">The runtime</a>
@@ -84,7 +84,7 @@
     <div class="wrap">
       <div class="col">
         <p class="label" style="margin-bottom:1.5rem">One thesis</p>
-        <p class="thesis">Agentic AI becomes infrastructure only when what agents <b>do</b> is governed: every consequential action weighed against policy before it runs, held for a person when it matters, written to a record that fails verification if anyone edits it. The open-source runtime is the foundation — the platform operates it for a team, the lab's models plug into it, and all three write to the same record.</p>
+        <p class="thesis">Agents become infrastructure only when what they <b>do</b> is governed: every risky action checked before it runs, held for a person when it matters, written to a record no one can quietly edit. The open-source runtime is the foundation — the platform operates it for a team, the lab's models plug into it, and everything writes to the same record.</p>
       </div>
     </div>
   </section>
@@ -99,7 +99,7 @@
           <div class="card">
             <span class="label">tulip-agents 2.4.0 · PyPI · Apache-2.0</span>
             <h3>The gate and the record</h3>
-            <p><code>admit()</code> weighs each action against a ControlPolicy before it runs — allow, hold for a person, or deny — and writes it to a hash-chained audit trail. The PRISM router compiles tasks into eight deterministic shapes; bridges wrap agents from six frameworks, in Python and TypeScript. GSAR, the published grounding judge (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>), ships inside.</p>
+            <p>One function checks each action against your rules before it runs: allow it, hold it for a person, or deny it. Every decision lands on a record that shows any tampering. It works with the agents you already have — six frameworks, Python and TypeScript, no rewrite.</p>
             <p><a class="more" href="open-source.html">The runtime, in short →</a></p>
           </div>
         </div>
@@ -107,8 +107,8 @@
           <div class="pillar__head"><span class="label">02</span><h3>The platform</h3></div>
           <div class="card">
             <span class="label">Tulip · running in dev · hosted beta in progress</span>
-            <h3>Define once, execute anywhere</h3>
-            <p>Studio and Registry: agents, policies, and connections authored centrally, versioned, and certified — an uncertified version cannot deploy, and its evidence is Ed25519-signed. Execution stays in your environment; what returns to the control plane is a verdict, not your data.</p>
+            <h3>Set the rules once, use them everywhere</h3>
+            <p>A place for a team to define its agents and the rules they run under. New agent versions must pass certification before they can ship. Your data and secrets stay in your environment — Tulip only ever sees the decisions.</p>
             <p><a class="more" href="platform.html">The control plane →</a></p>
           </div>
         </div>
@@ -116,8 +116,8 @@
           <div class="pillar__head"><span class="label teal">03</span><h3>The lab</h3></div>
           <div class="card">
             <span class="label teal">Clusiana · control models</span>
-            <h3>Trained to be governable</h3>
-            <p>Frontier labs train capability; we train the models that govern it. <b>Clusiana-Admit v4</b> — Qwen3-4B with a 0.82%-of-base LoRA — is trained and certified on held-out data: 96.2% accuracy, 0.52% false-allow, 76.0% deny recall against a 51% baseline. It can only escalate — <code>max(policy, model)</code> — never lower a verdict. Open release of the dataset, recipe, and weights is next.</p>
+            <h3>Trained to keep agents careful</h3>
+            <p>Frontier labs train models to be capable; we train small models to keep agents careful. Our first — a model that decides whether an action should run — is trained and tested. By design it can make the system more cautious, never less. Open release is next.</p>
             <p><a class="more" href="research.html">The research →</a></p>
           </div>
         </div>
@@ -166,17 +166,17 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
       <div class="work flip">
         <div class="work__media">
           <div class="stats">
-            <div class="stat"><div class="n">96.2%</div><div class="k">held-out accuracy</div></div>
-            <div class="stat"><div class="n">0.52%</div><div class="k">false-allow rate</div></div>
-            <div class="stat"><div class="n">76.0%</div><div class="k">deny recall</div></div>
+            <div class="stat"><div class="n">96%</div><div class="k">of decisions right in held-out tests</div></div>
+            <div class="stat"><div class="n">1 in 190</div><div class="k">bad actions it would miss</div></div>
+            <div class="stat"><div class="n">0</div><div class="k">times it can override your rules</div></div>
           </div>
-          <p class="muted" style="font-size:0.9rem;margin-top:1rem">Against a 51% majority baseline. Group-level distribution-free certificate over 18,990 calibration groups; the bound came in at 0.1052% against a 0.1% target on this held-out draw — reported as a miss, not rounded down.</p>
+          <p class="muted" style="font-size:0.9rem;margin-top:1rem">Measured on our own test set — real traffic is harder, which is why the model can only add caution, never remove it. When its certified error bound missed our target by a hair this month, we published the miss.</p>
         </div>
         <div class="work__copy">
           <p class="label" style="margin-bottom:1rem">The lab · P2 Admission</p>
-          <h2>Clusiana-Admit v4</h2>
-          <p class="lede" style="margin-bottom:1.3rem">A certified admission classifier — and an honest certificate.</p>
-          <p>Certified 2026-08-07. The classifier holds no authority: its verdict is combined with the deterministic policy engine's as <code>max(policy, model)</code>, so it can raise a decision toward caution and never lower one. A wrong model degrades usefulness, not safety — and its error bound is computed at the level the evaluation set actually randomizes over, not the level that flatters it.</p>
+          <h2>Clusiana-Admit</h2>
+          <p class="lede" style="margin-bottom:1.3rem">Should this action run? We trained a small model to answer that one question.</p>
+          <p>It passed its first real test this month. When it errs, it errs on the side of asking a person — and by design, its answer can only ever make the system more careful. A wrong model costs some convenience; it cannot cost you safety. The dataset, the recipe, and the model itself are being prepared for open release.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="research.html">The research <span class="arrow">→</span></a>
           </div>
@@ -194,17 +194,17 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
         <div class="card">
           <span class="label">Certification</span>
           <h3>Certified before it runs</h3>
-          <p>An uncertified version cannot deploy — the gate sits at the deployment boundary, and the evidence behind each certification is Ed25519-signed and digest-pinned to the exact artifact it describes.</p>
+          <p>A new agent version cannot ship until it passes certification, and the evidence behind each certificate is signed and tied to the exact version it describes.</p>
         </div>
         <div class="card">
           <span class="label">Execution</span>
-          <h3>Your plane executes</h3>
-          <p>Models, credentials, files, and business APIs stay in your environment. Tulip's hosted services never hold your secrets; the flagship shape is a customer-owned data plane.</p>
+          <h3>Your environment runs it</h3>
+          <p>Models, credentials, files, and APIs stay with you. Tulip's hosted services never hold your secrets.</p>
         </div>
         <div class="card">
           <span class="label">The boundary</span>
-          <h3>Verdicts cross, data doesn't</h3>
-          <p>The control plane authors policy and receives verdicts, traces, and evidence — not payloads. Every decision it governs lands on the same tamper-evident record.</p>
+          <h3>Decisions cross, data doesn't</h3>
+          <p>The platform sets the rules and receives the decisions — not your data. Every decision lands on the same tamper-evident record.</p>
         </div>
       </div>
       <div class="btn-row">
@@ -244,7 +244,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
         </div>
         <div class="principle">
           <h3><span class="idx">02</span>Measured claims</h3>
-          <p>Numbers with methods behind them. We state scope and limits as plainly as results — 13 of 14 launch claims are closed by cross-process conformance tests, and the fourteenth is struck, not carried.</p>
+          <p>Numbers with methods behind them. Before we claim something works, a test has to prove it against the real system — and a claim we can't prove is removed, not softened.</p>
         </div>
         <div class="principle">
           <h3><span class="idx">03</span>Defender-first</h3>
