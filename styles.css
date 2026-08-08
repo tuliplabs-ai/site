@@ -126,7 +126,7 @@ strong { font-weight: 600; }
 .btn:hover .arrow { transform: translateX(2px); }
 
 /* ---- hero ---------------------------------------------------------------- */
-.hero { padding-top: 4.5rem; padding-bottom: 5.5rem; }
+.hero { padding-top: 2.75rem; padding-bottom: 4.5rem; }
 .hero .col { max-width: 50rem; }
 .hero h1 .accent { color: var(--red); font-style: italic; }
 .pip { font-family: var(--mono); font-size: 0.85rem; color: var(--mute); margin-top: 1.6rem; }
