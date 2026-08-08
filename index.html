@@ -86,12 +86,12 @@
     </div>
   </section>
 
-  <!-- THE LOOP, AT A GLANCE -->
+  <!-- THE ARCHITECTURE, AT A GLANCE -->
   <section>
     <div class="wrap">
-      <div class="eyebrow-row"><span class="label">The loop, at a glance</span><span class="line"></span></div>
-      <div style="max-width:36rem;margin:0 auto">
-        <img src="assets/hero-loop.svg" width="520" height="440" style="width:100%;height:auto;display:block" alt="A large model plans; small Clusiana control models advise each decision; every action crosses the gate — allow, hold, or deny — and lands on a tamper-evident record; the record trains the next generation of Clusiana.">
+      <div class="eyebrow-row"><span class="label">The architecture, at a glance</span><span class="line"></span></div>
+      <div style="max-width:42rem;margin:0 auto">
+        <img src="assets/architecture.svg" width="680" height="634" style="width:100%;height:auto;display:block" alt="Two planes. The Tulip-hosted control plane — Studio and Registry — defines agents, policies and connections, certifies versions, and reviews holds; it runs no agents. Definitions and policy flow down; verdicts, traces and evidence flow up; your data never crosses the boundary. In your environment, the runtime — one installed process — runs the agent loop with your models, injects credentials at call time, passes every action through the gate (allow, hold, deny) onto a tamper-evident record, with Clusiana models advising but never able to override your rules. Model-directed work runs in a sandbox that holds no credentials, with network reach declared up front.">
       </div>
     </div>
   </section>
@@ -148,20 +148,26 @@
         </div>
         <div class="work__media">
           <pre class="code"><span class="c"># drop the gate around an action your agent already takes</span>
-<span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
+<span class="k">from</span> tulip.control <span class="k">import</span> (
+    Action, admit, ControlPolicy, AuditTrail, AdmissionError,
+)
 
 policy = <span class="fn">ControlPolicy</span>()    <span class="c"># prod → human</span>
 trail  = <span class="fn">AuditTrail</span>()
 
 risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, asset=<span class="s">"cust:4821"</span>,
-              blast_radius=1, kind=<span class="s">"payment"</span>, environment=<span class="s">"production"</span>)
+               blast_radius=1, kind=<span class="s">"payment"</span>,
+               environment=<span class="s">"production"</span>)
 
 <span class="k">try</span>:
-    <span class="k">await</span> <span class="fn">admit</span>(risky, <span class="k">lambda</span>: <span class="fn">refund</span>(<span class="s">"cust:4821"</span>), policy=policy, trail=trail)
+    <span class="k">await</span> <span class="fn">admit</span>(risky, <span class="k">lambda</span>: <span class="fn">refund</span>(<span class="s">"cust:4821"</span>),
+                policy=policy, trail=trail)
 <span class="k">except</span> AdmissionError <span class="k">as</span> e:
-    <span class="fn">print</span>(e.decision.outcome)   <span class="c"># → "require_human"; refund NOT run</span>
+    <span class="fn">print</span>(e.decision.outcome)
+    <span class="c"># → "require_human" — the refund did NOT run</span>
 
-<span class="c"># Held for a human, on the audit trail. Fool the model; not the runtime.</span></pre>
+<span class="c"># Held for a human, on the audit trail.</span>
+<span class="c"># Fool the model; not the runtime.</span></pre>
         </div>
       </div>
     </div>
