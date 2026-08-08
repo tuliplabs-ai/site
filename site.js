@@ -66,9 +66,9 @@
     },
     gateway: {
       kicker: "Data plane · you own", title: "The runtime — the harness",
-      role: 'It <span class="hl">thinks, coordinates, authorizes, remembers and records.</span> The agent loop, the policy gate, the approvals and the audit chain all live in the trusted harness — never in the box that runs untrusted code.',
-      owns: ["The agent loop & model calls", "admit() — every risky action clears policy first", "Approvals & approver authority", "The hash-chained audit trail", "Durable run state — a parked run resumes where it stopped"],
-      not: ["Shell or generated-code execution", "A browser or an untrusted document", "Long-lived business credentials in the loop"],
+      role: 'It <span class="hl">thinks, coordinates, authorizes, remembers and records.</span> Your agents, the policy gate, the approvals and the audit chain all live in the trusted harness — never in the box that runs untrusted code.',
+      owns: ["Your agents & their model calls", "admit() — every risky action clears policy first", "Approvals & approver authority", "The hash-chained audit trail", "Durable run state — a parked run resumes where it stopped"],
+      not: ["Shell or generated-code execution", "A browser or an untrusted document", "Long-lived business credentials near the agent"],
       proofs: [
         { s: "p", t: "argument-derived", c: "A $10 refund passes and a $10,000 refund holds on the same tool — the amount itself derives the label the policy matches." },
         { s: "p", t: "exactly-once", c: "An approval executes exactly once; a decision is single-use, bound to the exact arguments, and expires." },

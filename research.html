@@ -58,7 +58,7 @@
     <div class="wrap"><div class="col">
       <div class="eyebrow-row"><span class="label">What we train, and why</span><span class="line"></span><span class="label teal">Clusiana</span></div>
       <h2>Clusiana: small models, built for control.</h2>
-      <p class="lede" style="margin-bottom:1.7rem">A multi-agent system is not one model reasoning. It is an orchestration loop of narrow decisions — which agent runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Those decisions are small, bounded, and constant — the regime where a small model beats a large one. <b>Clusiana</b> is our family of small control models, one for each of those decisions, all governed and built to be released open-weight; Clusiana-Admit's dataset, recipe, and weights are the next release.</p>
+      <p class="lede" style="margin-bottom:1.7rem">A multi-agent system is not one model reasoning. It is an agent making a chain of narrow decisions — which agent runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Those decisions are small, bounded, and constant — the regime where a small model beats a large one. <b>Clusiana</b> is our family of small control models, one for each of those decisions, all governed and built to be released open-weight; Clusiana-Admit's dataset, recipe, and weights are the next release.</p>
       <div class="principle">
         <h3><span class="idx">01</span>A large model plans; Clusiana controls</h3>
         <p>The open-ended reasoning stays on a general model — systems are planner-limited, and planning is where judgment lives. Around it, the Clusiana models handle the mechanics and the control decisions: route, select a tool, build its arguments, check the schema, verify the step, ground the claim, admit the action, judge the run. We never train the planner; we train everything that governs it.</p>
@@ -98,8 +98,8 @@
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">The family</span><span class="line"></span><span class="label teal">One model per decision</span></div>
       <div class="col">
-        <h2>The whole loop, decision by decision</h2>
-        <p class="lede" style="margin-bottom:1.5rem">An agent's loop is fifteen decisions. One — planning — stays on a large general model we govern but never train. Three need no model at all: plain code is the right answer, so we write the code. The rest are Clusiana's roadmap: one small base model kept in memory, with a cheap adapter swapped in per decision.</p>
+        <h2>An agent, decision by decision</h2>
+        <p class="lede" style="margin-bottom:1.5rem">An agent makes fifteen kinds of decision. One — planning — stays on a large general model we govern but never train. Three need no model at all: plain code is the right answer, so we write the code. The rest are Clusiana's roadmap: one small base model kept in memory, with a cheap adapter swapped in per decision.</p>
         <p class="muted" style="font-size:0.95rem;margin-bottom:0.5rem">Named honestly: a slot on this table is a place in the architecture, not a scheduled training run. Five are justified by evidence today; the next three, in order, are admission → run judgment → routing.</p>
       </div>
       <div class="data-table table-scroll">
