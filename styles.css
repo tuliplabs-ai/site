@@ -46,7 +46,7 @@ body {
 /* ---- layout primitives ---------------------------------------------------- */
 .wrap { width: 100%; max-width: var(--wide); margin: 0 auto; padding: 0 1.5rem; }
 .col  { max-width: var(--measure); }
-section { padding: 7rem 0; border-top: 1px solid var(--rule); }
+section { padding: 5rem 0; border-top: 1px solid var(--rule); }
 section:first-of-type { border-top: 0; }
 
 /* ---- type ---------------------------------------------------------------- */
@@ -126,7 +126,7 @@ strong { font-weight: 600; }
 .btn:hover .arrow { transform: translateX(2px); }
 
 /* ---- hero ---------------------------------------------------------------- */
-.hero { padding-top: 2.75rem; padding-bottom: 4.5rem; }
+.hero { padding-top: 2rem; padding-bottom: 3.5rem; }
 .hero .col { max-width: 50rem; }
 .hero h1 .accent { color: var(--red); font-style: italic; }
 .pip { font-family: var(--mono); font-size: 0.85rem; color: var(--mute); margin-top: 1.6rem; }
@@ -210,7 +210,7 @@ strong { font-weight: 600; }
 .principle .idx { font-family: var(--mono); color: var(--red); font-size: 0.85rem; margin-right: 0.5rem; }
 
 /* ---- footer -------------------------------------------------------------- */
-.site-foot { background: var(--ink-panel); color: #C9C2D0; border-top: 0; padding: 5.5rem 0 3.5rem; }
+.site-foot { background: var(--ink-panel); color: #C9C2D0; border-top: 0; padding: 4rem 0 3rem; }
 .site-foot a { color: #E7DEEC; }
 .site-foot a:hover { color: #fff; }
 .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
@@ -282,7 +282,7 @@ code {
 pre code { background: none; padding: 0; font-size: inherit; }
 
 /* ---- research notes (long-form posts) ------------------------------------ */
-.post-hero { padding: 5.5rem 0 3rem; border-top: 0; }
+.post-hero { padding: 3rem 0 2.5rem; border-top: 0; }
 .post-hero h1 { max-width: 46rem; font-size: clamp(2.2rem, 4.4vw, 3.4rem); }
 .post-hero .lede { max-width: var(--measure); }
 .post-meta {
