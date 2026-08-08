@@ -79,6 +79,48 @@
     </div></div>
   </section>
 
+  <!-- THE FAMILY ROADMAP -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">The family</span><span class="line"></span><span class="label teal">One model per decision</span></div>
+      <div class="col">
+        <h2>The whole loop, decision by decision</h2>
+        <p class="lede" style="margin-bottom:1.5rem">An agent's loop is fifteen decisions. One — planning — stays on a large general model we govern but never train. Three need no model at all: plain code is the right answer, so we write the code. The rest are Clusiana's roadmap: one small base model kept in memory, with a cheap adapter swapped in per decision.</p>
+        <p class="muted" style="font-size:0.95rem;margin-bottom:0.5rem">Named honestly: a slot on this table is a place in the architecture, not a scheduled training run. Five are justified by evidence today; the next three, in order, are admission → run judgment → routing.</p>
+      </div>
+      <div class="data-table table-scroll">
+        <table>
+          <thead>
+            <tr><th>#</th><th>decision</th><th>what it decides</th><th>status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>Plan</td><td>break the task into steps</td><td><span class="muted">a large model — governed, never trained by us</span></td></tr>
+            <tr><td>1</td><td>Understand the request</td><td>what kind of task, how risky</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>2</td><td>Check the plan</td><td>is it bounded and within policy</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>3</td><td>Pick the shape</td><td>which agent shape runs</td><td><span class="status dev">Next</span></td></tr>
+            <tr><td>4</td><td>Pick the tool</td><td>which tool from the set</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>5</td><td>Build the arguments</td><td>what exactly gets called</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>6</td><td>Check the format</td><td>is the call well-formed</td><td><span class="muted">plain code — no model</span></td></tr>
+            <tr><td>7</td><td>Ground the claim</td><td>is there evidence, or abstain</td><td><span class="status ok">Shipped</span></td></tr>
+            <tr class="hl"><td>8</td><td>Admit the action</td><td>allow · hold for a person · deny</td><td><span class="status wip">First checkpoint trained</span></td></tr>
+            <tr><td>9</td><td>Triage the approval</td><td>which person, briefed how</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>10</td><td>Verify the step</td><td>did it work; retry or proceed</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>11</td><td>Parse the output</td><td>structure it for the next step</td><td><span class="muted">plain code — no model</span></td></tr>
+            <tr><td>12</td><td>Catch loops</td><td>retry, replan, or stop</td><td><span class="muted">plain code — no model</span></td></tr>
+            <tr><td>13</td><td>Check completion</td><td>is the task actually done</td><td><span class="muted">planned</span></td></tr>
+            <tr><td>14</td><td>Judge the run</td><td>done well, for the right reason</td><td><span class="status dev">Next</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stats" style="max-width:52rem">
+        <div class="stat"><div class="n">1</div><div class="k">shared base model in memory</div></div>
+        <div class="stat"><div class="n">11</div><div class="k">adapter slots at full build-out</div></div>
+        <div class="stat"><div class="n">3</div><div class="k">decisions solved with plain code</div></div>
+      </div>
+      <p class="muted" style="font-size:0.9rem;margin-top:1rem;max-width:52rem">"A model per decision" costs one model's worth of memory: every adapter is about 1% of the base's weights, swapped per request. Where a strong open model already exists for a decision, we specialize it rather than train from scratch — and where a validator would do, we write the validator and train nothing. Every decision on this table crosses the gate and lands on the record.</p>
+    </div>
+  </section>
+
   <!-- P1 GROUNDING -->
   <section class="band">
     <div class="wrap"><div class="col">
