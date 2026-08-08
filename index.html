@@ -134,6 +134,39 @@
           <h3><span class="idx">06</span>Audit</h3>
           <p>"What did this agent do in Q3, and who authorized it" is a query, not a project — exported straight into the systems your security team already watches.</p>
         </div>
+        <div class="rail">
+          <div class="rail-top"><span class="rt">refund-desk <b>@3</b> &nbsp;·&nbsp; "refund order 4471, $2,000"</span><span class="status wip">held for a person</span></div>
+          <div class="step allow">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b>Deploy is gated first.</b><span class="sub">an uncertified version can't ship — a signed certification must cover these exact bytes</span></span>
+            <span class="where gw">runtime</span>
+          </div>
+          <div class="step allow">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b><code>lookup_order</code> clears policy.</b><span class="sub">a read action — weighed and allowed, recorded either way</span></span>
+            <span class="where gw">runtime</span>
+          </div>
+          <div class="step hold">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b><code>refund_customer($2,000)</code> is held.</b><span class="sub">$10 would pass — the amount itself derives the label; a production payment waits for a named person</span></span>
+            <span class="where gw">runtime</span>
+          </div>
+          <div class="step allow">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b>An approver decides — the editor cannot.</b><span class="sub">authority is enforced, justification recorded; the approval executes exactly once</span></span>
+            <span class="where gw">runtime</span>
+          </div>
+          <div class="step exec">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b>Generated code runs in the sandbox — reaching nothing.</b><span class="sub">no credentials inside, network reach declared up front</span></span>
+            <span class="where sb">sandbox</span>
+          </div>
+          <div class="step allow">
+            <span class="dot"><i></i></span>
+            <span class="txt"><b>The whole history hands to a SIEM that re-verifies it.</b><span class="sub">hash-chained — edit one entry and verification breaks at that exact point</span></span>
+            <span class="where gw">runtime</span>
+          </div>
+        </div>
         <p style="margin-top:2rem">A developer can gate one agent this afternoon, locally and free. A team's first certified deployment is days, not months — the expensive part was never the agent; it was the approval to run it.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="platform.html">How the platform works <span class="arrow">→</span></a>
@@ -173,8 +206,22 @@
     </div>
   </section>
 
+
+  <!-- WHAT SUCCESS LOOKS LIKE -->
+  <section class="band band--ink">
+    <div class="wrap">
+      <div class="col" style="max-width:52rem">
+        <p class="label" style="margin-bottom:1.8rem">What success looks like</p>
+        <p style="font-size:1.05rem;color:#D6CFDC;margin-bottom:2.2rem">A mid-market consumer-finance company had a support-agent prototype stuck in security review for a quarter. On Tulip, the team wrapped the same agent, wrote a twelve-line policy — refunds under $200 pass, anything above holds, chargebacks always hold, account closure is denied outright — and ran certification against their staging stack and their payment provider's test mode. The risk committee was shown the evidence bundle and the hash-chained record, and approved a production pilot in the company's own AWS account. Six weeks in: the agent handles the majority of routine refunds end to end, every hold has been decided by a named person with a recorded justification, and the audit export became part of the company's SOC&nbsp;2 evidence instead of a new liability.</p>
+        <p class="thesis">"The agent was the easy part. <b>The architecture is what got it approved.</b>"</p>
+        <p class="quote-attr">— head of platform</p>
+        <p class="story-note">An illustrative composite drawn from design-partner conversations; our first named reference deployment is in progress.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- THE ARCHITECTURE, AT A GLANCE -->
-  <section class="band">
+  <section>
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">The architecture, at a glance</span><span class="line"></span></div>
       <p class="lede" style="margin-bottom:2.5rem">The architecture is the pitch — because the architecture is what a security review approves.</p>
@@ -185,7 +232,7 @@
   </section>
 
   <!-- THREE ARTIFACTS -->
-  <section>
+  <section class="band">
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">Three artifacts</span><span class="line"></span></div>
       <div class="pillars pillars--three">
@@ -216,6 +263,22 @@
             <p><a class="more" href="research.html">The research →</a></p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BUILT FOR SIX SEATS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Built for six seats</span><span class="line"></span></div>
+      <div class="seat-strip">
+        <a class="seat-chip" href="platform.html#seats"><b>The developer</b>wraps an existing agent and has it governed in an afternoon</a>
+        <a class="seat-chip" href="platform.html#seats"><b>The operations lead</b>authors an agent in conversation, without writing code</a>
+        <a class="seat-chip" href="platform.html#seats"><b>The security engineer</b>owns the policy — editor and approver are different powers, enforced</a>
+        <a class="seat-chip" href="platform.html#seats"><b>The approver</b>decides with everything attached; the run resumes where it parked</a>
+        <a class="seat-chip" href="platform.html#seats"><b>The compliance officer</b>answers "what did this agent do in Q3" with a query, not a project</a>
+        <a class="seat-chip" href="platform.html#seats"><b>The platform architect</b>runs the data plane in the company's own account</a>
       </div>
     </div>
   </section>
