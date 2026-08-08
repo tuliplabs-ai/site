@@ -103,7 +103,7 @@
         </div>
         <div class="principle">
           <h3><span class="idx">02</span>Certify</h3>
-          <p>A draft earns authority by evidence: certification runs exercise it at escalating levels of trust, and the resulting evidence bundle is Ed25519-signed and digest-pinned to the exact artifact it describes. Running in our dev cluster today.</p>
+          <p>A draft earns authority by evidence: certification runs exercise it at escalating levels of trust, and the resulting evidence is signed and tied to the exact version it describes. Running in our dev cluster today.</p>
         </div>
         <div class="principle">
           <h3><span class="idx">03</span>Publish</h3>
@@ -134,17 +134,17 @@
         <div class="card">
           <span class="label">The admission gate</span>
           <h3>Before it runs</h3>
-          <p>Every consequential action is weighed by <code>admit()</code> — deterministic policy code — before it executes: allowed, held for a named person, or denied. Model-assisted admission is escalate-only: a Clusiana verdict can raise a decision toward caution, never lower it. <span class="status dev">Runtime combiner in development</span></p>
+          <p>Every consequential action is checked against your rules — plain code, not a model — before it executes: allowed, held for a named person, or denied. When a Clusiana model assists, its opinion can make a decision more cautious, never less. <span class="status dev">Runtime combiner in development</span></p>
         </div>
         <div class="card">
           <span class="label">The execution boundary</span>
           <h3>Nothing worth stealing</h3>
-          <p>Model-directed work runs in sandbox sessions that hold no credentials, with tenant identity bound at spawn time and network reach declared per profile. Two of the four declared profiles — offline and allowlisted — are kernel-enforced today; the rest are in progress.</p>
+          <p>Everything the model directs runs in a sandbox that holds no credentials, with its identity fixed at creation and its network reach declared up front. Two of the four declared network profiles — offline and allowlisted — are enforced by the operating system today; the rest are in progress.</p>
         </div>
         <div class="card">
           <span class="label">The record</span>
           <h3>Fails verification if edited</h3>
-          <p>The open-source trail is a keyless SHA-256 chain — tamper-evident, not notarized. Certification evidence is Ed25519-signed. Either way, an edited record does not verify.</p>
+          <p>Every decision is written to a chained record: edit any entry, and the record fails verification. Certification evidence is signed. Either way, tampering shows.</p>
         </div>
       </div>
     </div>
@@ -155,23 +155,23 @@
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">Receipts</span><span class="line"></span></div>
       <div class="stats" style="margin-bottom:1rem">
-        <div class="stat"><div class="n">13/14</div><div class="k">launch claims conformance-closed</div></div>
+        <div class="stat"><div class="n">13/14</div><div class="k">launch claims proven by tests</div></div>
         <div class="stat"><div class="n">5</div><div class="k">certification trust levels</div></div>
-        <div class="stat"><div class="n">2 of 4</div><div class="k">network profiles kernel-enforced</div></div>
+        <div class="stat"><div class="n">2 of 4</div><div class="k">network profiles OS-enforced</div></div>
       </div>
-      <p class="muted" style="font-size:0.92rem;margin-bottom:2.5rem">Each closed claim is asserted by a conformance test across a process boundary, not a unit test. The fourteenth is struck, not carried: a claim we cannot close comes off the list.</p>
+      <p class="muted" style="font-size:0.92rem;margin-bottom:2.5rem">Each claim is proven by a test that runs against the real system, not a mock. The fourteenth is struck, not carried: a claim we cannot prove comes off the list.</p>
       <div class="programs">
         <div class="prog">
           <div class="prog__head"><span class="prog__id">S1</span><h3>Certification pipeline</h3><span class="status ok">Live in dev</span></div>
-          <p class="prog__body">Deployment-boundary publish gate, Ed25519-signed evidence, certification runner, Studio review flow — queue, evidence, approve, reject, revoke.</p>
+          <p class="prog__body">An uncertified version cannot ship. Signed evidence, a certification runner, and a review flow in the Studio — queue, evidence, approve, reject, revoke.</p>
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">S2</span><h3>Per-tenant sandbox pools</h3><span class="status ok">Live in dev</span></div>
-          <p class="prog__body">Spawn-time identity binding — a session's tenant is assigned by the runtime, never claimed by the workload.</p>
+          <p class="prog__body">A sandbox's identity is assigned by the runtime when it is created — never claimed by the code running inside it.</p>
         </div>
         <div class="prog">
-          <div class="prog__head"><span class="prog__id">S3</span><h3>Registry v2 · row-level security</h3><span class="status ok">Live in dev</span></div>
-          <p class="prog__body">Versioned definition kinds with pinned manifests, and tenant isolation enforced at the database — verified by a cross-process test, which is how the one decorative policy was caught and fixed.</p>
+          <div class="prog__head"><span class="prog__id">S3</span><h3>Tenant isolation</h3><span class="status ok">Live in dev</span></div>
+          <p class="prog__body">One customer's definitions and records are invisible to another's, enforced at the database itself — and verified by a test against the running system, which is how the one policy that only looked enforced was caught and fixed.</p>
         </div>
         <div class="prog">
           <div class="prog__head"><span class="prog__id">S4</span><h3>Hosted Studio &amp; API</h3><span class="status wip">In progress</span></div>
