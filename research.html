@@ -91,10 +91,10 @@
   <!-- P2 ADMISSION -->
   <section>
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P2 · Admission</span><span class="line"></span><span class="label">Gate shipped · classifiers in progress</span></div>
+      <div class="eyebrow-row"><span class="label">P2 · Admission</span><span class="line"></span><span class="label">Gate shipped · checkpoint certified</span></div>
       <h2>When may an agent act?</h2>
-      <p><b>Mechanism.</b> Every consequential action passes an admission decision before it runs: allow, deny, or hold for a person. The decision is enforced by the runtime, not suggested to the model — a prompt can change what the model wants; it cannot change what the gate admits.</p>
-      <p><b>Receipts.</b> The enforced allow / deny / hold gate ships in the runtime today. In progress: small open-weight action-risk classifiers to make the decision fast and learnable — with the dataset, the training recipe, and the weights released open, so the result can be checked rather than trusted.</p>
+      <p><b>Mechanism.</b> Every consequential action passes an admission decision before it runs: allow, deny, or hold for a person. The decision is enforced by the runtime, not suggested to the model — a prompt can change what the model wants; it cannot change what the gate admits. The classifier itself holds no authority: its answer is combined with the deterministic policy engine's as <code>max(policy, model)</code>, so it can only raise a decision toward caution, never lower one. A wrong classifier degrades usefulness, not safety.</p>
+      <p><b>Receipts.</b> The enforced allow / deny / hold gate ships in the runtime today. A first classifier — Qwen3-4B with a 0.82%-of-base LoRA adapter — is trained and measured on held-out data: 96.2% accuracy, 0.52% false-allow, 76.0% deny recall, against a 51% majority baseline. It carries a distribution-free bound on the false-allow rate, computed at the level a template-diverse held-out set actually randomizes over — not the level a naive item-by-item calculation would use, which we found can silently misreport a bound as valid when it isn't. That fix, and the honest result it produced, are recorded plainly rather than smoothed over: the certificate held with six times the prior checkpoint's robustness and still missed by a hair on this specific held-out draw. A full methodology write-up follows the repo and weights into the open. Open release of the dataset, training recipe, and weights is next.</p>
     </div></div>
   </section>
 
