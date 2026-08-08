@@ -94,17 +94,17 @@
             </div>
             <div class="plane data">
               <p class="plane-tag">Data plane <span class="who">Your account · you own</span></p>
-              <div class="node" data-node="gateway" role="button" tabindex="0">
-                <span class="nh"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="nm">The runtime</span><span class="role">the harness</span></span>
+              <div class="node" data-node="gateway">
+                <button class="nh nh-btn" data-node="gateway" type="button"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="nm">The runtime</span><span class="role">the harness</span></button>
                 <span class="nd">Thinks, coordinates, authorizes, remembers, records. The agent loop and the gate live here — never in the box that runs the code.</span>
                 <span class="chips"><span class="chip"><b>admit()</b> the gate</span><span class="chip">agent loop</span><span class="chip"><b>audit chain</b></span><span class="chip">approvals</span><span class="chip">memory</span></span>
                 <span class="leash">provisions &#8595; &nbsp;<b>brokered · secret-free</b></span>
                 <div class="cage" role="group">
                   <span class="cage-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Untrusted compute</span>
-                  <div class="node" data-node="sandbox" role="button" tabindex="0" style="margin-top:4px">
+                  <button class="node" data-node="sandbox" type="button" style="margin-top:4px">
                     <span class="nh"><span class="nm">Sandbox</span><span class="role">execute only</span></span>
                     <span class="nd">Runs shell, generated code, browsers, untrusted files — per tenant, identity fixed at creation, network declared. Decides nothing.</span>
-                  </div>
+                  </button>
                 </div>
               </div>
               <div class="aside-nodes">
