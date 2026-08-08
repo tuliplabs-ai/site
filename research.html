@@ -33,8 +33,9 @@
       <span class="wordmark">Tulip <b>Labs</b></span>
     </a>
     <nav class="nav">
-      <a href="research.html" class="active">Research</a>
-      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
+      <a href="open-source.html">Runtime</a>
+      <a href="platform.html">Platform</a>
+      <a class="active" href="research.html">Research</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -57,14 +58,14 @@
     <div class="wrap"><div class="col">
       <div class="eyebrow-row"><span class="label">What we train, and why</span><span class="line"></span><span class="label teal">Clusiana</span></div>
       <h2>Frontier labs train capability. We train <span class="accent">Clusiana</span>.</h2>
-      <p class="lede" style="margin-bottom:1.7rem">A multi-agent system is not one model reasoning. It is an orchestration loop of narrow decisions — which agent runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Those decisions are small, bounded, and constant — the regime where a small model beats a large one. <b>Clusiana</b> is our family of small, open-weight models, one for each of those decisions, all governed and all running on the open-source SDK.</p>
+      <p class="lede" style="margin-bottom:1.7rem">A multi-agent system is not one model reasoning. It is an orchestration loop of narrow decisions — which agent runs, which tool to call, what arguments to pass, whether a claim is grounded, whether the finished run went well. Those decisions are small, bounded, and constant — the regime where a small model beats a large one. <b>Clusiana</b> is our family of small control models, one for each of those decisions, all governed and built to be released open-weight; Clusiana-Admit's dataset, recipe, and weights are the next release.</p>
       <div class="principle">
         <h3><span class="idx">01</span>A large model plans; Clusiana controls</h3>
         <p>The open-ended reasoning stays on a general model — systems are planner-limited, and planning is where judgment lives. Around it, the Clusiana models handle the mechanics and the control decisions: route, select a tool, build its arguments, check the schema, verify the step, ground the claim, admit the action, judge the run. We never train the planner; we train everything that governs it.</p>
       </div>
       <div class="principle">
         <h3><span class="idx">02</span>Small, because control runs in the hot path</h3>
-        <p>A Clusiana model sits in front of every action, so it must answer in tens of milliseconds — and it often must run inside a regulated or air-gapped network where no data may leave. Small, open-weight, self-hosted models are not a compromise here; they are the requirement. They also cost an order of magnitude less than a frontier call, on decisions that happen constantly. In practice the family is a shared small base with lightweight per-task adapters — and plain code where a decision needs no model at all.</p>
+        <p>A Clusiana model sits in front of every action, so it must answer in tens of milliseconds — and it often must run inside a regulated network where no data may leave. Small, self-hosted models are not a compromise here; they are the requirement. They also cost an order of magnitude less than a frontier call, on decisions that happen constantly. In practice the family is a shared small base with lightweight per-task adapters — and plain code where a decision needs no model at all.</p>
       </div>
       <div class="principle">
         <h3><span class="idx">03</span>The record is the training data no one else has</h3>
@@ -74,34 +75,34 @@
         <h3><span class="idx">04</span>Not a better guard model — a governed, self-improving one</h3>
         <p>Excellent open guard models already exist, and we use the category. But they are generic filters, trained once, the same for everyone. Clusiana differs on three axes: <b>specific</b> to your tools and policy, <b>self-improving</b> from your record, and <b>governed</b> — a guard model flags a score; the runtime stops the action, holds it for a person when policy says so, and writes tamper-evident proof. Where a good open model already fits a task, we specialize it on your record rather than rebuild it. The moat is the assembly, not the weights.</p>
       </div>
-      <p class="muted" style="margin-top:1.8rem;font-size:0.95rem">Clusiana runs on the open-source SDK at <a href="https://tulipagents.ai/">tulipagents.ai</a> — the foundation everything builds on — where the gate enforces each model and the record trains the next generation. The five programs below are how we get there — each one a Clusiana model, each with its status stated plainly.</p>
+      <p class="muted" style="margin-top:1.8rem;font-size:0.95rem">Clusiana runs on the open-source SDK at <a href="https://tulipagents.ai/">tulipagents.ai</a>, where the gate enforces each model and the record trains the next generation. The five programs below are how we get there — each one a Clusiana model, each with its status stated plainly.</p>
     </div></div>
   </section>
 
   <!-- P1 GROUNDING -->
   <section class="band">
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P1 · Grounding</span><span class="line"></span><span class="label">Shipped</span></div>
+      <div class="eyebrow-row"><span class="label">P1 · Grounding</span><span class="line"></span><span class="status ok">Shipped</span></div>
       <h2>When may an agent assert?</h2>
       <p><b>Mechanism.</b> A claim counts only when the evidence behind it clears a set bar; below the bar the agent abstains, and the abstention is recorded with its reason. GSAR partitions an answer's claims into grounded, ungrounded, contradicted, and complementary, scores how well the whole is supported, and decides: proceed, regenerate, or replan.</p>
-      <p><b>Receipts.</b> Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>) and shipped in the runtime — the same scoring gates what a Tulip agent is allowed to conclude. Deep dive below.</p>
+      <p><b>Receipts.</b> Published as GSAR (<a href="https://arxiv.org/abs/2604.23366">arXiv:2604.23366</a>) and shipped in the runtime as the reference advisory judge — the same scoring gates what a Tulip agent is allowed to conclude. Deep dive below.</p>
     </div></div>
   </section>
 
   <!-- P2 ADMISSION -->
   <section>
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P2 · Admission</span><span class="line"></span><span class="label">Gate shipped · checkpoint certified</span></div>
+      <div class="eyebrow-row"><span class="label">P2 · Admission</span><span class="line"></span><span class="status wip">Checkpoint certified</span></div>
       <h2>When may an agent act?</h2>
       <p><b>Mechanism.</b> Every consequential action passes an admission decision before it runs: allow, deny, or hold for a person. The decision is enforced by the runtime, not suggested to the model — a prompt can change what the model wants; it cannot change what the gate admits. The classifier itself holds no authority: its answer is combined with the deterministic policy engine's as <code>max(policy, model)</code>, so it can only raise a decision toward caution, never lower one. A wrong classifier degrades usefulness, not safety.</p>
-      <p><b>Receipts.</b> The enforced allow / deny / hold gate ships in the runtime today. A first classifier — Qwen3-4B with a 0.82%-of-base LoRA adapter — is trained and measured on held-out data: 96.2% accuracy, 0.52% false-allow, 76.0% deny recall, against a 51% majority baseline. It carries a distribution-free bound on the false-allow rate, computed at the level a template-diverse held-out set actually randomizes over — not the level a naive item-by-item calculation would use, which we found can silently misreport a bound as valid when it isn't. That fix, and the honest result it produced, are recorded plainly rather than smoothed over: the certificate held with six times the prior checkpoint's robustness and still missed by a hair on this specific held-out draw. A full methodology write-up follows the repo and weights into the open. Open release of the dataset, training recipe, and weights is next.</p>
+      <p><b>Receipts.</b> The enforced allow / deny / hold gate ships in the runtime today. Clusiana-Admit v4 — Qwen3-4B with a 0.82%-of-base LoRA adapter, certified 2026-08-07 — is trained and measured on held-out data: 96.2% accuracy, 0.52% false-allow, 76.0% deny recall, against a 51% majority baseline. It carries a distribution-free bound on the false-allow rate, computed at the level a template-diverse held-out set actually randomizes over — 18,990 calibration groups, not the inflated item count a naive calculation would use, which we found can silently misreport a bound as valid when it isn't. The honest result is recorded plainly rather than smoothed over: at α = 10⁻³ the certificate carried six times the prior checkpoint's robustness (k* = 12) and the observed rate still came in at 0.1052% against the 0.1% target on this specific held-out draw — a miss, reported as one. A full methodology write-up follows the release into the open. Open release of the dataset, training recipe, and weights is next.</p>
     </div></div>
   </section>
 
   <!-- P3 EVIDENCE -->
   <section class="band">
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P3 · Evidence</span><span class="line"></span><span class="label">Record shipped · spec in progress</span></div>
+      <div class="eyebrow-row"><span class="label">P3 · Evidence</span><span class="line"></span><span class="status ok">Record shipped</span></div>
       <h2>How do you prove what an agent did?</h2>
       <p><b>Mechanism.</b> What separates a record from a log: every decision and action lands on a hash-chained, signed trail, and verification fails on any edit. A log tells you what someone wrote down; a record is evidence that what it says happened, happened, in that order, untouched.</p>
       <p><b>Receipts.</b> The hash-chained, signed record ships in the runtime and is the spine through everything else the company builds. In progress: a canonical cross-language serialization spec, so a trail written in one language verifies in another.</p>
@@ -111,9 +112,9 @@
   <!-- P4 SUBSTRATE -->
   <section>
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P4 · Substrate</span><span class="line"></span><span class="label">Reported · fixes upstream</span></div>
+      <div class="eyebrow-row"><span class="label">P4 · Substrate</span><span class="line"></span><span class="status ok">Reported · upstream</span></div>
       <h2>What does agent code actually run on?</h2>
-      <p><b>Mechanism.</b> Defender-side research on the shared hardware underneath agents — starting with GPUs, where isolation is assumed more often than it is measured. This is the substrate research behind Clusiana: a cross-process GPU timing side channel that fingerprints a co-tenant's model from an ordinary, unprivileged process. It grounds where the Clusiana models run, and gave the family its name.</p>
+      <p><b>Mechanism.</b> Defender-side research on the shared hardware underneath agents — starting with GPUs, where isolation is assumed more often than it is measured. The substrate program is a cross-process GPU timing side channel that fingerprints a co-tenant's model from an ordinary, unprivileged process. It grounds where the Clusiana models run — and it is the work that gave the family its name.</p>
       <p><b>Receipts.</b> Results reported with confidence intervals; two fixes merged upstream into vLLM; a self-audit tool ships with the findings so defenders can measure their own exposure. Deep dive below.</p>
     </div></div>
   </section>
@@ -121,7 +122,7 @@
   <!-- P5 JUDGMENT -->
   <section class="band">
     <div class="wrap"><div class="col">
-      <div class="eyebrow-row"><span class="label">P5 · Judgment</span><span class="line"></span><span class="label">In development</span></div>
+      <div class="eyebrow-row"><span class="label">P5 · Judgment</span><span class="line"></span><span class="status dev">In development</span></div>
       <h2>Did the agent do well, for the right reason?</h2>
       <p><b>Mechanism.</b> Trajectory evaluation a risk owner can trust: did the agent complete the task, did it succeed for the right reason at the root, did it wander. Scored over the same tamper-evident trace the admission gate wrote — so a passing score is evidence about what actually ran, not a screenshot of a happy path.</p>
       <p><b>Receipts.</b> In development. Nothing to cite yet; when there is, it will appear here with its method.</p>
@@ -153,12 +154,12 @@
     </div>
   </section>
 
-  <!-- DEEP DIVE: CLUSIANA -->
+  <!-- DEEP DIVE: SUBSTRATE -->
   <section class="band">
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">Deep dive · P4 Substrate</span><span class="line"></span></div>
       <div class="col">
-        <h2>The substrate research — where Clusiana got its name</h2>
+        <h2>The substrate program</h2>
         <p class="lede">What can a neighbour learn about your model on a shared GPU? A timing probe of about a second, from an ordinary unprivileged process, distinguishes 46 model·engine classes — and crosses a MIG partition through the shared clock domain. Learning to <em>identify</em> a model on the metal is what led to <em>training</em> the small models that belong there.</p>
       </div>
       <div class="stats" style="margin:2rem 0">
@@ -174,12 +175,10 @@ v = finding.verdict
 <span class="fn">print</span>(v.model, <span class="s">"·"</span>, v.engine, <span class="s">"·"</span>, v.hardware)
 <span class="c"># 7-8B class · vLLM (continuous-batching) · H100/A100 class</span></pre>
       <div class="col">
-        <p>This is the substrate research behind Clusiana: a cross-process GPU timing side channel that fingerprints the inference engine and the language model running on a co-located GPU — no exploit, no privileged access. It grounds where the Clusiana models run — the shared, regulated, air-gapped environments that demand small self-hosted models — and identifying a model on the metal is the origin of the whole approach. Results are reported with confidence intervals and positioned against prior work. We publish the risk, the result, and the defense; the offensive method stays in the lab.</p>
+        <p>The substrate program is a cross-process GPU timing side channel that fingerprints the inference engine and the language model running on a co-located GPU — no exploit, no privileged access. It grounds where the Clusiana models run — the shared, regulated environments that demand small self-hosted models — and it is the work that gave Clusiana its name. Results are reported with confidence intervals and positioned against prior work. We publish the risk, the result, and the defense; the offensive method stays in the lab.</p>
         <p>True to the defender-first rule, the single most useful artifact isn't the attack — it's <strong>a standard-library self-audit tool a defender runs on their own infrastructure</strong> to measure whether their workload is identifiable from a co-tenant. The finding was disclosed in coordination with NVIDIA's security team, and two fixes from this work are merged upstream into vLLM.</p>
         <p class="muted" style="font-size:0.92rem;border-left:2px solid var(--rule);padding-left:1rem">Scope, stated up front: this targets shared-GPU configurations where multiple unprivileged processes share one physical GPU (Docker <code>--gpus all</code>, MPS, some shared-tenant cloud offerings, WSL2). A dedicated single-tenant GPU — with no co-tenant to observe — is out of scope.</p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="https://github.com/tuliplabs-ai/clusiana">Code &amp; report <span class="arrow">→</span></a>
-        </div>
+        <p class="muted" style="font-size:0.92rem">Code and the full report are available to defenders on request — <a href="mailto:security@tuliplabs.ai">security@tuliplabs.ai</a>.</p>
       </div>
     </div>
   </section>
@@ -199,17 +198,18 @@ v = finding.verdict
     <div class="foot-grid">
       <div class="foot-brand">
         <p class="wordmark">Tulip Labs</p>
-        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">The control layer for AI agents that act — the runtime, the platform, and the lab.</p>
       </div>
       <div class="foot-col">
         <h4>Areas</h4>
-        <a href="https://tulipagents.ai/">The runtime</a>
-        <a href="mailto:info@tuliplabs.ai">The platform</a>
+        <a href="open-source.html">The runtime</a>
+        <a href="platform.html">The platform</a>
         <a href="research.html">The lab</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
         <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="https://tulipagents.ai/">Docs</a>
         <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
       </div>
     </div>

@@ -24,7 +24,7 @@
   <rect x="120" y="116" width="260" height="86" rx="12" fill="#FFFFFF" stroke="#D6336C" stroke-width="1.7"/>
   <text x="138" y="145" font-family="Georgia,'Times New Roman',serif" font-size="19" font-weight="700" fill="#D6336C">Clusiana</text>
   <text x="138" y="169" font-size="12.5" fill="#4A434C">route · select tool · ground · admit · judge</text>
-  <text x="138" y="189" font-size="11.5" fill="#78716C">small open-weight models — one per step</text>
+  <text x="138" y="189" font-size="11.5" fill="#78716C">small control models — one per decision</text>
 
   <line x1="250" y1="202" x2="250" y2="218" stroke="#1B1620" stroke-width="1.8" marker-end="url(#ar)"/>
 
@@ -46,5 +46,5 @@
   <text x="451" y="230" font-size="11" font-weight="600" fill="#D6336C">flywheel</text>
   <text x="451" y="245" font-size="10.5" fill="#78716C">trains</text>
 
-  <text x="34" y="414" font-size="11.5" font-style="italic" fill="#78716C">plan → Clusiana controls the loop → gate → record → trains Clusiana</text>
+  <text x="34" y="414" font-size="11.5" font-style="italic" fill="#78716C">plan → the gate weighs each action → record → trains Clusiana</text>
 </svg>

@@ -33,8 +33,9 @@
       <span class="wordmark">Tulip <b>Labs</b></span>
     </a>
     <nav class="nav">
+      <a class="active" href="open-source.html">Runtime</a>
+      <a href="platform.html">Platform</a>
       <a href="research.html">Research</a>
-      <a class="hide-sm" href="https://tulipagents.ai/">The runtime</a>
       <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -57,46 +58,23 @@
     </div></div>
   </section>
 
-  <!-- CODE SAMPLE -->
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="col">
-        <p class="label" style="margin-bottom:1rem">Drop the gate around an action your agent already takes</p>
-        <pre class="code"><span class="c"># drop the gate around an action your agent already takes</span>
-<span class="k">from</span> tulip.control <span class="k">import</span> Action, admit, ControlPolicy, AuditTrail, AdmissionError
-
-policy = <span class="fn">ControlPolicy</span>()    <span class="c"># prod → human</span>
-trail  = <span class="fn">AuditTrail</span>()
-
-risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, asset=<span class="s">"cust:4821"</span>,
-              blast_radius=1, kind=<span class="s">"payment"</span>, environment=<span class="s">"production"</span>)
-
-<span class="k">try</span>:
-    <span class="k">await</span> <span class="fn">admit</span>(risky, <span class="k">lambda</span>: <span class="fn">refund</span>(<span class="s">"cust:4821"</span>), policy=policy, trail=trail)
-<span class="k">except</span> AdmissionError <span class="k">as</span> e:
-    <span class="fn">print</span>(e.decision.outcome)   <span class="c"># → "require_human"; refund NOT run</span>
-
-<span class="c"># Held for a human, on the audit trail. Fool the model; not the runtime.</span></pre>
-      </div>
-    </div>
-  </section>
-
   <!-- WHAT'S IN THE BOX -->
   <section class="band">
     <div class="wrap">
       <div class="eyebrow-row"><span class="label">What's in the box</span><span class="line"></span></div>
       <div class="stats" style="margin-bottom:2rem">
-        <div class="stat"><div class="n">v2.1</div><div class="k">on PyPI · Apache-2.0</div></div>
-        <div class="stat"><div class="n">4,900+</div><div class="k">tests</div></div>
-        <div class="stat"><div class="n">95%</div><div class="k">coverage, enforced in CI</div></div>
+        <div class="stat"><div class="n">2.4.0</div><div class="k">on PyPI · Apache-2.0</div></div>
+        <div class="stat"><div class="n">8</div><div class="k">deterministic agent shapes</div></div>
+        <div class="stat"><div class="n">6</div><div class="k">framework bridges</div></div>
       </div>
+      <p class="muted" style="font-size:0.9rem;margin-bottom:2rem">Bridges ship as <code>tulip-frameworks</code> (PyPI 0.1.0) in Python, and as a TypeScript client over the gateway.</p>
       <div class="grid-3">
         <div class="card"><span class="label">Admission</span><h3>The admit() gate</h3><p>Every consequential action passes allow / deny / hold-for-a-person before it runs — enforced by the runtime, not suggested to the model.</p></div>
-        <div class="card"><span class="label">Evidence</span><h3>Hash-chained AuditTrail</h3><p>Every decision and action lands on a hash-chained trail; verification fails on any edit. A record, not a log.</p></div>
-        <div class="card"><span class="label">Grounding</span><h3>GSAR built in</h3><p>A conclusion ships only when its evidence clears the grounding bar; below it, the agent abstains and records why. Published method (arXiv:2604.23366).</p></div>
-        <div class="card"><span class="label">Coordination</span><h3>8 agent shapes, one router</h3><p>Single agent, pipelines, loops, orchestrator + specialists, and more — a cognitive router compiles the task into the shape, rather than you hand-wiring it.</p></div>
+        <div class="card"><span class="label">Evidence</span><h3>Hash-chained AuditTrail</h3><p>Every decision and action lands on a hash-chained trail; verification fails on any edit. The open-source trail is a keyless SHA-256 chain — tamper-evident, not notarized; add signing before treating it as legally authoritative.</p></div>
+        <div class="card"><span class="label">Grounding</span><h3>GSAR built in</h3><p>A conclusion ships only when its evidence clears the grounding bar; below it, the agent abstains and records why. Published method (arXiv:2604.23366) — the shipped reference advisory judge.</p></div>
+        <div class="card"><span class="label">Coordination</span><h3>PRISM router → 8 shapes</h3><p>Single agent, pipelines, loops, orchestrator + specialists, and more — the model classifies the task; a deterministic compiler emits the shape. The model never invents topology.</p></div>
         <div class="card"><span class="label">Bridges</span><h3>Six frameworks, no rewrite</h3><p>Wrap agents from LangChain, LangGraph, CrewAI, the OpenAI Agents SDK, LlamaIndex, and Google ADK — in Python, and in TypeScript via a gateway client.</p></div>
-        <div class="card"><span class="label">Enterprise</span><h3>11 integrations</h3><p>SIEM, SOAR, and identity integrations, so the gate's decisions and the trail's events land in the systems a security team already watches.</p></div>
+        <div class="card"><span class="label">Approvals</span><h3>The human hold</h3><p><code>approve()</code> parks an action for a named person — durable holds that survive restarts when run through the gateway, with the decision and its justification on the trail.</p></div>
       </div>
     </div>
   </section>
@@ -107,7 +85,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
       <div class="eyebrow-row"><span class="label">Three placements, one gate</span><span class="line"></span></div>
       <div class="grid-3">
         <div class="card"><span class="label">01 · In-process</span><h3>SDK &amp; bridges</h3><p>The gate runs inside your agent's process: the Python SDK for agents you define, and the framework bridges for agents you already have. The shortest path from <code>pip install</code> to a governed action.</p></div>
-        <div class="card"><span class="label">02 · As a service</span><h3>Gateway</h3><p>The same gate as a service, for agents in any language: submit the action, get the decision, with holds that survive process restarts and a signed audit on the server side. This is how the TypeScript bridges reach the gate.</p></div>
+        <div class="card"><span class="label">02 · As a service</span><h3>Gateway</h3><p>The same gate as a service, for agents in any language: submit the action, get the decision, with holds that survive process restarts and a hash-chained audit on the server side. This is how the TypeScript bridges reach the gate.</p></div>
         <div class="card"><span class="label">03 · Around the code</span><h3>Sandboxes</h3><p>The gate wrapped around code you don't fully trust, from Docker containers to Firecracker micro-VMs — the same rules at every edge, whatever the code does inside.</p></div>
       </div>
     </div>
@@ -117,7 +95,7 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
   <section class="band">
     <div class="wrap"><div class="col">
       <div class="eyebrow-row"><span class="label">Everything else lives at tulipagents.ai</span><span class="line"></span></div>
-      <p>Quickstarts, the policy model, the bridge guides, the gateway API, and the sandbox setup are all in the runtime's own documentation — kept there, in one place, next to the code.</p>
+      <p>Quickstarts, the policy model, the bridge guides, the gateway API, and the sandbox setup are all in the runtime's own documentation — kept there, in one place, next to the code. Operating this for a team — central policy, certification, approvals, audit export — is <a href="platform.html">the platform</a>.</p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://tulipagents.ai/">Documentation <span class="arrow">→</span></a>
         <a class="btn btn--ghost" href="https://github.com/tuliplabs-ai">Source on GitHub</a>
@@ -132,17 +110,18 @@ risky = <span class="fn">Action</span>(name=<span class="s">"refund"</span>, ass
     <div class="foot-grid">
       <div class="foot-brand">
         <p class="wordmark">Tulip Labs</p>
-        <p class="muted" style="max-width:24rem;margin-top:0.6rem">A research AI company. Everyone studies what models say; we study what agents do.</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">The control layer for AI agents that act — the runtime, the platform, and the lab.</p>
       </div>
       <div class="foot-col">
         <h4>Areas</h4>
-        <a href="https://tulipagents.ai/">The runtime</a>
-        <a href="mailto:info@tuliplabs.ai">The platform</a>
+        <a href="open-source.html">The runtime</a>
+        <a href="platform.html">The platform</a>
         <a href="research.html">The lab</a>
       </div>
       <div class="foot-col">
         <h4>Connect</h4>
         <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="https://tulipagents.ai/">Docs</a>
         <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
       </div>
     </div>

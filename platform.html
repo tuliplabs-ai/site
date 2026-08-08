@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The platform — Tulip Labs</title>
+  <meta name="description" content="Tulip is the authorization control plane for agentic execution: define agents, policies, and connections once; execute anywhere. Verdicts cross the boundary — not your data. Hosted beta in progress.">
+  <link rel="icon" href="assets/tulip-mark-pink.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/tulip-mark-pink.png">
+  <meta name="theme-color" content="#FBF9F8">
+  <link rel="canonical" href="https://tuliplabs.ai/platform.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tulip Labs">
+  <meta property="og:title" content="The platform — Tulip Labs">
+  <meta property="og:description" content="Tulip is the authorization control plane for agentic execution: define agents, policies, and connections once; execute anywhere. Verdicts cross the boundary — not your data.">
+  <meta property="og:url" content="https://tuliplabs.ai/platform.html">
+  <meta property="og:image" content="https://tuliplabs.ai/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tulip Labs — the control layer for AI agents that act.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://tuliplabs.ai/assets/og-card.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,400..560&family=Inter:wght@400;500;600;650&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tulip Labs home">
+      <img class="brand-mark" src="assets/tulip-mark-pink.png" width="38" height="38" alt="">
+      <span class="wordmark">Tulip <b>Labs</b></span>
+    </a>
+    <nav class="nav">
+      <a href="open-source.html">Runtime</a>
+      <a class="active" href="platform.html">Platform</a>
+      <a href="research.html">Research</a>
+      <a class="hide-sm" href="https://github.com/tuliplabs-ai">GitHub</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="col">
+        <p class="kicker">The platform · Tulip</p>
+        <h1>The authorization control plane for <span class="accent">agentic execution</span>.</h1>
+        <p class="lede">Define agents, policies, and connections once; execute anywhere. Every consequential action is weighed locally — in your environment — against centrally-authored policy before it runs, and what crosses back to the control plane is a verdict, not your data.</p>
+        <p class="muted" style="font-size:0.92rem;margin-top:1.2rem">This page describes the target architecture. Status labels mark what runs today in our dev cluster and what is in progress.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html">Early access <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="open-source.html">How the gate enforces it</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE TIERS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Three tiers, one decision</span><span class="line"></span></div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="label">01 · Library</span>
+          <h3>The gate, in-process</h3>
+          <p><code>tulip-agents</code> — a thin, Apache-2.0 library. The admission gate and the hash-chained record inside your own process, no infrastructure required.</p>
+          <p><span class="status ok">Shipped</span></p>
+        </div>
+        <div class="card">
+          <span class="label">02 · Runtime</span>
+          <h3>One installed process</h3>
+          <p>The policy engine, the secrets broker, and the sandboxes — one process running in your environment. It holds your credentials; the control plane never does.</p>
+          <p><span class="status wip">Running in dev</span></p>
+        </div>
+        <div class="card">
+          <span class="label">03 · Control plane</span>
+          <h3>Studio &amp; Registry</h3>
+          <p>Author policy, certify and publish agent versions, review holds, export audit. Installs nothing in your environment and executes nothing — designed so payloads never leave your plane.</p>
+          <p><span class="status wip">Hosted beta in progress</span> <span class="label" style="margin-left:0.5rem">Sep 30 target</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LIFECYCLE -->
+  <section>
+    <div class="wrap">
+      <div class="col">
+        <div class="eyebrow-row"><span class="label">The lifecycle</span><span class="line"></span></div>
+        <p class="lede" style="margin-bottom:1.7rem">Capability is the product; the control is what lets a company actually use it. The lifecycle makes both operational.</p>
+        <div class="principle">
+          <h3><span class="idx">01</span>Author</h3>
+          <p>Agents, playbooks, skills, and tools as governed, versioned definitions in the Registry — drafted by hand or in conversation, with the policy part of the definition from the first draft.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">02</span>Certify</h3>
+          <p>A draft earns authority by evidence: certification runs exercise it at escalating levels of trust, and the resulting evidence bundle is Ed25519-signed and digest-pinned to the exact artifact it describes. Running in our dev cluster today.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">03</span>Publish</h3>
+          <p>Certification produces an immutable version. An uncertified version cannot deploy — the gate sits at the deployment boundary, not in a review meeting.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">04</span>Run</h3>
+          <p>Execution happens in your data plane, next to your models, data, and secrets. The runtime pulls versions and policy down; it pushes traces and evidence up. Your credentials never reach Tulip.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">05</span>Approve</h3>
+          <p>Actions the policy holds wait for a named person — durable holds that survive restarts, with expiry, escalation, and mandatory justification recorded alongside the decision.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">06</span>Audit</h3>
+          <p>Every decision lands on a hash-chained, signed trail. Export re-verifies outside the registry, from the exported bytes and a public key alone — evidence, not a screenshot of a dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE ENFORCEMENT POINTS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Three enforcement points</span><span class="line"></span></div>
+      <p class="lede" style="margin-bottom:2rem">Control does not live in the prompt. It lives at three places in the runtime the model cannot reach.</p>
+      <div class="grid-3">
+        <div class="card">
+          <span class="label">The admission gate</span>
+          <h3>Before it runs</h3>
+          <p>Every consequential action is weighed by <code>admit()</code> — deterministic policy code — before it executes: allowed, held for a named person, or denied. Model-assisted admission is escalate-only: a Clusiana verdict can raise a decision toward caution, never lower it. <span class="status dev">Runtime combiner in development</span></p>
+        </div>
+        <div class="card">
+          <span class="label">The execution boundary</span>
+          <h3>Nothing worth stealing</h3>
+          <p>Model-directed work runs in sandbox sessions that hold no credentials, with tenant identity bound at spawn time and network reach declared per profile. Two of the four declared profiles — offline and allowlisted — are kernel-enforced today; the rest are in progress.</p>
+        </div>
+        <div class="card">
+          <span class="label">The record</span>
+          <h3>Fails verification if edited</h3>
+          <p>The open-source trail is a keyless SHA-256 chain — tamper-evident, not notarized. Certification evidence is Ed25519-signed. Either way, an edited record does not verify.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECEIPTS + STATUS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow-row"><span class="label">Receipts</span><span class="line"></span></div>
+      <div class="stats" style="margin-bottom:1rem">
+        <div class="stat"><div class="n">13/14</div><div class="k">launch claims conformance-closed</div></div>
+        <div class="stat"><div class="n">5</div><div class="k">certification trust levels</div></div>
+        <div class="stat"><div class="n">2 of 4</div><div class="k">network profiles kernel-enforced</div></div>
+      </div>
+      <p class="muted" style="font-size:0.92rem;margin-bottom:2.5rem">Each closed claim is asserted by a conformance test across a process boundary, not a unit test. The fourteenth is struck, not carried: a claim we cannot close comes off the list.</p>
+      <div class="programs">
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S1</span><h3>Certification pipeline</h3><span class="status ok">Live in dev</span></div>
+          <p class="prog__body">Deployment-boundary publish gate, Ed25519-signed evidence, certification runner, Studio review flow — queue, evidence, approve, reject, revoke.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S2</span><h3>Per-tenant sandbox pools</h3><span class="status ok">Live in dev</span></div>
+          <p class="prog__body">Spawn-time identity binding — a session's tenant is assigned by the runtime, never claimed by the workload.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S3</span><h3>Registry v2 · row-level security</h3><span class="status ok">Live in dev</span></div>
+          <p class="prog__body">Versioned definition kinds with pinned manifests, and tenant isolation enforced at the database — verified by a cross-process test, which is how the one decorative policy was caught and fixed.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S4</span><h3>Hosted Studio &amp; API</h3><span class="status wip">In progress</span></div>
+          <p class="prog__body">The hosted control plane at studio.tulipagents.ai — targeted for the Sep 30 beta.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S5</span><h3>Customer-account data plane</h3><span class="status dev">In development</span></div>
+          <p class="prog__body">The terraform-applied package that runs the data plane in your cloud account under the hosted control plane — with a zero-secret-egress proof as its exit criterion.</p>
+        </div>
+        <div class="prog">
+          <div class="prog__head"><span class="prog__id">S6</span><h3>SSO/SCIM · Bedrock · consumer CLI</h3><span class="status dev">In development</span></div>
+          <p class="prog__body">Enterprise sign-on, the Bedrock model adapter, and the local-first CLI round out the beta scope.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TULIP NEVER DOES -->
+  <section class="band">
+    <div class="wrap">
+      <div class="col">
+        <div class="eyebrow-row"><span class="label">What Tulip never does</span><span class="line"></span></div>
+        <div class="principle">
+          <h3><span class="idx">01</span>Never holds your secrets</h3>
+          <p>Model credentials, data, and business API keys live in your data plane. The runtime brokers them locally; the hosted control plane is designed never to receive them.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">02</span>Never makes model calls</h3>
+          <p>Models run in your environment, called by your runtime. The control plane authors policy and receives verdicts — it executes nothing.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">03</span>Never runs your agents</h3>
+          <p>The flagship shape is a customer-owned data plane: your cloud account, your models, your execution. Tulip hosts the definitions and the policy, not the work.</p>
+        </div>
+        <div class="principle">
+          <h3><span class="idx">04</span>Never watches words as a proxy for safety</h3>
+          <p>Gateways and guardrails inspect text going into and out of a model. Tulip governs the action itself — whether the refund issues, whether the host restarts — and records what happened.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="col">
+        <div class="eyebrow-row"><span class="label">Early access</span><span class="line"></span></div>
+        <p class="lede" style="margin-bottom:1.5rem">The hosted beta is in progress. If you want your agents governed before they ship — or you have a security review that keeps saying no — we'd like to hear about it.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html">Get in touch <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="wordmark">Tulip Labs</p>
+        <p class="muted" style="max-width:24rem;margin-top:0.6rem">The control layer for AI agents that act — the runtime, the platform, and the lab.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Areas</h4>
+        <a href="open-source.html">The runtime</a>
+        <a href="platform.html">The platform</a>
+        <a href="research.html">The lab</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <a href="https://github.com/tuliplabs-ai">GitHub</a>
+        <a href="https://tulipagents.ai/">Docs</a>
+        <a href="mailto:info@tuliplabs.ai">info@tuliplabs.ai</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 TulipLabs Inc.</span>
+      <span><a href="legal.html">Legal &amp; disclaimer</a></span>
+      <span>Built in the open.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
